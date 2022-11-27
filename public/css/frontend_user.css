@@ -12,4 +12,29 @@ nav.navbar#my-navbar ul.navbar-nav li.nav-item a.nav-link.login-btn {
 nav.navbar#my-navbar ul.navbar-nav li.nav-item a.nav-link.login-btn:hover {
   transform: translateY(-2px);
   background: rgb(35, 35, 35);
+}
+
+section.login#login {
+  padding-top: 5rem;
+  padding-top: 5rem;
+}
+section.login#login form h1.form-title {
+  font-weight: 900;
+}
+section.login#login form h1.form-title span {
+  display: block;
+  font-weight: 400;
+  font-size: 1.05rem;
+}
+section.login#login form input {
+  border: 1px solid rgb(214, 214, 214);
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+section.login#login form input:focus {
+  border: 1px solid rgb(175, 175, 175);
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
 }/*# sourceMappingURL=frontend_user.css.map */

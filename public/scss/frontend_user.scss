@@ -22,3 +22,34 @@ nav.navbar#my-navbar {
         }
     }
 }
+
+// === LOGIN ===
+section.login#login {
+    padding-top: 5rem;
+    padding-top: 5rem;
+
+    form {
+        h1.form-title {
+            font-weight: 900;
+            span {
+                display: block;
+                font-weight: 400;
+                font-size: 1.05rem;
+            }
+        }
+
+        input {
+            border: 1px solid rgb(214, 214, 214);
+            border-radius: 5px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            width: 100%;
+            transition: all 0.3s ease-in-out;
+
+            &:focus {
+                border: 1px solid rgb(175, 175, 175);
+                box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+            }
+        }
+    }
+}
