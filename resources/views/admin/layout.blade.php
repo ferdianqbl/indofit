@@ -44,7 +44,7 @@
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Dashboard</span>
+        <span class="dashboard">@yield('current-section')</span>
       </div>
       <div class="profile-details">
         <img src="{{ asset('admin_template/unknown.png') }}" alt="">
