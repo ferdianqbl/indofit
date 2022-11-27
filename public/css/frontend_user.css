@@ -16,7 +16,7 @@ nav.navbar#my-navbar ul.navbar-nav li.nav-item a.nav-link.login-btn:hover {
 
 section.login#login {
   padding-top: 5rem;
-  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 section.login#login form h1.form-title {
   font-weight: 900;

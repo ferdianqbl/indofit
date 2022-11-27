@@ -23,8 +23,11 @@
               <button type="submit" class="btn btn-dark px-4 py-2">Login</button>
             </div>
           </form>
+
+          <div class="mt-5 text-center">
+            <p>Don't have an account? <a href="/register" class="text-dark">Register</a></p>
+          </div>
         </div>
       </div>
-    </div>
   </section>
 @endsection

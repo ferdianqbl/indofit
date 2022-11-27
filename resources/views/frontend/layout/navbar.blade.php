@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-light" id="my-navbar">
+<nav class="navbar navbar-expand-lg bg-light fixed-top" id="my-navbar">
   <div class="container">
     <a class="navbar-brand" href="#">INDOFIT</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

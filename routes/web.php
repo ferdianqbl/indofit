@@ -22,6 +22,10 @@ Route::get('/login', function () {
     return view('frontend.login.login');
 });
 
+Route::get('/register', function () {
+    return view('frontend.login.register');
+});
+
 
 
 // TRAINER
