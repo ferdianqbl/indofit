@@ -1,1 +1,24 @@
 // === NAVBAR ===
+nav.navbar#my-navbar {
+    a.navbar-brand {
+        font-weight: 900;
+        font-size: 1.5rem;
+    }
+
+    ul.navbar-nav {
+        li.nav-item {
+            a.nav-link.login-btn {
+                color: #fff;
+                border-radius: 5px;
+                padding: 0.5rem 1.25rem;
+                transition: all 0.3s ease-in-out;
+                background: #000;
+
+                &:hover {
+                    transform: translateY(-2px);
+                    background: rgb(35, 35, 35);
+                }
+            }
+        }
+    }
+}
