@@ -16,7 +16,7 @@
   @include('frontend.layout.navbar')
   @yield('content')
   @include('frontend.layout.footer')
-  <script src="/js/boostrap.bundle.js"></script>
+  <script src="/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
