@@ -12,6 +12,38 @@
     }
 }
 
+.trainer-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    p.trainer-name {
+        font-weight: 500;
+        margin-bottom: 0;
+        margin-bottom: 0.5rem;
+    }
+
+    p.trainer-category {
+        color: #7f7f7f;
+    }
+
+    a.trainer-link {
+        color: rgba(235, 217, 107, 1);
+        transition: all 0.3s ease-in-out;
+        text-decoration: none;
+        &:hover {
+            color: rgba(222, 203, 79, 0.8);
+            text-decoration: underline;
+        }
+    }
+}
+
 h1.section-title {
     font-weight: 700;
     margin-bottom: 1.5rem;
@@ -212,40 +244,6 @@ footer {
         }
     }
 
-    section.trainer#trainer {
-        .trainer-card {
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            transition: all 0.3s ease-in-out;
-            &:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-            }
-
-            p.trainer-name {
-                font-weight: 500;
-                margin-bottom: 0;
-                margin-bottom: 0.5rem;
-            }
-
-            p.trainer-category {
-                color: #7f7f7f;
-            }
-
-            a.trainer-link {
-                color: rgba(235, 217, 107, 1);
-                transition: all 0.3s ease-in-out;
-                text-decoration: none;
-                &:hover {
-                    color: rgba(222, 203, 79, 0.8);
-                    text-decoration: underline;
-                }
-            }
-        }
-    }
-
     section.review#review {
         padding-top: 5rem;
         padding-bottom: 5rem;
@@ -274,6 +272,12 @@ footer {
             margin-bottom: 0;
         }
     }
+}
+
+// === TRAINER ===
+.trainerPage#trainerPage {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
 }
 
 // === ABOUT ===

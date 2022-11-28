@@ -1,21 +1,20 @@
 @extends('frontend.layout.main')
 
 @section('content')
-  <div class="trainer" id="trainer">
+  <div class="trainerPage" id="trainerPage">
     @isset($trainers)
-        @foreach($trainers as $trainer)
-            <p>{{ $trainer->coach->name }}</p>
-            <p>{{ $trainer->sport->name }}</p>
-            <a href={{ route('user.trainer.detail', $trainer->id) }}>More</a>
-        @endforeach
-
+      @foreach ($trainers as $trainer)
+        <p>{{ $trainer->coach->name }}</p>
+        <p>{{ $trainer->sport->name }}</p>
+        <a href={{ route('user.trainer.detail', $trainer->id) }}>More</a>
+      @endforeach
     @else
-        NO TRAINER
+      NO TRAINER
     @endisset
 
     <section class="trainer-list" id="trainer-list">
       <div class="container">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
           @for ($i = 0; $i < 3; $i++)
             <div class="col">
               <div class="card h-100 trainer-card">
