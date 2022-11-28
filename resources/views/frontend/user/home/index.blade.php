@@ -10,10 +10,10 @@
               HIRE<br>
               YOUR<br>
               TRAINER<br>
-              WITH US.
+              WITH US
             </h1>
             <p class="hero-text">
-              LEVEL UP YOUR SKILLS WITH US
+              LEVEL UP YOUR SKILLS WITH US.
             </p>
             <a href="#" class="btn my-btn-primary">EXPLORE NOW</a>
           </div>
