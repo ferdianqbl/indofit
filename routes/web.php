@@ -45,6 +45,8 @@ Route::prefix('user')
 // USER : PUBLIC ROUTES
 Route::prefix('user')->name('user.')->group(function () {
     Route::get('trainer', [TrainerController::class, 'index'])->name('trainer.view');
+    Route::get('trainer/{coach_domains}', [TrainerController::class, 'detail'])->name('trainer.detail');
+
     Route::get('review', [ReviewController::class, 'index'])->name('review.view');
 });
 

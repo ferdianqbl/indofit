@@ -2,6 +2,17 @@
 
 @section('content')
   <div class="trainer" id="trainer">
+    @isset($trainers)
+        @foreach($trainers as $trainer)
+            <p>{{ $trainer->coach->name }}</p>
+            <p>{{ $trainer->sport->name }}</p>
+            <a href={{ route('user.trainer.detail', $trainer->id) }}>More</a>
+        @endforeach
+
+    @else
+        NO TRAINER
+    @endisset
+
     <section class="trainer-list" id="trainer-list">
       <div class="container">
         <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -10,7 +21,7 @@
               <div class="card h-100 trainer-card">
                 <img src="/images/landingPage/home/Pelatih-1.png" alt="trainer-img" class="card-img-top img-trainer">
                 <div class="card-body">
-                  <p class="trainer-name">Lebron James</p>
+                  <p class="trainer-name"></p>
                   <p class="trainer-category">Soccer</p>
                   <a href="" class="trainer-link">More</a>
                 </div>
