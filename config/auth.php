@@ -45,6 +45,11 @@ return [
             'driver' => 'session',
             'provider' => 'coaches',
         ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -74,6 +79,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\Coach::class,
         ],
+
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => \App\Models\Admin::class,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',

@@ -5,11 +5,11 @@
     <div class="container">
       <div class="row justify-content-center align-items-center">
         <div class="col-lg-4 col-md-6 col-8">
-          <form method="POST" action={{ route('user.register.store') }}>
+          <form method="POST" action={{ route('coach.register.store') }}>
             @csrf
             <h1 class="form-title text-center mb-3">
               SIGN UP!
-              <span>Let's Signup.</span>
+              <span>Let's Signup, Coach!.</span>
             </h1>
             <div class="mb-3">
               <label for="name" class="form-label">Name</label>
@@ -58,7 +58,7 @@
           </form>
 
           <div class="mt-5 text-center">
-            <p>Don't have an account? <a href="{{ route('auth.login') }}" class="text-dark">Login</a></p>
+            <p>Already have an account? <a href="{{ route('coach.login.view') }}" class="text-dark">Login</a></p>
           </div>
         </div>
       </div>

@@ -13,17 +13,26 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('phone_number');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });
 
+
+        // Insert admin
+        DB::table('admins')->insert(
+            array(
+                'id' => (string)Str::uuid(),
+                'email' => 'admin@indofit.com',
+                'name' => 'Admin',
+                'password' => Hash::make('password'),
+            )
+        );
     }
 
     /**
@@ -33,6 +42,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('admins');
     }
 };

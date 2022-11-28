@@ -20,7 +20,7 @@
           <a class="nav-link{{ Request::is('about') ? ' active' : '' }}" href="/about">ABOUT</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link login-btn d-inline-block d-lg-block" href="/login">LOGIN</a>
+          <a class="nav-link login-btn d-inline-block d-lg-block" href={{ route('user.login.view') }}>LOGIN</a>
         </li>
       </ul>
     </div>

@@ -18,7 +18,7 @@
           About Us
         </p>
         <p class="footer-text">
-          Join us as Trainers
+            <a href="{{ route('coach.register.view') }}" class="text-white">Join Us As Trainers</a></p>
         </p>
       </div>
       <div class="col-md-4">

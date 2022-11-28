@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\LandingPage;
+use App\Http\Controllers\User\AuthController as UserAuthController;
+use App\Http\Controllers\Coach\AuthController as CoachAuthController;
+use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,28 +22,35 @@ Route::controller(LandingPage::class)->group(function () {
     Route::get('/about', 'about')->name('about');
 });
 
-//AUTH
-Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
-Route::post('/login', [LoginController::class, 'authenticate'])->name('auth.authenticate');
-
-Route::get('/register/user', [RegisterController::class, 'userIndex'])->name('user.register.index');
-Route::post('/register/user', [RegisterController::class, 'storeUser'])->name('user.register.store');
-
-Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout');
-
 // USER
+Route::prefix('user')->name('user.')->controller(UserAuthController::class)->group(function () {
+    Route::get('register', 'register')->name('register.view');
+    Route::post('register', 'store')->name('register.store');
 
+    Route::get('login', 'login')->name('login.view');
+    Route::post('login', 'authenticate')->name('login.authenticate');
 
-// TRAINER
+    Route::post('logout', 'logout')->name('logout');
+});
 
+// COACH
+Route::prefix('coach')->name('coach.')->controller(CoachAuthController::class)->group(function () {
+    Route::get('register', 'register')->name('register.view');
+    Route::post('register', 'store')->name('register.store');
+
+    Route::get('login', 'login')->name('login.view');
+    Route::post('login', 'authenticate')->name('login.authenticate');
+
+    Route::post('logout', 'logout')->name('logout');
+});
 
 // ADMIN
-Route::prefix('admin')
-    ->controller(AdminController::class)
-    ->name('admin.')
-    ->group(function () {
-        Route::get('overview', 'overview')->name('overview');
-        Route::get('orders', 'orders')->name('orders');
-        Route::get('coach', 'coach')->name('coach');
-        Route::get('coach_progress', 'coachProgress')->name('coach_progress');
-    });
+// Route::prefix('admin')
+//     ->controller(AdminController::class)
+//     ->name('admin.')
+//     ->group(function () {
+//         Route::get('overview', 'overview')->name('overview');
+//         Route::get('orders', 'orders')->name('orders');
+//         Route::get('coach', 'coach')->name('coach');
+//         Route::get('coach_progress', 'coachProgress')->name('coach_progress');
+//     });
