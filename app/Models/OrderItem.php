@@ -17,6 +17,7 @@ class OrderItem extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'train_date',
         'train_since',
         'train_until',
         'coach_domain_id',

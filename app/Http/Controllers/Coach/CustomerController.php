@@ -10,8 +10,8 @@ class CustomerController extends Controller
 {
     public function index(): View
     {
-        $order = OrderItem;
-        return view('frontend.coach.customer.index');
+        $items = OrderItem::with(['order', 'coach_domain'])->get();
+        return view('frontend.coach.customer.index', compact('items'));
     }
 
     public function detail(Order $order): View

@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('order_items', function (Blueprint $table) {
             $table->uuid('id')->primary();
 
+            $table->date('train_date');
+
             $table->time('train_since');
             $table->time('train_until');
 

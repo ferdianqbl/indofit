@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('price');
-            $table->dateTime('order_at')->useCurrent();
             $table->uuid('user_id')->index();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
