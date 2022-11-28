@@ -14,6 +14,11 @@ class AuthController extends Controller
 {
     public function register(): View
     {
+        if(Auth::guard('user')->check())
+        {
+            return view('frontend.welcome');
+        }
+
         return view('frontend.user.auth.register', ['title' => 'Register']);
     }
 
@@ -26,6 +31,11 @@ class AuthController extends Controller
 
     public function login()
     {
+        if(Auth::guard('user')->check())
+        {
+            return view('frontend.welcome');
+        }
+        
         return view('frontend.user.auth.login', ['title' => 'Login']);
     }
 

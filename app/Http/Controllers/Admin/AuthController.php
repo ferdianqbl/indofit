@@ -10,7 +10,11 @@ class AuthController extends Controller
 {
     public function login(): View
     {
-        session(['url.intended' => url()->previous()]);
+        if(Auth::guard('admin')->check())
+        {
+            return view('admin.overview');
+        }
+        
         return view('admin.login');
     }
 
@@ -18,19 +22,8 @@ class AuthController extends Controller
     {
         $credentials = $request->validated();
 
-        if (session()->has('url.intended'))
-        {
-            $redirectTo = session()->get('url.intended');
-            session()->forget('url.intended');
-        }
-
         if(Auth::guard('admin')->attempt($credentials, true))
         {
-            if($redirectTo)
-            {
-                return redirect($redirectTo);
-            }
-
             return redirect()->action([AdminController::class, 'overview']);
         }
 

@@ -14,6 +14,11 @@ class AuthController extends Controller
 {
     public function register(): View
     {
+        if(Auth::guard('coach')->check())
+        {
+            return view('frontend.coach.customer.index');
+        }
+
         return view('frontend.coach.auth.register', ['title' => 'Register']);
     }
 
@@ -26,6 +31,11 @@ class AuthController extends Controller
 
     public function login(): View
     {
+        if(Auth::guard('coach')->check())
+        {
+            return view('frontend.coach.customer.index');
+        }
+        
         return view('frontend.coach.auth.login', ['title' => 'Login']);
     }
 
