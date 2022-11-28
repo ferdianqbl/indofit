@@ -1,4 +1,4 @@
-@extends('frontend.layout.main')
+@extends('frontend.layout.main', ['title' => 'Not Found :('])
 
 @section('content')
   <div class="home" id="home">

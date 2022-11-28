@@ -23,7 +23,7 @@ class AdminController extends Controller
         return view('admin.coach');
     }
 
-    public function coachProgress()
+    public function coach_progress()
     {
         return view('admin.coach_progress');
     }
