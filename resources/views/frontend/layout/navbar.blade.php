@@ -6,7 +6,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mx-lg-0 ms-lg-auto ms-lg-0 mx-auto text-center mb-2 mb-lg-0">
+      <ul class="navbar-nav mx-lg-0 ms-lg-auto ms-lg-0 mx-auto text-center mb-2 mb-lg-0 align-items-center">
         <li class="nav-item">
           <a class="nav-link{{ Route::is('home') ? ' active' : '' }}" href={{ route('home') }}>HOME</a>
         </li>
@@ -26,23 +26,23 @@
             <a class="nav-link login-btn d-inline-block d-lg-block" href={{ route('user.login.view') }}>LOGIN</a>
           </li>
         @else
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
+          <li class="nav-item dropdown btn btn-dark">
+            <a class="nav-link dropdown-toggle text-white text-uppercase" href="#" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
               Hello, {{ Auth::guard('user')->user()->name }}
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">History</a></li>
-              <li><a class="dropdown-item" href="#">Cart</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Cart</a></li>
-              <li><a class="dropdown-item" href="#">
-                  {{-- Buat logout, pake form ini --}}
-                  <form action="{{ route('user.logout') }}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn btn-danger">Logout</button>
-                  </form>
-                </a></li>
+            <ul class="dropdown-menu bg-dark text-white">
+              <li><a class="btn btn-dark" href="#">History</a></li>
+              <li><a class="btn btn-dark" href="#">Cart</a></li>
+              <li><a class="btn btn-dark" href="#">Settings</a></li>
+              <li><a class="btn btn-dark" href="#">Cart</a></li>
+              <li>
+                {{-- Buat logout, pake form ini --}}
+                <form action="{{ route('user.logout') }}" method="POST" class="p-0 m-0">
+                  @csrf
+                  <button type="submit" class="btn btn-dark">Logout</button>
+                </form>
+              </li>
             </ul>
           </li>
         @endif
