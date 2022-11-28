@@ -19,9 +19,22 @@
         <li class="nav-item me-0 me-lg-3">
           <a class="nav-link{{ Request::is('about') ? ' active' : '' }}" href="/about">ABOUT</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link login-btn d-inline-block d-lg-block" href={{ route('user.login.view') }}>LOGIN</a>
-        </li>
+        @guest
+            <li class="nav-item">
+                <a class="nav-link login-btn d-inline-block d-lg-block" href={{ route('user.login.view') }}>LOGIN</a>
+            </li>
+        @else
+            <li class="nav-item">
+                <p class="d-inline-block d-lg-block">Hello, {{ Auth::user()->name }}</p>
+            </li>
+
+            {{-- Buat logout, pake form ini --}}
+            <form action="{{ route('user.logout') }}" method="POST">
+                @csrf
+            </form>
+
+        @endguest
+
       </ul>
     </div>
   </div>
