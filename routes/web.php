@@ -42,14 +42,19 @@ Route::prefix('user')
         Route::post('logout', 'logout')->name('logout');
     });
 
+// USER : PUBLIC ROUTES
+Route::prefix('user')->name('user.')->group(function () {
+    Route::get('trainer', [TrainerController::class, 'index'])->name('trainer.view');
+    Route::get('review', [ReviewController::class, 'index'])->name('review.view');
+});
+
 
 // USER: PROTECTED ROUTES
-Route::middleware('guest:user')
-    ->name('user.')
-    ->group(function () {
-        Route::get('trainer', [TrainerController::class, 'index'])->name('trainer.view');
-        Route::get('review', [ReviewController::class, 'index'])->name('review.view');
-    });
+// Route::middleware('guest:user')
+//     ->name('user.')
+//     ->group(function () {
+
+//     });
 
 // COACH
 Route::prefix('coach')
@@ -63,6 +68,8 @@ Route::prefix('coach')
         Route::post('login', 'authenticate')->name('login.authenticate');
 
         Route::post('logout', 'logout')->name('logout');
+
+
     });
 
 // COACH: PROTECTED ROUTES
