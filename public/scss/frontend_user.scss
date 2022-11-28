@@ -127,6 +127,38 @@ section.login#login {
 }
 
 // === FOOTER ===
+footer {
+    background: #000;
+    color: #fff;
+    padding: 5rem 0;
+
+    p.footer-title {
+        font-weight: 600;
+        text-align: center;
+    }
+
+    p.footer-text {
+        text-align: center;
+    }
+    ul.footer-nav {
+        padding: 0;
+        list-style: none;
+        li.footer-nav-item {
+            &:not(:last-child) {
+                margin-right: 1rem;
+            }
+            a.footer-text_link {
+                font-size: 1.5rem;
+                color: #fff;
+                transition: all 0.3s ease-in-out;
+                display: inline-block;
+                &:hover {
+                    color: rgb(151, 151, 151);
+                }
+            }
+        }
+    }
+}
 
 // === HOME ===
 #home.home {

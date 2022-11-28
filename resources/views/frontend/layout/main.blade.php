@@ -8,6 +8,7 @@
   <title>{{ $title }}</title>
   {{-- Bootstrap --}}
   <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
   {{-- Custom CSS --}}
   <link rel="stylesheet" href="/css/frontend_user.css">
 </head>
