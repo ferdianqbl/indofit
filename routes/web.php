@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,3 +34,12 @@ Route::get('/register', function () {
 
 
 // ADMIN
+Route::prefix('admin')
+->controller(AdminController::class)
+->name('admin.')
+->group(function() {
+    Route::get('overview', 'overview')->name('overview');
+    Route::get('orders', 'orders')->name('orders');
+    Route::get('coach', 'coach')->name('coach');
+    Route::get('coach_progress', 'coachProgress')->name('coach_progress');
+});

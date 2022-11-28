@@ -4,15 +4,23 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class Coach extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasUuids;
+
+    /**
+     * The attributes for authentication (config/auth.php).
+     *
+     * @var string
+     */
+    protected $guard = 'coach';
 
     /**
      * The attributes that are mass assignable.
@@ -22,8 +30,9 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'phone_number',
         'password',
+        'phone_number',
+        'description',
     ];
 
     /**
@@ -53,18 +62,18 @@ class User extends Authenticatable
         $this->attributes['password'] = Hash::make($value);
     }
 
-    public function reviews(): HasMany
+    public function coach_domains(): HasMany
     {
-        return $this->hasMany(Review::class);
+        return $this->hasMany(CoachDomain::class);
     }
 
-    public function orders(): HasMany
+    public function sports(): HasMany
     {
-        return $this->hasMany(Order::class);
+        return $this->hasMany(Sport::class);
     }
 
-    public function order_items(): HasMany
+    public function review(): BelongsTo
     {
-        return $this->hasMany(OrderItem::class);
+        return $this->belongsTo(Review::class);
     }
 }
