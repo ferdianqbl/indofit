@@ -14,7 +14,9 @@ class RegisterController extends Controller
 {
     public function userIndex(): View
     {
-        return view('');
+        return view('frontend.login.register', [
+            'title' => 'Register',
+        ]);
     }
 
     public function storeUser(UserSignUpRequest $request): RedirectResponse

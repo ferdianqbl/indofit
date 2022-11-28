@@ -12,23 +12,23 @@ class LoginController extends Controller
 {
     public function index(): View
     {
-        return view('frontend.login.login');
+        return view('frontend.login.login', [
+            'title' => 'Login',
+        ]);
     }
 
     public function authenticate(LoginRequest $request): RedirectResponse
     {
         $credentials = $request->validated();
 
-        if(Auth::guard('user')->attempt($credentials))
-        {
+        if (Auth::guard('user')->attempt($credentials)) {
             $details = Auth::guard('user')->user();
             $user = $details->first();
 
             return redirect()->route('');
         }
 
-        if(Auth::guard('coach')->attempt($credentials))
-        {
+        if (Auth::guard('coach')->attempt($credentials)) {
             $details = Auth::guard('coach')->user();
             $coach = $details->first();
 

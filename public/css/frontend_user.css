@@ -1,6 +1,28 @@
+.my-btn-primary {
+  color: #fff;
+  border-radius: 5px;
+  padding: 1rem 1.25rem;
+  transition: all 0.3s ease-in-out;
+  background: #000;
+}
+.my-btn-primary:hover {
+  transform: translateY(-2px);
+  background: rgb(35, 35, 35);
+  color: #fff;
+}
+
 nav.navbar#my-navbar a.navbar-brand {
   font-weight: 900;
   font-size: 1.5rem;
+}
+nav.navbar#my-navbar ul.navbar-nav li.nav-item a.nav-link {
+  transition: all 0.3s ease-in-out;
+}
+nav.navbar#my-navbar ul.navbar-nav li.nav-item a.nav-link:hover {
+  color: #000;
+}
+nav.navbar#my-navbar ul.navbar-nav li.nav-item a.nav-link.active {
+  font-weight: 600;
 }
 nav.navbar#my-navbar ul.navbar-nav li.nav-item a.nav-link.login-btn {
   color: #fff;
@@ -37,4 +59,18 @@ section.login#login form input {
 section.login#login form input:focus {
   border: 1px solid rgb(175, 175, 175);
   box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+#home.home {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+#home.home section.hero#hero .container {
+  background: #f4f6f5;
+  border-radius: 10px;
+  padding: 2.5rem;
+}
+#home.home section.hero#hero .container h1.hero-title {
+  font-size: 4rem;
+  font-weight: 900;
 }/*# sourceMappingURL=frontend_user.css.map */
