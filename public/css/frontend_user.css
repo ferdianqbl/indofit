@@ -142,6 +142,9 @@ footer ul.footer-nav li.footer-nav-item a.footer-text_link:hover {
   font-size: 3rem;
   font-weight: 900;
 }
+#home.home section.hero#hero .container img.img-hero {
+  border-radius: 5px;
+}
 #home.home section.category#category {
   margin-top: 5rem;
   margin-bottom: 5rem;
@@ -219,4 +222,14 @@ footer ul.footer-nav li.footer-nav-item a.footer-text_link:hover {
 #home.home section.review#review p.review-activity {
   color: #7f7f7f;
   margin-bottom: 0;
+}
+
+section.about#about {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+section.about#about .container {
+  background: #f4f6f5;
+  border-radius: 10px;
+  padding: 2.5rem;
 }/*# sourceMappingURL=frontend_user.css.map */

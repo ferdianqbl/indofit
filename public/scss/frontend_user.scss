@@ -175,6 +175,10 @@ footer {
                 font-size: 3rem;
                 font-weight: 900;
             }
+
+            img.img-hero {
+                border-radius: 5px;
+            }
         }
     }
 
@@ -267,5 +271,17 @@ footer {
             color: #7f7f7f;
             margin-bottom: 0;
         }
+    }
+}
+
+// === ABOUT ===
+section.about#about {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+
+    .container {
+        background: #f4f6f5;
+        border-radius: 10px;
+        padding: 2.5rem;
     }
 }

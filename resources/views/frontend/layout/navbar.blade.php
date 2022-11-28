@@ -11,13 +11,13 @@
           <a class="nav-link{{ Request::is('/') ? ' active' : '' }}" href="/">HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link{{ Request::is('/trainer') ? ' active' : '' }}" href="#">TRAINER</a>
+          <a class="nav-link{{ Request::is('trainer') ? ' active' : '' }}" href="#">TRAINER</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link{{ Request::is('/review') ? ' active' : '' }}" href="#">REVIEW</a>
+          <a class="nav-link{{ Request::is('review') ? ' active' : '' }}" href="#">REVIEW</a>
         </li>
         <li class="nav-item me-0 me-lg-3">
-          <a class="nav-link{{ Request::is('/about') ? ' active' : '' }}" href="#">ABOUT</a>
+          <a class="nav-link{{ Request::is('about') ? ' active' : '' }}" href="/about">ABOUT</a>
         </li>
         <li class="nav-item">
           <a class="nav-link login-btn d-inline-block d-lg-block" href="/login">LOGIN</a>

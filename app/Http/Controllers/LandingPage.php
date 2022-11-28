@@ -10,4 +10,11 @@ class LandingPage extends Controller
             'title' => 'Home',
         ]);
     }
+
+    public function about()
+    {
+        return view('frontend.user.about.index', [
+            'title' => 'About',
+        ]);
+    }
 }
