@@ -10,7 +10,16 @@ class LogoutController extends Controller
 {
     public function logout(): RedirectResponse
     {
-        Auth::logout();
-        return redirect()->view('frontend.login.login');
+        if(Auth::guard('web')->check())
+        {
+            Auth::guard('web')->logout();
+        }
+
+        else if(Auth::guard('coach')->check())
+        {
+            Auth::guard('coach')->logout();
+        }
+
+        return redirect()->route('home');
     }
 }

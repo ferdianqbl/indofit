@@ -17,19 +17,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(LandingPage::class)->group(function () {
-    Route::get('/', 'home');
-});
+Route::controller(LandingPage::class)->group(fn() => Route::get('/', 'home')->name('home'));
+
+//AUTH
+Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('auth.authenticate');
+
+Route::get('/register/user', [RegisterController::class, 'userIndex'])->name('user.register.index');
+Route::post('/register/user', [RegisterController::class, 'storeUser'])->name('user.register.store');
+
+Route::post('/logout', [LoginController::class, 'logout'])->name('auth.logout');
 
 // USER
-Route::get('/login', [LoginController::class, 'index']);
-
-Route::get('/register', [RegisterController::class, 'userIndex']);
-
 
 
 // TRAINER
-
 
 
 // ADMIN

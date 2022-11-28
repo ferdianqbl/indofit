@@ -23,7 +23,7 @@ class RegisterController extends Controller
     {
         User::create($request->validated());
 
-        return redirect()->route('welcome');
+        return redirect()->route('auth.login', ['title' => 'Login']);
     }
 
     public function coachIndex()

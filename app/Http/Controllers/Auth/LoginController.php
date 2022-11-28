@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Enums\Role;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Contracts\View\View;
@@ -21,9 +22,14 @@ class LoginController extends Controller
     {
         $credentials = $request->validated();
 
-        if (Auth::guard('user')->attempt($credentials)) {
-            $details = Auth::guard('user')->user();
+        if (Auth::guard('web')->attempt($credentials)) {
+            $details = Auth::guard('web')->user();
             $user = $details->first();
+
+            if($user->role == Role::Admin)
+            {
+                return redirect()->route('admin.overview');
+            }
 
             return redirect()->route('');
         }

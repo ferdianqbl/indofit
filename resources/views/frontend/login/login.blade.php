@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row justify-content-center align-items-center">
         <div class="col-lg-4 col-md-6 col-8">
-          <form method="PUT" action="">
+          <form method="POST" action="{{ route('auth.authenticate') }}">
             @csrf
             <h1 class="form-title text-center mb-3">
               WELCOME!
@@ -25,7 +25,7 @@
           </form>
 
           <div class="mt-5 text-center">
-            <p>Don't have an account? <a href="/register" class="text-dark">Register</a></p>
+            <p>Don't have an account? <a href="{{ route('user.register.index') }}" class="text-dark">Register</a></p>
           </div>
         </div>
       </div>
