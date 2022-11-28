@@ -4,6 +4,9 @@ use App\Http\Controllers\LandingPage;
 use App\Http\Controllers\User\AuthController as UserAuthController;
 use App\Http\Controllers\Coach\AuthController as CoachAuthController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
+use App\Http\Controllers\Coach\CustomerController;
+use App\Http\Controllers\Coach\HistoryController;
+use App\Http\Controllers\Coach\ProgressController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +45,14 @@ Route::prefix('coach')->name('coach.')->controller(CoachAuthController::class)->
     Route::post('login', 'authenticate')->name('login.authenticate');
 
     Route::post('logout', 'logout')->name('logout');
+});
+
+Route::prefix('coach')->name('coach.')->middleware('guest:coach')->group(function () {
+    Route::get('customer', [CustomerController::class, 'index'])->name('customer');
+    Route::get('customer/{order}', [CustomerController::class, 'detail'])->name('customer.detail');
+
+    Route::get('history', [HistoryController::class, 'index'])->name('history');
+    Route::get('progress', [ProgressController::class, 'index'])->name('progress');
 });
 
 // ADMIN

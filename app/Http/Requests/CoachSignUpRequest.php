@@ -26,7 +26,7 @@ class CoachSignUpRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'unique:coaches'],
-            'phone_number' => ['required', 'numeric', 'max:15'],
+            'phone_number' => ['required', 'numeric'],
             'description' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:8', 'max:50', 'confirmed'],
         ];

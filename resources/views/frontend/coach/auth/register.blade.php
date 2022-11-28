@@ -36,6 +36,14 @@
             @enderror
 
             <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <input type="textarea" class="form-control" id="description" name="description" placeholder="description" value={{ old('description') }}>
+              </div>
+            @error('description')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+
+            <div class="mb-3">
               <label for="password" class="form-label">Password</label>
               <input type="password" class="form-control" id="password" name="password" placeholder="password">
             </div>
