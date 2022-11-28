@@ -7,7 +7,7 @@
     <section class="trainer-list" id="trainer-list">
       <div class="container">
         <div class="row row-cols-1 row-cols-md-4 g-4">
-          @isset($trainers)
+          @if ($trainers->count() > 0)
             @foreach ($trainers as $trainer)
               <div class="col">
                 <div class="card h-100 trainer-card">
@@ -23,8 +23,8 @@
           @else
             NO TRAINER
           @endisset
-        </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+</div>
 @endsection
