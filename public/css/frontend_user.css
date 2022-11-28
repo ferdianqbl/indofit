@@ -11,6 +11,20 @@
   color: #fff;
 }
 
+.my-btn-secondary {
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  border: 1px solid #000;
+  padding: 1rem 1.25rem;
+  transition: all 0.3s ease-in-out;
+  background: rgb(255, 255, 255);
+}
+.my-btn-secondary:hover {
+  transform: translateY(-2px);
+  background: rgb(0, 0, 0);
+  color: #fff;
+}
+
 .trainer-card {
   border: none;
   border-radius: 10px;
@@ -231,6 +245,32 @@ footer ul.footer-nav li.footer-nav-item a.footer-text_link:hover {
 .trainerPage#trainerPage {
   padding-top: 8rem;
   padding-bottom: 5rem;
+}
+
+.detail-trainer#detail-trainer {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+.detail-trainer#detail-trainer section.trainer-profile#trainer-profile img.img-trainer {
+  max-height: 50%;
+  max-width: 50%;
+  border-radius: 5px;
+}
+.detail-trainer#detail-trainer section.trainer-profile#trainer-profile .trainer-profile-detail p.trainer-name {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.detail-trainer#detail-trainer section.trainer-profile#trainer-profile .trainer-profile-detail p.trainer-time,
+.detail-trainer#detail-trainer section.trainer-profile#trainer-profile .trainer-profile-detail p.trainer-price,
+.detail-trainer#detail-trainer section.trainer-profile#trainer-profile .trainer-profile-detail p.trainer-star {
+  color: #868686;
+}
+.detail-trainer#detail-trainer section.trainer-profile#trainer-profile .trainer-profile-detail p.trainer-category {
+  border-radius: 100px;
+  border: 1px solid rgb(60, 60, 67);
+  color: rgb(60, 60, 67);
+  padding: 0.25rem 0.5rem;
+  display: inline-block;
 }
 
 section.about#about {

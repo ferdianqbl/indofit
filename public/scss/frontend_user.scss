@@ -11,6 +11,20 @@
         color: #fff;
     }
 }
+.my-btn-secondary {
+    color: rgb(0, 0, 0);
+    border-radius: 5px;
+    border: 1px solid #000;
+    padding: 1rem 1.25rem;
+    transition: all 0.3s ease-in-out;
+    background: rgb(255, 255, 255);
+
+    &:hover {
+        transform: translateY(-2px);
+        background: rgb(0, 0, 0);
+        color: #fff;
+    }
+}
 
 .trainer-card {
     border: none;
@@ -278,6 +292,39 @@ footer {
 .trainerPage#trainerPage {
     padding-top: 8rem;
     padding-bottom: 5rem;
+}
+
+// === DETAIL ===
+.detail-trainer#detail-trainer {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+
+    section.trainer-profile#trainer-profile {
+        img.img-trainer {
+            max-height: 50%;
+            max-width: 50%;
+            border-radius: 5px;
+        }
+        .trainer-profile-detail {
+            p.trainer-name {
+                font-weight: 700;
+                font-size: 1.5rem;
+            }
+            p.trainer-time,
+            p.trainer-price,
+            p.trainer-star {
+                color: #868686;
+            }
+
+            p.trainer-category {
+                border-radius: 100px;
+                border: 1px solid rgba(60, 60, 67, 1);
+                color: rgba(60, 60, 67, 1);
+                padding: 0.25rem 0.5rem;
+                display: inline-block;
+            }
+        }
+    }
 }
 
 // === ABOUT ===
