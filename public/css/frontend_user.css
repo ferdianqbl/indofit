@@ -273,6 +273,31 @@ footer ul.footer-nav li.footer-nav-item a.footer-text_link:hover {
   display: inline-block;
 }
 
+section.reviewPage#reviewPage {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+section.reviewPage#reviewPage .review-card {
+  text-align: center;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+section.reviewPage#reviewPage .review-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+}
+section.reviewPage#reviewPage .review-card p.review-rating {
+  color: rgb(255, 200, 0);
+}
+section.reviewPage#reviewPage .review-card p.review-user {
+  color: #868686;
+}
+section.reviewPage#reviewPage .review-card p.review-coach {
+  color: #b5b5b5;
+}
+
 section.about#about {
   padding-top: 8rem;
   padding-bottom: 5rem;
