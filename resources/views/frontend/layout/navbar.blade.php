@@ -43,6 +43,8 @@
               <li><a class="btn btn-dark" href="#">History</a></li>
               <li><a class="btn btn-dark" href="#">Progress</a></li>
               <li><a class="btn btn-dark" href="#">Offers</a></li>
+              {{-- ========== --}}
+
               <li>
                 {{-- Buat logout, pake form ini --}}
                 <form action="{{ route('user.logout') }}" method="POST" class="p-0 m-0">
