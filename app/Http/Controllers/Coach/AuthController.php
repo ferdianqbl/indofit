@@ -26,7 +26,6 @@ class AuthController extends Controller
 
     public function login(): View
     {
-        session(['url.intended' => url()->previous()]);
         return view('frontend.coach.auth.login', ['title' => 'Login']);
     }
 
@@ -34,20 +33,9 @@ class AuthController extends Controller
     {
         $credentials = $request->validated();
 
-        if (session()->has('url.intended'))
-        {
-            $redirectTo = session()->get('url.intended');
-            session()->forget('url.intended');
-        }
-
         if(Auth::guard('coach')->attempt($credentials, true))
         {
-            if($redirectTo)
-            {
-                return redirect($redirectTo);
-            }
-
-            return redirect()->route('coach.customer');
+            return redirect()->intended(route('coach.customer'));
         }
 
         return back()->withErrors(['msg' => ['Invalid credentials']]);
