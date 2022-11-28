@@ -26,7 +26,6 @@ class AuthController extends Controller
 
     public function login()
     {
-        session(['url.intended' => url()->previous()]);
         return view('frontend.user.auth.login', ['title' => 'Login']);
     }
 
@@ -34,20 +33,9 @@ class AuthController extends Controller
     {
         $credentials = $request->validated();
 
-        if (session()->has('url.intended'))
-        {
-            $redirectTo = session()->get('url.intended');
-            session()->forget('url.intended');
-        }
-
         if(Auth::guard('user')->attempt($credentials, true))
         {
-            if($redirectTo)
-            {
-                return redirect($redirectTo);
-            }
-
-            return redirect()->intended();
+            return redirect()->intended(route('home'));
         }
 
         return back()->withErrors(['msg' => ['Invalid credentials']]);
