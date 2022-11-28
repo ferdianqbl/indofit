@@ -62,7 +62,7 @@ section.login#login form input:focus {
 }
 
 #home.home {
-  padding-top: 8rem;
+  padding-top: 6rem;
   padding-bottom: 5rem;
 }
 #home.home section.hero#hero .container {
@@ -71,6 +71,6 @@ section.login#login form input:focus {
   padding: 2.5rem;
 }
 #home.home section.hero#hero .container h1.hero-title {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 900;
 }/*# sourceMappingURL=frontend_user.css.map */
