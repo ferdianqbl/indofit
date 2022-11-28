@@ -21,13 +21,13 @@
         <li class="nav-item me-0 me-lg-3">
           <a class="nav-link{{ Route::is('about') ? ' active' : '' }}" href={{ route('about') }}>ABOUT</a>
         </li>
-        @guest
+        @if(!Auth::guard('user')->check())
           <li class="nav-item">
             <a class="nav-link login-btn d-inline-block d-lg-block" href={{ route('user.login.view') }}>LOGIN</a>
           </li>
         @else
           <li class="nav-item">
-            <p class="d-inline-block d-lg-block">Hello, {{ Auth::user()->name }}</p>
+            <p class="d-inline-block d-lg-block">Hello, {{ Auth::guard('user')->user()->name }}</p>
           </li>
 
           {{-- Buat logout, pake form ini --}}
@@ -35,7 +35,7 @@
             @csrf
           </form>
 
-        @endguest
+        @endif
 
       </ul>
     </div>
