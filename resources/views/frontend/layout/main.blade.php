@@ -17,6 +17,7 @@
   @yield('content')
   @include('frontend.layout.footer')
   <script src="/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/frontend_user.js"></script>
 </body>
 
 </html>

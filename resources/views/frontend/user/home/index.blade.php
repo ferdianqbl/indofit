@@ -23,5 +23,28 @@
         </div>
       </div>
     </section>
+
+    <section class="category" id="category">
+      <div class="container">
+        <h1 class="section-title">CATEGORIES</h1>
+        <ul class="nav-category d-flex flex-wrap justify-content-center align-items-center">
+          <li class="nav-category-item">
+            <a href="" class="nav-category-item_link">Soccer</a>
+          </li>
+          <li class="nav-category-item">
+            <a href="" class="nav-category-item_link">Basketball</a>
+          </li>
+          <li class="nav-category-item">
+            <a href="" class="nav-category-item_link">Tennis</a>
+          </li>
+          <li class="nav-category-item">
+            <a href="" class="nav-category-item_link">Badminton</a>
+          </li>
+          <li class="nav-category-item">
+            <a href="" class="nav-category-item_link">Yoga</a>
+          </li>
+        </ul>
+      </div>
+    </section>
   </div>
 @endsection

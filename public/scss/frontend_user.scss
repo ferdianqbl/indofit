@@ -12,8 +12,56 @@
     }
 }
 
+h1.section-title {
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
 // === NAVBAR ===
 nav.navbar#my-navbar {
+    &.my-navbar-scroll {
+        background: #000 !important;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        color: #fff;
+        transition: all 0.3s ease-in-out;
+
+        a.navbar-brand {
+            font-weight: 900;
+            font-size: 1.5rem;
+            color: #fff !important;
+        }
+
+        ul.navbar-nav {
+            li.nav-item {
+                a.nav-link {
+                    transition: all 0.3s ease-in-out;
+                    color: #fff;
+                    &:hover {
+                        color: rgb(255, 255, 255);
+                    }
+                }
+                a.nav-link.active {
+                    font-weight: 600;
+                    color: rgb(255, 255, 255);
+                }
+
+                a.nav-link.login-btn {
+                    color: rgb(0, 0, 0);
+                    border-radius: 5px;
+                    padding: 0.5rem 1.25rem;
+                    transition: all 0.3s ease-in-out;
+                    background: rgb(255, 255, 255);
+
+                    &:hover {
+                        transform: translateY(-2px);
+                        background: rgb(201, 201, 201);
+                    }
+                }
+            }
+        }
+    }
+
     a.navbar-brand {
         font-weight: 900;
         font-size: 1.5rem;
@@ -84,6 +132,7 @@ section.login#login {
 #home.home {
     padding-top: 6rem;
     padding-bottom: 5rem;
+
     section.hero#hero {
         .container {
             background: #f4f6f5;
@@ -93,6 +142,33 @@ section.login#login {
             h1.hero-title {
                 font-size: 3rem;
                 font-weight: 900;
+            }
+        }
+    }
+
+    section.category#category {
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        background: rgba(235, 217, 107, 1);
+
+        ul.nav-category {
+            list-style: none;
+            li.nav-category-item {
+                margin-bottom: 1rem;
+                a.nav-category-item_link {
+                    transition: all 0.3s ease-in-out;
+                    text-decoration: none;
+                    color: #000;
+                    &:hover {
+                        color: rgb(106, 106, 106);
+                    }
+                }
+
+                &:not(:last-child) {
+                    margin-right: 1rem;
+                }
             }
         }
     }

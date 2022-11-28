@@ -11,6 +11,45 @@
   color: #fff;
 }
 
+h1.section-title {
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+nav.navbar#my-navbar.my-navbar-scroll {
+  background: #000 !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+nav.navbar#my-navbar.my-navbar-scroll a.navbar-brand {
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: #fff !important;
+}
+nav.navbar#my-navbar.my-navbar-scroll ul.navbar-nav li.nav-item a.nav-link {
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+}
+nav.navbar#my-navbar.my-navbar-scroll ul.navbar-nav li.nav-item a.nav-link:hover {
+  color: rgb(255, 255, 255);
+}
+nav.navbar#my-navbar.my-navbar-scroll ul.navbar-nav li.nav-item a.nav-link.active {
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+}
+nav.navbar#my-navbar.my-navbar-scroll ul.navbar-nav li.nav-item a.nav-link.login-btn {
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+  padding: 0.5rem 1.25rem;
+  transition: all 0.3s ease-in-out;
+  background: rgb(255, 255, 255);
+}
+nav.navbar#my-navbar.my-navbar-scroll ul.navbar-nav li.nav-item a.nav-link.login-btn:hover {
+  transform: translateY(-2px);
+  background: rgb(201, 201, 201);
+}
 nav.navbar#my-navbar a.navbar-brand {
   font-weight: 900;
   font-size: 1.5rem;
@@ -73,4 +112,28 @@ section.login#login form input:focus {
 #home.home section.hero#hero .container h1.hero-title {
   font-size: 3rem;
   font-weight: 900;
+}
+#home.home section.category#category {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background: rgb(235, 217, 107);
+}
+#home.home section.category#category ul.nav-category {
+  list-style: none;
+}
+#home.home section.category#category ul.nav-category li.nav-category-item {
+  margin-bottom: 1rem;
+}
+#home.home section.category#category ul.nav-category li.nav-category-item a.nav-category-item_link {
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  color: #000;
+}
+#home.home section.category#category ul.nav-category li.nav-category-item a.nav-category-item_link:hover {
+  color: rgb(106, 106, 106);
+}
+#home.home section.category#category ul.nav-category li.nav-category-item:not(:last-child) {
+  margin-right: 1rem;
 }/*# sourceMappingURL=frontend_user.css.map */
