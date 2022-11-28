@@ -21,20 +21,30 @@
         <li class="nav-item me-0 me-lg-3">
           <a class="nav-link{{ Route::is('about') ? ' active' : '' }}" href={{ route('about') }}>ABOUT</a>
         </li>
-        @if(!Auth::guard('user')->check())
+        @if (!Auth::guard('user')->check())
           <li class="nav-item">
             <a class="nav-link login-btn d-inline-block d-lg-block" href={{ route('user.login.view') }}>LOGIN</a>
           </li>
         @else
-          <li class="nav-item">
-            <p class="d-inline-block d-lg-block">Hello, {{ Auth::guard('user')->user()->name }}</p>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Hello, {{ Auth::guard('user')->user()->name }}
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">History</a></li>
+              <li><a class="dropdown-item" href="#">Cart</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Cart</a></li>
+              <li><a class="dropdown-item" href="#">
+                  {{-- Buat logout, pake form ini --}}
+                  <form action="{{ route('user.logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                  </form>
+                </a></li>
+            </ul>
           </li>
-
-          {{-- Buat logout, pake form ini --}}
-          <form action="{{ route('user.logout') }}" method="POST">
-            @csrf
-          </form>
-
         @endif
 
       </ul>
