@@ -33,7 +33,7 @@
     overflow: hidden;
     transition: all 0.3s ease-in-out;
     &:hover {
-        transform: translateY(-2px);
+        transform: translateY(-2px) scale(1.01);
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     }
 
@@ -323,6 +323,36 @@ footer {
                 padding: 0.25rem 0.5rem;
                 display: inline-block;
             }
+        }
+    }
+}
+
+// === REVIEWS ===
+section.reviewPage#reviewPage {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+
+    .review-card {
+        text-align: center;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
+        }
+
+        p.review-rating {
+            color: rgb(255, 200, 0);
+        }
+
+        p.review-user {
+            color: #868686;
+        }
+
+        p.review-coach {
+            color: #b5b5b5;
         }
     }
 }
