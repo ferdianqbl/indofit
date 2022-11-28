@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Coach\CustomerController;
 use App\Http\Controllers\Coach\HistoryController;
 use App\Http\Controllers\Coach\ProgressController;
+use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\User\TrainerController;
 use Illuminate\Support\Facades\Route;
@@ -52,11 +53,14 @@ Route::prefix('user')->name('user.')->group(function () {
 
 
 // USER: PROTECTED ROUTES
-// Route::middleware('guest:user')
-//     ->name('user.')
-//     ->group(function () {
-
-//     });
+Route::middleware('guest:user')
+    ->name('user.')
+    ->group(function () {
+        Route::get('cart', [CartController::class, 'index'])->name('cart.view');
+        Route::post('cart', [CartController::class, 'store'])->name('cart.store');
+        Route::delete('cart/{rowId}/delete', [CartController::class, 'remove'])->name('cart.remove');
+        Route::delete('cart/destroy', [CartController::class, 'destroy'])->name('cart.destroy');
+    });
 
 // COACH
 Route::prefix('coach')

@@ -13,14 +13,50 @@
               <p class="trainer-name">{{ $trainer->coach->name }}</p>
               <p class="trainer-time">Working time : {{ $trainer->working_time_start }} - {{ $trainer->working_time_end }}
               </p>
-              <p class="trainer-price">Price : Rp. {{ $trainer->price }}</p>
+              <p class="trainer-price">Price : Rp. {{ $trainer->price }} / hour</p>
               <p class="trainer-star">Star average : {{ number_format($avg_star, 2) }}</p>
               @foreach ($specialities as $s)
                 <p class="trainer-category">{{ $s->sport->name }}</p>
               @endforeach
 
               <div class="trainer-profile-detail-btn mt-3">
-                <a href="" class="btn my-btn-primary">Add to Cart</a>
+                <form action="{{ route('user.cart.store') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="coach_domain_id" value={{ $trainer->id }}>
+                    @error('coach_domain_id')
+                        <span class="text-danger">{{ $message }}</span>
+                    @enderror
+
+                    <div>
+                        <p>Date Booking</p>
+                        <input type="date" name="train_date" value={{ old('train_date') }}>
+                        @error('train_date')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <br>
+                    <div>
+                        <p>Train Since</p>
+                        <input type="time" name="train_since" value={{ old('train_since') }}>
+                        @error('train_since')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <br>
+                    <div>
+                        <p>Train Until</p>
+                        <input type="time" name="train_until" value={{ old('train_until') }}>
+                        @error('train_until')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <br>
+                    <div>
+                        <p>Book as fast as possible. When someone books this trainer in some day, other user can't order that trainer in the same day (Susah anjir kalo jam nya harus diperiksa juga. Mending kalo di hari itu dah ada yg booking, tu coach baru bisa dipesen lagi besoknya (●'◡'●))</p>
+                    </div>
+
+                    <button class="btn my-btn-primary">Add to cart</button>
+                </form>
                 <a href="" class="btn my-btn-secondary">Contact</a>
               </div>
             </div>
@@ -31,14 +67,7 @@
     <section class="trainer-description" id="trainer-description">
       <div class="container">
         <h1 class="section-title mt-5 pt-5 text-start">DESCRIPTION</h1>
-        <p class="trainer-description-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deserunt unde, rerum
-          dolores odit fugiat asperiores quam qui veniam esse repudiandae adipisci nihil perferendis sequi distinctio,
-          maxime quos eligendi? Reprehenderit quo totam ab voluptates hic consequuntur fugit omnis accusamus numquam, ad
-          adipisci sed veritatis architecto nesciunt quis non dolorem voluptatem porro doloribus nobis nisi rem possimus
-          aut odio! Dolorem debitis magnam repudiandae earum, numquam voluptatem autem quaerat, amet aliquam error totam
-          rem deleniti suscipit fugit hic et sunt quidem ipsum quisquam libero. Totam rerum cumque sapiente maiores
-          aspernatur ipsa. Perferendis quam aliquam illo inventore expedita doloribus, voluptatem aliquid modi minima
-          delectus.</p>
+        <p class="trainer-description-text">{{ $trainer->coach->description }}</p>
       </div>
     </section>
   </div>

@@ -3,6 +3,9 @@
 @section('content')
   <div class="trainerPage" id="trainerPage">
 
+    @if(session('message'))
+        <p class="text-info">{{ session('message') }}</p>
+    @endif
 
     <section class="trainer-list" id="trainer-list">
       <div class="container">

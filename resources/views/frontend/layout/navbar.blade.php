@@ -84,7 +84,7 @@
 
                 {{-- USER --}}
                 <li><a class="btn btn-dark" href="#">History</a></li>
-                  <li><a class="btn btn-dark" href="#">Cart</a></li>
+                  <li><a class="btn btn-dark" href="{{ route('user.cart.view') }}">Cart</a></li>
                   <li><a class="btn btn-dark" href="#">Settings</a></li>
                   <form action="{{ route('user.logout') }}" method="POST" class="p-0 m-0">
                       @csrf
