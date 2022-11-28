@@ -40,7 +40,7 @@ class AuthController extends Controller
             session()->forget('url.intended');
         }
 
-        if(Auth::attempt($credentials, true))
+        if(Auth::guard('user')->attempt($credentials, true))
         {
             if($redirectTo)
             {
@@ -55,7 +55,7 @@ class AuthController extends Controller
 
     public function logout(): RedirectResponse
     {
-        Auth::logout();
+        Auth::guard('user')->logout();
 
         return redirect()->route('user.login.view');
     }

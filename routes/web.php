@@ -1,13 +1,14 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\LandingPage;
 use App\Http\Controllers\User\AuthController as UserAuthController;
 use App\Http\Controllers\Coach\AuthController as CoachAuthController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Coach\CustomerController;
 use App\Http\Controllers\Coach\HistoryController;
 use App\Http\Controllers\Coach\ProgressController;
+use App\Http\Controllers\User\ReviewController;
+use App\Http\Controllers\User\TrainerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,9 +22,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(LandingPage::class)->group(function () {
-    Route::get('/', 'home')->name('home');
-    Route::get('/about', 'about')->name('about');
+// NAVBAR ROUTES
+Route::group([], function () {
+    Route::view('/', 'frontend.welcome', ['title' => 'Home'])->name('home');
+    Route::view('/about', 'frontend.user.about.index', ['title' => 'About'])->name('about');
 });
 
 // USER
@@ -39,6 +41,15 @@ Route::prefix('user')
 
         Route::post('logout', 'logout')->name('logout');
 });
+
+
+// USER: PROTECTED ROUTES
+Route::middleware('guest:user')
+    ->name('user.')
+    ->group(function () {
+        Route::get('trainer', [TrainerController::class, 'index'])->name('trainer.view');
+        Route::get('review', [ReviewController::class, 'index'])->name('review.view');
+    });
 
 // COACH
 Route::prefix('coach')
