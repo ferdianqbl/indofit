@@ -16,7 +16,7 @@
               <input type="text" class="form-control" id="name" name="name" placeholder="name" value={{ old('name') }}>
             </div>
             @error('name')
-                <span>{{ $message }}</span>
+                <span class="text-danger">{{ $message }}</span>
             @enderror
 
             <div class="mb-3">
@@ -24,7 +24,7 @@
               <input type="email" class="form-control" id="email" name="email" placeholder="email" value={{ old('email') }}>
             </div>
             @error('email')
-                <span>{{ $message }}</span>
+                <span class="text-danger">{{ $message }}</span>
             @enderror
 
             <div class="mb-3">
@@ -32,7 +32,7 @@
               <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="phone" value={{ old('phone_number') }}>
             </div>
             @error('phone_number')
-                <span>{{ $message }}</span>
+                <span class="text-danger">{{ $message }}</span>
             @enderror
 
             <div class="mb-3">
@@ -40,7 +40,7 @@
               <input type="password" class="form-control" id="password" name="password" placeholder="password">
             </div>
             @error('password')
-                <span>{{ $message }}</span>
+                <span class="text-danger">{{ $message }}</span>
             @enderror
 
             <div class="mb-3">
@@ -49,7 +49,7 @@
                 placeholder="Re-type Password">
             </div>
             @error('password_confirmation')
-                <span>{{ $message }}</span>
+                <span class="text-danger">{{ $message }}</span>
             @enderror
 
             <div class="mt-5 text-center">
