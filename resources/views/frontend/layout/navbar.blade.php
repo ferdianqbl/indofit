@@ -11,7 +11,7 @@
           <a class="nav-link{{ Route::is('home') ? ' active' : '' }}" href={{ route('home') }}>HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link{{ Route::is('user.trainer.view') ? ' active' : '' }}"
+          <a class="nav-link{{ Route::is('user.trainer.view') || Route::is('user.trainer.detail') ? ' active' : '' }}"
             href={{ route('user.trainer.view') }}>TRAINER</a>
         </li>
         <li class="nav-item">
