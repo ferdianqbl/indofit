@@ -40,7 +40,7 @@ Route::prefix('user')
         Route::post('login', 'authenticate')->name('login.authenticate');
 
         Route::post('logout', 'logout')->name('logout');
-});
+    });
 
 
 // USER: PROTECTED ROUTES
@@ -63,7 +63,7 @@ Route::prefix('coach')
         Route::post('login', 'authenticate')->name('login.authenticate');
 
         Route::post('logout', 'logout')->name('logout');
-});
+    });
 
 // COACH: PROTECTED ROUTES
 Route::prefix('coach')
@@ -75,7 +75,7 @@ Route::prefix('coach')
 
         Route::get('history', [HistoryController::class, 'index'])->name('history');
         Route::get('progress', [ProgressController::class, 'index'])->name('progress');
-});
+    });
 
 // ADMIN
 Route::prefix('admin')

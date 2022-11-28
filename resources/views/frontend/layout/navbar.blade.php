@@ -11,27 +11,29 @@
           <a class="nav-link{{ Route::is('home') ? ' active' : '' }}" href={{ route('home') }}>HOME</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link{{ Route::is('user.trainer.view') ? ' active' : '' }}" href={{ route('user.trainer.view') }}>TRAINER</a>
+          <a class="nav-link{{ Route::is('user.trainer.view') ? ' active' : '' }}"
+            href={{ route('user.trainer.view') }}>TRAINER</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link{{ Route::is('user.review.view') ? ' active' : '' }}" href={{ route('user.review.view') }}>REVIEW</a>
+          <a class="nav-link{{ Route::is('user.review.view') ? ' active' : '' }}"
+            href={{ route('user.review.view') }}>REVIEW</a>
         </li>
         <li class="nav-item me-0 me-lg-3">
           <a class="nav-link{{ Route::is('about') ? ' active' : '' }}" href={{ route('about') }}>ABOUT</a>
         </li>
         @guest
-            <li class="nav-item">
-                <a class="nav-link login-btn d-inline-block d-lg-block" href={{ route('user.login.view') }}>LOGIN</a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link login-btn d-inline-block d-lg-block" href={{ route('user.login.view') }}>LOGIN</a>
+          </li>
         @else
-            <li class="nav-item">
-                <p class="d-inline-block d-lg-block">Hello, {{ Auth::user()->name }}</p>
-            </li>
+          <li class="nav-item">
+            <p class="d-inline-block d-lg-block">Hello, {{ Auth::user()->name }}</p>
+          </li>
 
-            {{-- Buat logout, pake form ini --}}
-            <form action="{{ route('user.logout') }}" method="POST">
-                @csrf
-            </form>
+          {{-- Buat logout, pake form ini --}}
+          <form action="{{ route('user.logout') }}" method="POST">
+            @csrf
+          </form>
 
         @endguest
 
