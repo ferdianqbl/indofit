@@ -239,4 +239,33 @@ footer {
             }
         }
     }
+
+    section.review#review {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        img.review-img {
+            border-radius: 5px;
+        }
+        p.review-text {
+            font-weight: 500;
+            margin-bottom: 0;
+            margin-bottom: 1rem;
+        }
+
+        p.review-date {
+            color: #b5b5b5;
+            margin-bottom: 0;
+            margin-bottom: 1rem;
+        }
+
+        p.review-name {
+            margin-bottom: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        p.review-activity {
+            color: #7f7f7f;
+            margin-bottom: 0;
+        }
+    }
 }

@@ -194,4 +194,29 @@ footer ul.footer-nav li.footer-nav-item a.footer-text_link:hover {
 #home.home section.trainer#trainer .trainer-card a.trainer-link:hover {
   color: rgba(222, 203, 79, 0.8);
   text-decoration: underline;
+}
+#home.home section.review#review {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+#home.home section.review#review img.review-img {
+  border-radius: 5px;
+}
+#home.home section.review#review p.review-text {
+  font-weight: 500;
+  margin-bottom: 0;
+  margin-bottom: 1rem;
+}
+#home.home section.review#review p.review-date {
+  color: #b5b5b5;
+  margin-bottom: 0;
+  margin-bottom: 1rem;
+}
+#home.home section.review#review p.review-name {
+  margin-bottom: 0;
+  margin-bottom: 0.5rem;
+}
+#home.home section.review#review p.review-activity {
+  color: #7f7f7f;
+  margin-bottom: 0;
 }/*# sourceMappingURL=frontend_user.css.map */
