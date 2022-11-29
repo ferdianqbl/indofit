@@ -31,9 +31,10 @@ $isCoach = $urlChecker->coach($currentURL);
           <ul class="dropdown-menu bg-dark text-white">
 
             {{-- COACH --}}
+            <li><a class="btn btn-dark d-block text-start" href="{{ route('coach.customer') }}">Customer</a></li>
             <li><a class="btn btn-dark d-block text-start" href="{{ route('coach.history') }}">History</a></li>
             <li><a class="btn btn-dark d-block text-start" href="{{ route('coach.sports.index') }}">Sports</a></li>
-            <li><a class="btn btn-dark d-block text-start" href="#">Settings</a></li>
+            <li><a class="btn btn-dark d-block text-start" href="{{ route('coach.settings.index') }}">Settings</a></li>
             <form action="{{ route('coach.logout') }}" method="POST" class="p-0 m-0 row">
               @csrf
               <button type="submit" class="btn btn-dark text-start col-12">Logout</button>

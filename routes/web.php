@@ -106,6 +106,9 @@ Route::prefix('coach')
         Route::get('progress', [ProgressController::class, 'index'])->name('progress');
 
         Route::resource('sports', DomainController::class)->except('show');
+
+        Route::get('edit', [CoachAuthController::class, 'edit'])->name('settings.index');;
+        Route::patch('update', [CoachAuthController::class, 'update'])->name('settings.update');;
     });
 
 // ADMIN
