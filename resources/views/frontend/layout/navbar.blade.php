@@ -1,6 +1,8 @@
 @php
 $urlChecker = new \App\Constants\ListURL();
-$currentURL = explode(".", \Request::route()->getName());
+
+$url = \Request::route() !== null ? \Request::route()->getName() : '123.123';
+$currentURL = explode(".", $url);
 $currentURL = array_shift($currentURL);
 $isUser = $urlChecker->user($currentURL);
 $isCoach = $urlChecker->coach($currentURL);
@@ -29,9 +31,9 @@ $isCoach = $urlChecker->coach($currentURL);
           <ul class="dropdown-menu bg-dark text-white">
 
             {{-- COACH --}}
-            <li><a class="btn btn-dark d-block text-start" href="#">History</a></li>
-            <li><a class="btn btn-dark d-block text-start" href="#">Progress</a></li>
-            <li><a class="btn btn-dark d-block text-start" href="#">Offers</a></li>
+            <li><a class="btn btn-dark d-block text-start" href="{{ route('coach.history') }}">History</a></li>
+            <li><a class="btn btn-dark d-block text-start" href="{{ route('coach.sports.index') }}">Sports</a></li>
+            <li><a class="btn btn-dark d-block text-start" href="#">Settings</a></li>
             <form action="{{ route('coach.logout') }}" method="POST" class="p-0 m-0 row">
               @csrf
               <button type="submit" class="btn btn-dark text-start col-12">Logout</button>

@@ -5,6 +5,7 @@ use App\Http\Controllers\User\AuthController as UserAuthController;
 use App\Http\Controllers\Coach\AuthController as CoachAuthController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Coach\CustomerController;
+use App\Http\Controllers\Coach\DomainController;
 use App\Http\Controllers\Coach\HistoryController as CoachHistoryController;
 use App\Http\Controllers\Coach\ProgressController;
 use App\Http\Controllers\User\CartController;
@@ -101,8 +102,10 @@ Route::prefix('coach')
         Route::get('customer', [CustomerController::class, 'index'])->name('customer');
         Route::get('customer/{order}', [CustomerController::class, 'detail'])->name('customer.detail');
 
-        Route::get('history', [HistoryController::class, 'index'])->name('history');
+        Route::get('history', [CoachHistoryController::class, 'index'])->name('history');
         Route::get('progress', [ProgressController::class, 'index'])->name('progress');
+
+        Route::resource('sports', DomainController::class)->except('show');
     });
 
 // ADMIN

@@ -12,11 +12,11 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function register(): View
+    public function register(): View | RedirectResponse
     {
         if(Auth::guard('coach')->check())
         {
-            return view('frontend.coach.customer.index');
+            return redirect()->action([CustomerController::class, 'index']);
         }
 
         return view('frontend.coach.auth.register', ['title' => 'Register']);
@@ -29,13 +29,13 @@ class AuthController extends Controller
         return redirect()->route('coach.login.view');
     }
 
-    public function login(): View
+    public function login(): View | RedirectResponse
     {
         if(Auth::guard('coach')->check())
         {
-            return view('frontend.coach.customer.index');
+            return redirect()->action([CustomerController::class, 'index']);
         }
-        
+
         return view('frontend.coach.auth.login', ['title' => 'Login']);
     }
 

@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Http\Controllers\Controller;
-use App\Models\Order;
-use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Support\Facades\Auth;
-use App\Models\Invoice;
-use App\Models\OrderItem;
-use App\Constants\Status;
 use Carbon\Carbon;
+use App\Models\Order;
+use App\Models\Invoice;
+use App\Constants\Status;
+use App\Models\OrderItem;
+use App\Models\OrderItemStatus;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use App\Http\Controllers\User\InvoiceController;
+use App\Http\Controllers\User\PaymentController;
 
 class InvoiceController extends Controller
 {
@@ -35,7 +38,8 @@ class InvoiceController extends Controller
         }
 
         foreach ($orderList as $key => $value) {
-            OrderItem::create($value);
+            $orderItem = OrderItem::create($value);
+            OrderItemStatus::Create(['order_item_id' => $orderItem->id, 'status' => 0]);
         }
 
         $invoice = Invoice::create([
