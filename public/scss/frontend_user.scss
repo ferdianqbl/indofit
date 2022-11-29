@@ -64,6 +64,10 @@ h1.section-title {
     text-align: center;
 }
 
+p.section-text {
+    color: #868686;
+}
+
 // === NAVBAR ===
 nav.navbar#my-navbar {
     &.my-navbar-scroll {
@@ -425,6 +429,25 @@ section.about#about {
 
         p.payment-detail-text {
             color: #868686;
+        }
+    }
+}
+
+// ===================== COACH =====================
+// === CUSTOMER ORDER ===
+section.customerTrainerPage#customerTrainerPage {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+
+    .customer-order-card {
+        border: none;
+        display: flex;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+            transform: translateY(-2px) scale(1.01);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
         }
     }
 }

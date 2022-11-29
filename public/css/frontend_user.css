@@ -60,6 +60,10 @@ h1.section-title {
   text-align: center;
 }
 
+p.section-text {
+  color: #868686;
+}
+
 nav.navbar#my-navbar.my-navbar-scroll {
   background: #000 !important;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
@@ -348,4 +352,20 @@ section.about#about .container {
 }
 .paymentPage#paymentPage .payment-detail p.payment-detail-text {
   color: #868686;
+}
+
+section.customerTrainerPage#customerTrainerPage {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+section.customerTrainerPage#customerTrainerPage .customer-order-card {
+  border: none;
+  display: flex;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+section.customerTrainerPage#customerTrainerPage .customer-order-card:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
 }/*# sourceMappingURL=frontend_user.css.map */
