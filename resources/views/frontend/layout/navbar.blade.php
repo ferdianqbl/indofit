@@ -85,7 +85,7 @@ $isCoach = $urlChecker->coach($currentURL);
             {{-- USER --}}
             <li><a class="btn btn-dark d-block text-start" href="{{ route('user.history.view') }}">History</a></li>
             <li><a class="btn btn-dark d-block text-start" href="{{ route('user.cart.view') }}">Cart</a></li>
-            <li><a class="btn btn-dark d-block text-start" href="#">Settings</a></li>
+            <li><a class="btn btn-dark d-block text-start" href="{{ route('user.settings.edit') }}">Settings</a></li>
             <li>
               <form action="{{ route('user.logout') }}" method="POST" class="p-0 m-0 row">
                 @csrf

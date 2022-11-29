@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UserSignUpRequest;
+use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -35,7 +36,7 @@ class AuthController extends Controller
         {
             return view('frontend.welcome');
         }
-        
+
         return view('frontend.user.auth.login', ['title' => 'Login']);
     }
 
@@ -56,5 +57,26 @@ class AuthController extends Controller
         Auth::guard('user')->logout();
 
         return redirect()->route('user.login.view');
+    }
+
+    public function edit()
+    {
+        $title = 'Edit Your Data';
+        $user = Auth::guard('user')->user();
+        return view('frontend.user.settings.index', compact('title', 'user'));
+    }
+
+    public function update(UserUpdateRequest $request)
+    {
+        $credentials = $request->validated();
+
+        $user = User::findOrFail(Auth::guard('user')->id());
+
+        $user->name = $credentials['name'];
+        $user->phone_number = $credentials['phone_number'];
+
+        $user->save();
+
+        return redirect()->route('user.settings.edit');
     }
 }

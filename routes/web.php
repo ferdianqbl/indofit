@@ -72,6 +72,9 @@ Route::middleware('guest:user')
         Route::post('invoice/{invoice}/paid', [InvoiceController::class, 'setPaid'])->name('invoice.paid');
 
         Route::get('history', [UserHistoryController::class, 'index'])->name('history.view');
+
+        Route::get('edit', [UserAuthController::class, 'edit'])->name('settings.edit');
+        Route::patch('update', [UserAuthController::class, 'update'])->name('settings.update');
     });
 
 // COACH
