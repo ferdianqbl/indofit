@@ -11,7 +11,6 @@ use App\Models\OrderItemStatus;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use App\Http\Controllers\User\InvoiceController;
 use App\Http\Controllers\User\PaymentController;
 
 class InvoiceController extends Controller
