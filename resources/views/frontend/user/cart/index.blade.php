@@ -2,6 +2,7 @@
 
 @php
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Akaunting\Money\Money;
 @endphp
 
 @section('content')
@@ -23,7 +24,6 @@ use Gloudemans\Shoppingcart\Facades\Cart;
       </form>
 
       @foreach ($cart as $c)
-      {{-- <p>{{ $c->id }}</p> --}}
       <div class="cart-item-card row justify-content-between align-items-center mb-5">
         <div class="cart-item-body col-8 row">
           <div class="col-3">
@@ -31,9 +31,8 @@ use Gloudemans\Shoppingcart\Facades\Cart;
           </div>
           <div class="cart-item-body-detail col-9">
             <p class="cart-item-text_name">{{ $c->name }}</p>
-            <p class="cart-item-text">Price : Rp {{ number_format($c->price, 2) }}</p>
-            <p class="cart-item-text">Quantity : {{ $c->qty }}</p>
-            <p class="cart-item-text_subtotal">Subtotal : Rp {{ number_format($c->total, 2) }}</p>
+            <p class="cart-item-text">Price : {{ Money::IDR($c->price, true) }}</p>
+            <p class="cart-item-text">Duration : {{ $c->qty }} {{ $c->qty > 1 ? "hours" : "hour" }}</p>
           </div>
         </div>
         <div class="col-4 text-end">
@@ -47,8 +46,8 @@ use Gloudemans\Shoppingcart\Facades\Cart;
       @endforeach
       <div class="cart-total-group">
         <p class="cart-total-text text-end">
-          Total Price: Rp {{ Cart::priceTotal() }}
-          <span><a href="" class="ms-3 btn btn-success">Order</a></span>
+          Total Price: {{ Money::IDR(Cart::priceTotal(), true) }}
+          <span><a href={{ route('user.payment.view') }} class="ms-3 btn btn-success">Go to Checkout</a></span>
         </p>
       </div>
       @endif

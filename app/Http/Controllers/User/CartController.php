@@ -33,7 +33,7 @@ class CartController extends Controller
         // perbedaan dalam menit / 60 ==> dapet hasil dalam jam
         $hours = $until->diffInMinutes($since) / $this->hour;
 
-        $price = $coachDomain->price * $hours;
+        $price = $coachDomain->price;
 
         Cart::add($order['coach_domain_id'], $coachDomain->coach->name, $hours, $price);
 
