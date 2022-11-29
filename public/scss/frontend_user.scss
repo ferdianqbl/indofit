@@ -411,3 +411,20 @@ section.about#about {
         }
     }
 }
+
+// === PAYMENT ===
+.paymentPage#paymentPage {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+
+    .payment-detail {
+        p.payment-detail-title {
+            font-weight: 500;
+            font-size: 1.5rem;
+        }
+
+        p.payment-detail-text {
+            color: #868686;
+        }
+    }
+}
