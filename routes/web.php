@@ -5,10 +5,11 @@ use App\Http\Controllers\User\AuthController as UserAuthController;
 use App\Http\Controllers\Coach\AuthController as CoachAuthController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Coach\CustomerController;
-use App\Http\Controllers\Coach\HistoryController;
+use App\Http\Controllers\Coach\HistoryController as CoachHistoryController;
 use App\Http\Controllers\Coach\ProgressController;
 use App\Http\Controllers\User\CartController;
 use App\Http\Controllers\User\InvoiceController;
+use App\Http\Controllers\User\HistoryController as UserHistoryController;
 use App\Http\Controllers\User\PaymentController;
 use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\User\TrainerController;
@@ -65,7 +66,12 @@ Route::middleware('guest:user')
         Route::delete('cart/destroy', [CartController::class, 'destroy'])->name('cart.destroy');
 
         Route::get('payment', [PaymentController::class, 'index'])->name('payment.view');
+
         Route::post('invoice', [InvoiceController::class, 'handle'])->name('invoice.handle');
+        Route::get('invoice/{invoice}', [InvoiceController::class, 'detail'])->name('invoice.detail');
+        Route::post('invoice/{invoice}/paid', [InvoiceController::class, 'setPaid'])->name('invoice.paid');
+
+        Route::get('history', [UserHistoryController::class, 'index'])->name('history.view');
     });
 
 // COACH

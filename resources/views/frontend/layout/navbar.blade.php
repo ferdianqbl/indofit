@@ -83,7 +83,7 @@ $isCoach = $urlChecker->coach($currentURL);
           <ul class="dropdown-menu bg-dark text-white">
 
             {{-- USER --}}
-            <li><a class="btn btn-dark d-block text-start" href="#">History</a></li>
+            <li><a class="btn btn-dark d-block text-start" href="{{ route('user.history.view') }}">History</a></li>
             <li><a class="btn btn-dark d-block text-start" href="{{ route('user.cart.view') }}">Cart</a></li>
             <li><a class="btn btn-dark d-block text-start" href="#">Settings</a></li>
             <li>

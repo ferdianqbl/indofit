@@ -9,12 +9,13 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Invoice;
 use App\Models\OrderItem;
 use App\Constants\Status;
+use Carbon\Carbon;
 
 class InvoiceController extends Controller
 {
     public function handle()
     {
-        $title = 'Payment Method';
+        $title = 'Invoice Detail Anjay';
         $price = Cart::total();
         $additionalPrice = ceil($price * PaymentController::$tax);
 
@@ -37,7 +38,7 @@ class InvoiceController extends Controller
             OrderItem::create($value);
         }
 
-        Invoice::create([
+        $invoice = Invoice::create([
             'order_id' => $order->id,
             'issued_at' => null,
             'status' => Status::PENDING,
@@ -45,11 +46,21 @@ class InvoiceController extends Controller
 
         Cart::destroy();
 
-        return redirect()->view('frontend.user.history.index', compact('title'))->with('message', 'Check history');
+        return redirect()->action([InvoiceController::class, 'detail'], ['title' => $title, 'invoice' => $invoice->id]);
     }
 
-    public function detail()
+    public function detail(Invoice $invoice)
     {
+        $title = 'Invoice Detail';
+        return view('frontend.user.invoice.index', compact('invoice', 'title'));
+    }
 
+    public function setPaid(Invoice $invoice)
+    {
+        $invoice->status = Status::PAID;
+        $invoice->issued_at = Carbon::now();
+        $invoice->save();
+
+        return redirect()->back();
     }
 }

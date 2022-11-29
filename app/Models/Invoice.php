@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Constants\Status;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -21,6 +22,23 @@ class Invoice extends Model
         'issued_at',
         'status'
     ];
+
+    protected $casts = ['status' => Status::class];
+
+    public function getPendingAttribute(): bool
+    {
+        return $this->status == Status::PENDING;
+    }
+
+    public function getPaidAttribute(): bool
+    {
+        return $this->status == Status::PAID;
+    }
+
+    public function getCancelAttribute(): bool
+    {
+        return $this->status == Status::CANCEL;
+    }
 
     public function order(): BelongsTo
     {
