@@ -306,4 +306,34 @@ section.about#about .container {
   background: #f4f6f5;
   border-radius: 10px;
   padding: 2.5rem;
+}
+
+.cartPage#cartPage {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+.cartPage#cartPage section.cart-list#cart-list p.cart-count {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.cartPage#cartPage section.cart-list#cart-list .cart-item-card img.cart-img {
+  border-radius: 5px;
+}
+.cartPage#cartPage section.cart-list#cart-list .cart-item-body .cart-item-body-detail p.cart-item-text {
+  color: #b5b5b5;
+}
+.cartPage#cartPage section.cart-list#cart-list .cart-item-body .cart-item-body-detail p.cart-item-text_name {
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+.cartPage#cartPage section.cart-list#cart-list .cart-item-body .cart-item-body-detail p.cart-item-text_subtotal {
+  color: #7f7f7f;
+}
+.cartPage#cartPage section.cart-list#cart-list .cart-total-group {
+  margin-top: 5rem;
+}
+.cartPage#cartPage section.cart-list#cart-list .cart-total-group p.cart-total-text {
+  color: #000;
+  font-weight: 600;
+  font-size: 1.5rem;
 }/*# sourceMappingURL=frontend_user.css.map */

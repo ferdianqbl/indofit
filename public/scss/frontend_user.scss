@@ -368,3 +368,46 @@ section.about#about {
         padding: 2.5rem;
     }
 }
+
+// === CART ===
+.cartPage#cartPage {
+    padding-top: 8rem;
+    padding-bottom: 5rem;
+
+    section.cart-list#cart-list {
+        p.cart-count {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .cart-item-card {
+            img.cart-img {
+                border-radius: 5px;
+            }
+        }
+
+        .cart-item-body {
+            .cart-item-body-detail {
+                p.cart-item-text {
+                    color: #b5b5b5;
+                }
+                p.cart-item-text_name {
+                    font-weight: 500;
+                    font-size: 1.25rem;
+                }
+                p.cart-item-text_subtotal {
+                    color: #7f7f7f;
+                }
+            }
+        }
+
+        .cart-total-group {
+            margin-top: 5rem;
+            p.cart-total-text {
+                color: #000;
+                font-weight: 600;
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
