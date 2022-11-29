@@ -24,7 +24,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 
       @foreach ($cart as $c)
       {{-- <p>{{ $c->id }}</p> --}}
-      <div class="cart-item-card row justify-content-between align-items-center">
+      <div class="cart-item-card row justify-content-between align-items-center mb-5">
         <div class="cart-item-body col-8 row">
           <div class="col-3">
             <img src="/images/landingPage/home/Pelatih-1.png" alt="cart-img" class="cart-img img-fluid">
