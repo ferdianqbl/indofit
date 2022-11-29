@@ -336,4 +336,16 @@ section.about#about .container {
   color: #000;
   font-weight: 600;
   font-size: 1.5rem;
+}
+
+.paymentPage#paymentPage {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+.paymentPage#paymentPage .payment-detail p.payment-detail-title {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+.paymentPage#paymentPage .payment-detail p.payment-detail-text {
+  color: #868686;
 }/*# sourceMappingURL=frontend_user.css.map */
