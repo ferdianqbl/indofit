@@ -11,6 +11,8 @@ class OrderItem extends Model
 {
     use HasFactory, HasUuids;
 
+    protected $table = 'order_items';
+
     /**
      * The attributes that are mass assignable.
      *

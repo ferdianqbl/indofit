@@ -31,11 +31,22 @@ class CartController extends Controller
         $until = Carbon::parse($order['train_until']);
 
         // perbedaan dalam menit / 60 ==> dapet hasil dalam jam
-        $hours = $until->diffInMinutes($since) / $this->hour;
+        $hours = number_format($until->diffInMinutes($since) / $this->hour, 2);
 
         $price = $coachDomain->price;
 
-        Cart::add($order['coach_domain_id'], $coachDomain->coach->name, $hours, $price);
+        Cart::add([
+            'id' => $order['coach_domain_id'],
+            'name' => $coachDomain->coach->name,
+            'qty' => $hours,
+            'price' => $price,
+            'weight' => 0,
+            'options' => [
+                'train_date' => $order['train_date'],
+                'train_since' => $order['train_since'],
+                'train_until' => $order['train_until'],
+            ],
+        ]);
 
         return redirect()->route('user.trainer.view')->with('message', 'Added to cart');
     }

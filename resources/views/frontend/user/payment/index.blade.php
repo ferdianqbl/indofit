@@ -19,6 +19,7 @@ $total = $formattedPrice->add(Money::IDR($additionalPrice, true));
                 <p>Generate Payment (Ceritanya ada tambahan tax 1% dari harga)</p>
                 <form action={{ route('user.invoice.handle') }} method="POST">
                     @csrf
+                    <input type="text" hidden value={{ $total }} name="price">
                     <button class="btn btn-warning">Pay {{ $total }} (+ {{ Money::IDR($additionalPrice, true) }})</button>
                 </form>
             </div>

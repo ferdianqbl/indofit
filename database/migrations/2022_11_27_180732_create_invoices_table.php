@@ -17,7 +17,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
 
             $table->uuid('order_id')->index();
-            $table->dateTime('issued_at');
+            $table->dateTime('issued_at')->nullable();
             $table->integer('status')->default(0);
 
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
