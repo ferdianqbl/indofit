@@ -3,12 +3,13 @@
 @section('content')
   <div class="trainerPage" id="trainerPage">
 
-    @if(session('message'))
-        <p class="text-info">{{ session('message') }}</p>
-    @endif
 
     <section class="trainer-list" id="trainer-list">
       <div class="container">
+        <h1 class="section-title mb-5">TRAINER LIST</h1>
+        @if (session('message'))
+          <p class="text-info mb-5">{{ session('message') }}</p>
+        @endif
         <div class="row row-cols-1 row-cols-md-4 g-4">
           @if ($trainers->count() > 0)
             @foreach ($trainers as $trainer)

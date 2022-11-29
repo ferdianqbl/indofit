@@ -21,43 +21,45 @@
 
               <div class="trainer-profile-detail-btn mt-3">
                 <form action="{{ route('user.cart.store') }}" method="POST">
-                    @csrf
-                    <input type="hidden" name="coach_domain_id" value={{ $trainer->id }}>
-                    @error('coach_domain_id')
-                        <span class="text-danger">{{ $message }}</span>
+                  @csrf
+                  <input type="hidden" name="coach_domain_id" value={{ $trainer->id }}>
+                  @error('coach_domain_id')
+                    <span class="text-danger">{{ $message }}</span>
+                  @enderror
+
+                  <div>
+                    <p>Date Booking</p>
+                    <input type="date" name="train_date" value={{ old('train_date') }}>
+                    @error('train_date')
+                      <span class="text-danger">{{ $message }}</span>
                     @enderror
+                  </div>
+                  <br>
+                  <div>
+                    <p>Train Since</p>
+                    <input type="time" name="train_since" value={{ old('train_since') }}>
+                    @error('train_since')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                  </div>
+                  <br>
+                  <div>
+                    <p>Train Until</p>
+                    <input type="time" name="train_until" value={{ old('train_until') }}>
+                    @error('train_until')
+                      <span class="text-danger">{{ $message }}</span>
+                    @enderror
+                  </div>
+                  <br>
+                  <div>
+                    <p>Book as fast as possible. When someone books this trainer in some day, other user can't order that
+                      trainer in the same day (Susah anjir kalo jam nya harus diperiksa juga. Mending kalo di hari itu dah
+                      ada yg booking, tu coach baru bisa dipesen lagi besoknya (●'◡'●))</p>
+                  </div>
 
-                    <div>
-                        <p>Date Booking</p>
-                        <input type="date" name="train_date" value={{ old('train_date') }}>
-                        @error('train_date')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <br>
-                    <div>
-                        <p>Train Since</p>
-                        <input type="time" name="train_since" value={{ old('train_since') }}>
-                        @error('train_since')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <br>
-                    <div>
-                        <p>Train Until</p>
-                        <input type="time" name="train_until" value={{ old('train_until') }}>
-                        @error('train_until')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <br>
-                    <div>
-                        <p>Book as fast as possible. When someone books this trainer in some day, other user can't order that trainer in the same day (Susah anjir kalo jam nya harus diperiksa juga. Mending kalo di hari itu dah ada yg booking, tu coach baru bisa dipesen lagi besoknya (●'◡'●))</p>
-                    </div>
-
-                    <button class="btn my-btn-primary">Add to cart</button>
+                  <button class="btn my-btn-primary">Add to cart</button>
+                  <a href="" class="btn my-btn-secondary">Contact</a>
                 </form>
-                <a href="" class="btn my-btn-secondary">Contact</a>
               </div>
             </div>
           </div>
