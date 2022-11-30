@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Review;
 use Illuminate\Contracts\View\View;
-use Illuminate\Http\Request;
 
 class ReviewController extends Controller
 {
     public function index(): View
     {
-        return view('frontend.user.review.index');
+        $reviews = Review::with(['user', 'coach'])->get();
+        return view('frontend.user.review.index', compact('reviews'));
     }
 }
