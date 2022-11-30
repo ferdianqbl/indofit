@@ -7,6 +7,12 @@
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {{-- Bootstrap --}}
+  <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+  {{-- Custom CSS --}}
+  <link rel="stylesheet" href="{{ asset('css/frontend_user.css') }}">
    </head>
 <body>
   <div class="sidebar">
@@ -15,25 +21,25 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="#" class="active">
+          <a href="{{ route('admin.overview') }}" class="{{ Route::is('admin.overview') ? 'active' : '' }}">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Overview</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="{{ route('admin.orders') }}" class="{{ Route::is('admin.orders') ? 'active' : '' }}">
             <i class='bx bx-box' ></i>
             <span class="links_name">Orders</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="{{ route('admin.coach') }}" class="{{ Route::is('admin.coach') ? 'active' : '' }}">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">Coach</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="{{ route('admin.coach_progress') }}" class="{{ Route::is('admin.coach_progress') ? 'active' : '' }}">
             <i class='bx bx-pie-chart-alt-2' ></i>
             <span class="links_name">Coach Progress</span>
           </a>
@@ -48,7 +54,7 @@
       </div>
       <div class="profile-details">
         <img src="{{ asset('admin_template/unknown.png') }}" alt="">
-        <span class="admin_name">Admin 1</span>
+        <span class="admin_name">{{ Auth::guard('admin')->user()->name }}</span>
       </div>
     </nav>
 
@@ -68,6 +74,7 @@
     sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
     }
  </script>
-
+  <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('js/frontend_user.js') }}"></script>
 </body>
 </html>

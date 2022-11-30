@@ -35,6 +35,6 @@ class Order extends Model
 
     public function invoice(): HasOne
     {
-        return $this->hasOne(Invoice::class);
+        return $this->hasOne(Invoice::class, 'order_id');
     }
 }
