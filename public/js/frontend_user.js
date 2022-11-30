@@ -8,5 +8,5 @@ window.onscroll = function (event) {
 };
 
 $(document).ready(function () {
-  $('#example').DataTable();
+  $('#historyPageTable').DataTable();
 });
