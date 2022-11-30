@@ -15,7 +15,7 @@
       </div>
       <div class="col-md-4">
         <p class="footer-title">
-          About Us
+          Join Us
         </p>
         <p class="footer-text">
             <a href="{{ route('coach.register.view') }}" class="text-white">Join Us As Trainers</a></p>

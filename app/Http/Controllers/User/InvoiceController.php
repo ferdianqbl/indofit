@@ -21,8 +21,7 @@ class InvoiceController extends Controller
         $price = Cart::total();
         $additionalPrice = ceil($price * PaymentController::$tax);
 
-        $totalPrice = ($price + $additionalPrice) / 100;
-
+        $totalPrice = intval($price + $additionalPrice);
         $order = Order::create(['user_id' => Auth::guard('user')->id(), 'price' => $totalPrice]);
 
         $orderList = [];
@@ -38,7 +37,7 @@ class InvoiceController extends Controller
 
         foreach ($orderList as $key => $value) {
             $orderItem = OrderItem::create($value);
-            OrderItemStatus::Create(['order_item_id' => $orderItem->id, 'status' => 0]);
+            OrderItemStatus::Create(['order_item_id' => $orderItem->id]);
         }
 
         $invoice = Invoice::create([

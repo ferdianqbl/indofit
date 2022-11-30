@@ -13,10 +13,10 @@
         @isset($histories)
             @foreach ($histories as $history)
                 <p>Order Date : {{ Carbon::parse($history->created_at)->format('d M Y') }}</p>
-                <p>Price : {{ Money::IDR($history->price, true) }}</p>
-                <p>Status : {{ $history->invoice->status->name }}</p>
-                <p>Paid At : {{ $history->invoice->issued_at ?? 'Unpaid' }}</p>
-                <a href={{ route('user.invoice.detail', $history->invoice->id) }}>See Detail</a>
+                <p>Price : {{ Money::IDR($history->order->price, true) }}</p>
+                <p>Status : {{ $history->status->name }}</p>
+                <p>Paid At : {{ $history->issued_at ?? 'Unpaid' }}</p>
+                <a href={{ route('user.invoice.detail', $history->id) }}>See Detail</a>
                 <br>
                 <br>
             @endforeach

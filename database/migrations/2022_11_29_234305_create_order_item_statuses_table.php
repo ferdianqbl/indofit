@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('order_item_statuses', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->uuid('order_item_id')->index();
             $table->smallInteger('status')->default(0);
 

@@ -22,6 +22,8 @@ class OrderItemStatus extends Model
         'status',
     ];
 
+    protected $table = 'order_item_statuses';
+
     protected $casts = ['status' => Progress::class];
 
     public function order_item(): BelongsTo

@@ -100,7 +100,7 @@ Route::prefix('coach')
     ->middleware('guest:coach')
     ->group(function () {
         Route::get('customer', [CustomerController::class, 'index'])->name('customer');
-        Route::get('customer/{order}', [CustomerController::class, 'detail'])->name('customer.detail');
+        Route::patch('customer/{order_item_status}', [CustomerController::class, 'markAsDone'])->name('customer.done');
 
         Route::get('history', [CoachHistoryController::class, 'index'])->name('history');
         Route::get('progress', [ProgressController::class, 'index'])->name('progress');
