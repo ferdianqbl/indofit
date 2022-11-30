@@ -8,6 +8,7 @@
   <title>{{ $title ?? 'IndoFit' }}</title>
   {{-- Bootstrap --}}
   <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/dataTables.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
   {{-- Custom CSS --}}
   <link rel="stylesheet" href="/css/frontend_user.css">
@@ -17,6 +18,9 @@
   @include('frontend.layout.navbar')
   @yield('content')
   @include('frontend.layout.footer')
+  <script src="/js/jquery.js"></script>
+  <script src="/js/dataTables.js"></script>
+  <script src="/js/dataTables.bootstrap5.min.js"></script>
   <script src="/js/bootstrap.bundle.min.js"></script>
   <script src="/js/frontend_user.js"></script>
 </body>
