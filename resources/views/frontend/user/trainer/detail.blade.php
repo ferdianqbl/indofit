@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row justify-content-center align-items-center row-cols-1 row-cols-md-2 g-1">
           <div class="col text-center">
-            <img src="/images/landingPage/home/Pelatih-1.png" alt="trainer-img" class="img-trainer">
+            <img src="/images/landingPage/home/Pelatih-{{ rand(1, 3) }}.png" alt="trainer-img" class="img-trainer">
           </div>
           <div class="col">
             <div class="trainer-profile-detail">
