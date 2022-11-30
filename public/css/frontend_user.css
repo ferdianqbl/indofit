@@ -354,6 +354,11 @@ section.about#about .container {
   color: #868686;
 }
 
+section.historyPage#historyPage {
+  padding-top: 8rem;
+  padding-bottom: 5rem;
+}
+
 section.customerTrainerPage#customerTrainerPage {
   padding-top: 8rem;
   padding-bottom: 5rem;
