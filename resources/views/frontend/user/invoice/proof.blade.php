@@ -115,7 +115,8 @@
 								<td>
 									Invoice ID : {{ $invoice->id }}<br />
 									Created: {{ Carbon::parse($invoice->created_at)->format('d M Y, H:i:s') }}<br />
-									Due: February 1, 2015
+									Due: {{ Carbon::parse($invoice->created_at)->addDay()->format('d M Y, H:i:s') }}<br />
+                                    Status: {{ $invoice->status->name }}
 								</td>
 							</tr>
 						</table>
