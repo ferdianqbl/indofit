@@ -22,6 +22,8 @@
           <p>Price : {{ Money::IDR($invoice->order->price, true) }}</p>
           <p>Must Be Paid Before : {{ Carbon::parse($invoice->created_at)->format('d M Y, H:i') }}</p>
 
+          <a href={{ route('user.invoice.proof', $invoice->id) }}>See Invoice</a>
+
           @if ($invoice->status->value == Status::PENDING->value)
             <form method="POST" action="{{ route('user.invoice.paid', $invoice->id) }}">
               @csrf

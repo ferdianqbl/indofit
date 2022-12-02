@@ -21,6 +21,8 @@ return new class extends Migration
             $table->time('train_since');
             $table->time('train_until');
 
+            $table->bigInteger('price');
+
             $table->uuid('coach_domain_id')->index();
             $table->uuid('order_id')->index();
 

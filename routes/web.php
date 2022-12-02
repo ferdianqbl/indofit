@@ -72,6 +72,8 @@ Route::middleware('guest:user')
         Route::get('invoice/{invoice}', [InvoiceController::class, 'detail'])->name('invoice.detail');
         Route::post('invoice/{invoice}/paid', [InvoiceController::class, 'setPaid'])->name('invoice.paid');
 
+        Route::get('invoice/{invoice}/proof', [InvoiceController::class, 'generate'])->name('invoice.proof');
+
         Route::get('history', [UserHistoryController::class, 'index'])->name('history.view');
 
         Route::get('edit', [UserAuthController::class, 'edit'])->name('settings.edit');

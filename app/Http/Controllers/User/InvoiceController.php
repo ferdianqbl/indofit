@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Http\Controllers\User\PaymentController;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class InvoiceController extends Controller
 {
@@ -32,6 +33,7 @@ class InvoiceController extends Controller
                 'train_until' => $cart->options->train_until,
                 'coach_domain_id' => $cart->id,
                 'order_id' => $order->id,
+                'price' => $cart->total,
             ];
         }
 
@@ -64,5 +66,13 @@ class InvoiceController extends Controller
         $invoice->save();
 
         return redirect()->back();
+    }
+
+    public function generate(Invoice $invoice)
+    {
+        $invoice->load(['order']);
+
+        $pdf = Pdf::loadView('frontend.user.invoice.proof', compact('invoice'));
+        return $pdf->stream();
     }
 }

@@ -24,7 +24,8 @@ class OrderItem extends Model
         'train_since',
         'train_until',
         'coach_domain_id',
-        'order_id'
+        'order_id',
+        'price'
     ];
 
     public function coach_domain(): BelongsTo
