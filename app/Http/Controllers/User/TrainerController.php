@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Coach;
 use App\Models\CoachDomain;
 use App\Models\Review;
+use App\Models\Sport;
 use Illuminate\Contracts\View\View;
 
 class TrainerController extends Controller
@@ -19,10 +20,21 @@ class TrainerController extends Controller
 
     public function detail(CoachDomain $coach_domains): View
     {
-        $trainer = $coach_domains;
+        $trainer = $coach_domains->load(['sport', 'coach']);
         $title = 'Trainer Detail';
         $avg_star = Review::where('coach_id', $coach_domains->coach_id)->avg('rating');
-        $specialities = CoachDomain::select('sport_id')->where('coach_id', $coach_domains->coach_id)->distinct()->get();
+
+        $specialities = Sport::select('sports.name')
+        ->where('sports.id', '!=', $coach_domains->sport->id)
+        ->join('coach_domains', 'coach_domains.sport_id', '=', 'sports.id')
+        ->join('coaches', 'coaches.id', '=', 'coach_domains.coach_id')
+        ->get()
+        ->toArray();
+
+        if(is_null($avg_star))
+        {
+            $avg_star = 0.0;
+        }
 
         return view('frontend.user.trainer.detail', compact('title', 'trainer', 'specialities', 'avg_star'));
     }

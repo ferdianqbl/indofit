@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
@@ -67,9 +68,9 @@ class Coach extends Authenticatable
         return $this->hasMany(CoachDomain::class);
     }
 
-    public function sports(): HasMany
+    public function sports(): HasManyThrough
     {
-        return $this->hasMany(Sport::class);
+        return $this->hasManyThrough(Sport::class, OrderDomain::class);
     }
 
     public function reviews(): HasMany
