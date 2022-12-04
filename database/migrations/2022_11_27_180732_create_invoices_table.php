@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('va_number')->nullable();
             $table->string('fraud_status')->nullable();
             $table->string('pdf_url')->nullable();
+            $table->string('snap_token')->nullable();
 
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
 

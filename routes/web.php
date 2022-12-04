@@ -69,6 +69,7 @@ Route::middleware('guest:user')
 
         Route::get('payment', [PaymentController::class, 'index'])->name('payment.view');
         Route::post('payment', [PaymentController::class, 'saveOrder'])->name('payment.handle');
+        Route::get('repayment/{invoice}', [PaymentController::class, 'repayment'])->name('payment.repay');
 
         Route::get('payment/action/{snap}/{clientToken}', [PaymentController::class, 'midtransView']);
         Route::post('payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');

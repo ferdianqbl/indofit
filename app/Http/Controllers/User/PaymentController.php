@@ -64,14 +64,20 @@ class PaymentController extends Controller
                 OrderItemStatus::Create(['order_item_id' => $orderItem->id]);
             }
 
+            [$snap, $clientToken] = $this->service->index($order, Auth::guard('user')->user());
+            if($snap == "")
+            {
+                throw new \Exception('cant generate payment link');
+            }
+
             Invoice::create([
                 'order_id' => $order->id,
                 'issued_at' => null,
                 'status' => Status::PENDING,
                 'external_id' => $order->external_id,
+                'snap_token' => $snap,
             ]);
 
-            [$snap, $clientToken] = $this->service->index($order, Auth::guard('user')->user());
 
             Cart::destroy();
 
@@ -99,7 +105,7 @@ class PaymentController extends Controller
         if(!$invoice) {
             abort(404);
         }
-        
+
         try {
             DB::beginTransaction();
 
@@ -124,6 +130,12 @@ class PaymentController extends Controller
         } catch (\Exception $e) {
             dd($e);
         }
+    }
 
+    public function repayment(Invoice $invoice)
+    {
+        $clientToken = $this->service->clientToken;
+        $snap = $invoice->snap_token;
+        return redirect()->action([PaymentController::class, 'midtransView'], compact('snap', 'clientToken'));
     }
 }

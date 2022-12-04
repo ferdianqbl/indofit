@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Constants\Status;
+use App\Constants\PaymentStatus;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -28,7 +28,10 @@ class Invoice extends Model
         'va_number',
         'fraud_status',
         'pdf_url',
+        'snap_token',
     ];
+
+    protected $casts = ['transaction_status', PaymentStatus::class];
 
     public function order(): BelongsTo
     {

@@ -10,7 +10,7 @@ use App\Models\Order;
 class MidtransPayment
 {
     private $token;
-    private $clientToken;
+    public $clientToken;
 
     public function __construct()
     {
