@@ -5,7 +5,7 @@
     <div class="container">
       <div class="row justify-content-center align-items-center">
         <div class="col-lg-4 col-md-6 col-8">
-          <form method="POST" action={{ route('coach.register.store') }}>
+          <form method="POST" action={{ route('coach.register.store') }} enctype="multipart/form-data">
             @csrf
             <h1 class="form-title text-center mb-3">
               SIGN UP!
@@ -40,6 +40,14 @@
                 <textarea class="form-control" id="description" name="description">{{ old('description') ?? '' }}</textarea>
               </div>
             @error('description')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror
+
+            <div class="mb-3">
+                <label for="image" class="form-label">Image (Optional)</label>
+                <input class="form-control" type="file" id="image" name="image">
+            </div>
+            @error('image')
                 <span class="text-danger">{{ $message }}</span>
             @enderror
 

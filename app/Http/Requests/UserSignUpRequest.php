@@ -27,6 +27,7 @@ class UserSignUpRequest extends FormRequest
             'name' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'unique:coaches'],
             'phone_number' => ['required', 'numeric'],
+            'image' => ['file', 'mimes:jpg,jpeg,png', 'max:1024'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ];
     }

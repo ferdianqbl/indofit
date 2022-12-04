@@ -28,7 +28,7 @@ class CoachUpdateRequest extends FormRequest
             'name' => ['required', 'string', 'max:50'],
             'phone_number' => ['required', 'numeric'],
             'description' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'max:50', 'confirmed'],
+            'image' => ['file', 'mimes:jpg,jpeg,png', 'max:1024'],
         ];
     }
 }
