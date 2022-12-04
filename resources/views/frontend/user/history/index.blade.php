@@ -46,7 +46,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ Carbon::parse($history->created_at)->format('d M Y') }}</td>
                 <td>{{ Money::IDR($history->order->price, true) }}</td>
-                <td>{{ $history->status->name }}</td>
+                <td>{{ $history->status_message }}</td>
                 <td>{{ date('d M Y h:m:s', strtotime($history->issued_at)) ?? 'Unpaid' }}</td>
                 <td>
                   <a href={{ route('user.invoice.detail', $history->id) }} class="btn btn-primary">See Detail</a>

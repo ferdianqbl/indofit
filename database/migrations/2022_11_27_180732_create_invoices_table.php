@@ -18,7 +18,14 @@ return new class extends Migration
 
             $table->uuid('order_id')->index();
             $table->dateTime('issued_at')->nullable();
-            $table->integer('status')->default(0);
+            $table->string('status_message')->nullable();
+            $table->string('midtrans_transaction_id')->nullable();
+            $table->string('payment_type')->nullable();
+            $table->string('transaction_status')->nullable();
+            $table->string('bank')->nullable();
+            $table->string('va_number')->nullable();
+            $table->string('fraud_status')->nullable();
+            $table->string('pdf_url')->nullable();
 
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');
 

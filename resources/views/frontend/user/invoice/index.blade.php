@@ -25,7 +25,7 @@
           <a href={{ route('user.invoice.proof', $invoice->id) }}>See Invoice</a>
 
           @if ($invoice->status->value == Status::PENDING->value)
-            <form method="POST" action="{{ route('user.invoice.paid', $invoice->id) }}">
+            <form method="POST" action="{{ route('user.payment.handle', $invoice->id) }}">
               @csrf
               <button class="btn btn-primary">Pay Now</button>
             </form>

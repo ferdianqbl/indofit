@@ -20,25 +20,15 @@ class Invoice extends Model
     protected $fillable = [
         'order_id',
         'issued_at',
-        'status'
+        'status_message',
+        'midtrans_transaction_id',
+        'payment_type',
+        'transaction_status',
+        'bank',
+        'va_number',
+        'fraud_status',
+        'pdf_url',
     ];
-
-    protected $casts = ['status' => Status::class];
-
-    public function getPendingAttribute(): bool
-    {
-        return $this->status == Status::PENDING;
-    }
-
-    public function getPaidAttribute(): bool
-    {
-        return $this->status == Status::PAID;
-    }
-
-    public function getCancelAttribute(): bool
-    {
-        return $this->status == Status::CANCEL;
-    }
 
     public function order(): BelongsTo
     {

@@ -14,6 +14,7 @@ use App\Http\Controllers\User\HistoryController as UserHistoryController;
 use App\Http\Controllers\User\PaymentController;
 use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\User\TrainerController;
+use App\Http\Controllers\XController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,6 +68,10 @@ Route::middleware('guest:user')
         Route::delete('cart/destroy', [CartController::class, 'destroy'])->name('cart.destroy');
 
         Route::get('payment', [PaymentController::class, 'index'])->name('payment.view');
+        Route::post('payment', [PaymentController::class, 'saveOrder'])->name('payment.handle');
+
+        Route::get('payment/action/{snap}/{clientToken}', [PaymentController::class, 'midtransView']);
+        Route::post('payment/callback', [PaymentController::class, 'callback'])->name('payment.callback');
 
         Route::post('invoice', [InvoiceController::class, 'handle'])->name('invoice.handle');
         Route::get('invoice/{invoice}', [InvoiceController::class, 'detail'])->name('invoice.detail');
