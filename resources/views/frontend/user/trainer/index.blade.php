@@ -24,8 +24,12 @@
             @foreach ($trainers as $trainer)
               <div class="col">
                 <div class="card h-100 trainer-card">
-                  <img src="/storage/avatar/{{ $trainer->coach->image }}" alt="trainer-img"
-                    class="card-img-top img-trainer">
+                    @if(is_null($trainer->coach->image))
+                        <img src="https://ui-avatars.com/api/?name={{ str_replace('+', ' ', $trainer->coach->name) }}?background=0D8ABC&color=fff" alt="">
+                    @else
+                        <img src="/storage/avatar/{{ $trainer->coach->image }}" alt="trainer-img"
+                        class="card-img-top img-trainer">
+                    @endif
                   <div class="card-body">
                     <p class="trainer-name">{{ $trainer->coach->name }}</p>
                     <p class="trainer-category">{{ $trainer->sport->name }}</p>

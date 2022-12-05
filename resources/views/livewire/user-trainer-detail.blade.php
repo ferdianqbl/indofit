@@ -3,7 +3,13 @@
         <div class="container">
           <div class="row justify-content-center align-items-center row-cols-1 row-cols-md-2 g-1">
             <div class="col text-center">
-              <img src="/storage/avatar/{{ $trainer->coach->image }}" alt="trainer-img" class="img-trainer">
+                @if(is_null($trainer->coach->image))
+                    <img src="https://ui-avatars.com/api/?name={{ str_replace('+', ' ', $trainer->coach->name) }}?background=0D8ABC&color=fff" alt="">
+                @else
+                    <img src="/storage/avatar/{{ $trainer->coach->image }}" alt="trainer-img"
+                    class="card-img-top img-trainer">
+                @endif
+              {{-- <img src="/storage/avatar/{{ $trainer->coach->image }}" alt="trainer-img" class="img-trainer"> --}}
             </div>
             <div class="col">
               <div class="trainer-profile-detail">
