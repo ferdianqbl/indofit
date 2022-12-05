@@ -14,6 +14,8 @@
   {{-- Custom CSS --}}
   <link rel="stylesheet" href="/css/frontend_user.css">
 
+  @stack('head')
+
   {{-- Livewire --}}
   @livewireStyles
 </head>
@@ -27,6 +29,8 @@
   <script src="/js/dataTables.bootstrap5.min.js"></script>
   <script src="/js/bootstrap.bundle.min.js"></script>
   <script src="/js/frontend_user.js"></script>
+
+  @stack('script')
 
 
   {{-- Livewire Script --}}

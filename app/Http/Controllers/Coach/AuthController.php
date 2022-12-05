@@ -11,6 +11,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
+use Laravolt\Avatar\Facade as Avatar;
 
 class AuthController extends Controller
 {
@@ -26,7 +27,24 @@ class AuthController extends Controller
 
     public function store(CoachSignUpRequest $request): RedirectResponse
     {
-        Coach::create($request->validated());
+        $coach = Coach::create($request->validated());
+
+        if(!$request->file('image'))
+        {
+            Avatar::create($request['name'])->save(storage_path("app/public/avatar/coach_{$coach->id}.png"));
+        }
+
+        else
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = "coach_{$coach->id}.{$extension}";
+
+            $file->storeAs('public/avatar', $filename);
+
+            $coach->image = $filename;
+            $coach->save();
+        }
 
         return redirect()->route('coach.login.view');
     }
@@ -77,6 +95,16 @@ class AuthController extends Controller
             $coach->name = $credentials['name'];
             $coach->description = $credentials['description'];
             $coach->phone_number = $credentials['phone_number'];
+
+            if($request->file('image'))
+            {
+                $file = $request->file('image');
+                $extension = $file->getClientOriginalExtension();
+                $filename = "coach_{$coach->id}.{$extension}";
+
+                $file->storeAs('public/avatar', $filename);
+                $coach->image = $filename;
+            }
 
             $coach->save();
 

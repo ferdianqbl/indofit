@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Constants\Status;
+use App\Constants\PaymentStatus;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,25 +20,18 @@ class Invoice extends Model
     protected $fillable = [
         'order_id',
         'issued_at',
-        'status'
+        'status_message',
+        'midtrans_transaction_id',
+        'payment_type',
+        'transaction_status',
+        'bank',
+        'va_number',
+        'fraud_status',
+        'pdf_url',
+        'snap_token',
     ];
 
-    protected $casts = ['status' => Status::class];
-
-    public function getPendingAttribute(): bool
-    {
-        return $this->status == Status::PENDING;
-    }
-
-    public function getPaidAttribute(): bool
-    {
-        return $this->status == Status::PAID;
-    }
-
-    public function getCancelAttribute(): bool
-    {
-        return $this->status == Status::CANCEL;
-    }
+    protected $casts = ['transaction_status', PaymentStatus::class];
 
     public function order(): BelongsTo
     {

@@ -10,6 +10,7 @@ use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
+use Laravolt\Avatar\Facade as Avatar;
 
 class AuthController extends Controller
 {
@@ -25,7 +26,24 @@ class AuthController extends Controller
 
     public function store(UserSignUpRequest $request): RedirectResponse
     {
-        User::create($request->validated());
+        $user = User::create($request->validated());
+
+        if(!$request->file('image'))
+        {
+            Avatar::create($request['name'])->save(storage_path("app/public/avatar/user_{$user->id}.png"));
+        }
+
+        else
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = "user_{$user->id}.{$extension}";
+
+            $file->storeAs('public/avatar', $filename);
+
+            $user->image = $filename;
+            $user->save();
+        }
 
         return redirect()->route('user.login.view');
     }
@@ -74,6 +92,16 @@ class AuthController extends Controller
 
         $user->name = $credentials['name'];
         $user->phone_number = $credentials['phone_number'];
+
+        if($request->file('image'))
+        {
+            $file = $request->file('image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = "user_{$user->id}.{$extension}";
+
+            $file->storeAs('public/avatar', $filename);
+            $user->image = $filename;
+        }
 
         $user->save();
 

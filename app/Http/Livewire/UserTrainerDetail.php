@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Label84\HoursHelper\Facades\HoursHelper;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Illuminate\Validation\Rule;
 
 class UserTrainerDetail extends Component
 {
@@ -19,19 +20,29 @@ class UserTrainerDetail extends Component
     public CoachDomain $trainer;
     public Array $specialities;
     public float $avg_star;
-    public SupportCollection $listHours;
+    public SupportCollection $listHoursSince;
+    public SupportCollection $listHoursUntil;
 
     // dependensi untuk form
     public $train_date;
     public $train_since;
     public $train_until;
 
+    public $currentSince;
+    public $currentUntil;
+
     public function render()
     {
         $coachStart = Carbon::parse($this->trainer->working_time_start)->format('H:i');
         $coachEnd = Carbon::parse($this->trainer->working_time_end)->format('H:i');
 
-        $this->listHours = HoursHelper::create($coachStart, $coachEnd, 30);
+        $this->listHoursSince = HoursHelper::create($coachStart, $coachEnd, 30);
+
+        if($this->train_since == null) {
+            $this->listHoursUntil = HoursHelper::create($coachStart, $coachEnd, 30);
+        } else {
+            $this->listHoursUntil = HoursHelper::create($this->train_since, $coachEnd, 30);
+        }
 
         $this->avg_star = number_format($this->avg_star, 2);
         return view('livewire.user-trainer-detail');
@@ -41,8 +52,8 @@ class UserTrainerDetail extends Component
     {
         return [
             'train_date' => ['required', 'date', 'after_or_equal:today', new CoachAvailableDays($this->trainer->working_days)],
-            'train_since' => ['required', 'date_format:H:i'],
-            'train_until' => ['required', 'date_format:H:i', 'after:train_since'],
+            'train_since' => ['required', Rule::in($this->listHoursSince)],
+            'train_until' => ['required', Rule::in($this->listHoursUntil), 'after:train_since'],
         ];
     }
 

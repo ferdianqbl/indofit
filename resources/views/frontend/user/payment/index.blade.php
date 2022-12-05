@@ -32,7 +32,7 @@ $total = $formattedPrice->add(Money::IDR($additionalPrice, true));
                     </div>
                 </div>
             </div>
-            <form action={{ route('user.invoice.handle') }} method="POST" class="text-center">
+            <form action={{ route('user.payment.handle') }} method="POST" class="text-center">
                 @csrf
                 <button class="btn btn-success d-block mx-auto mb-3">Continue to Pay</button>
                 <a href="{{ route('user.cart.view') }}" class="btn btn-outline-secondary">Back</a>

@@ -27,6 +27,7 @@ class UserUpdateRequest extends FormRequest
         return [
             'phone_number' => ['required', 'numeric'],
             'name' => ['required', 'string', 'max:50'],
+            'image' => ['file', 'mimes:jpg,jpeg,png', 'max:1024'],
         ];
     }
 }

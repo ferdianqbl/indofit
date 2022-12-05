@@ -1,5 +1,9 @@
 @extends('frontend.layout.main')
 
+@push('script')
+
+@endpush
+
 @section('content')
   <div class="trainerPage" id="trainerPage">
 
@@ -20,7 +24,7 @@
             @foreach ($trainers as $trainer)
               <div class="col">
                 <div class="card h-100 trainer-card">
-                  <img src="/images/landingPage/home/Pelatih-{{ rand(1, 3) }}.png" alt="trainer-img"
+                  <img src="/storage/avatar/{{ $trainer->coach->image }}" alt="trainer-img"
                     class="card-img-top img-trainer">
                   <div class="card-body">
                     <p class="trainer-name">{{ $trainer->coach->name }}</p>

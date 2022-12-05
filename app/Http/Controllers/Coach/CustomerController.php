@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Coach;
 
+use App\Constants\PaymentStatus;
 use App\Constants\Progress;
 use App\Constants\Status;
 use App\Http\Controllers\Controller;
@@ -17,7 +18,7 @@ class CustomerController extends Controller
         $title = "Your Customer";
         $items = OrderItem::query()
                 ->whereHas('order', function($query) {
-                    $query->whereHas('invoice', fn($q) => $q->where('status', Status::PAID->value));
+                    $query->whereHas('invoice', fn($q) => $q->where('transaction_status', PaymentStatus::SETTLEMENT->value));
                 })
                 ->whereHas('coach_domain', fn($q) => $q->where('coach_id', Auth::guard('coach')->id()))
                 ->whereHas('order_item_status', fn($q) => $q->where('status', Progress::RUNNING->value))

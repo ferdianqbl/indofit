@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Order;
+use App\Models\CoachDomain;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\OrderItemStatus;
+use Carbon\Carbon;
 
 class OrderItem extends Model
 {
@@ -28,6 +32,8 @@ class OrderItem extends Model
         'price'
     ];
 
+    protected $hidden = [];
+
     public function coach_domain(): BelongsTo
     {
         return $this->belongsTo(CoachDomain::class);
@@ -41,5 +47,15 @@ class OrderItem extends Model
     public function order_item_status(): HasOne
     {
         return $this->hasOne(OrderItemStatus::class);
+    }
+
+    public function orderItemName(): string
+    {
+        $coachName = $this->coach_domain->coach->name;
+        $sportName = $this->coach_domain->sport->name;
+        $since = Carbon::parse($this->train_since)->format('H:i');
+        $until = Carbon::parse($this->train_until)->format('H:i');
+
+        return $coachName . " -- " . $sportName . " -- " . $since . "-" . $until;
     }
 }

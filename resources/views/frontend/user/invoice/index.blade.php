@@ -2,7 +2,7 @@
 
 @php
   use Akaunting\Money\Money;
-  use App\Constants\Status;
+  use App\Constants\PaymentStatus;
   use Carbon\Carbon;
 @endphp
 
@@ -24,12 +24,9 @@
 
           <a href={{ route('user.invoice.proof', $invoice->id) }}>See Invoice</a>
 
-          @if ($invoice->status->value == Status::PENDING->value)
-            <form method="POST" action="{{ route('user.invoice.paid', $invoice->id) }}">
-              @csrf
-              <button class="btn btn-primary">Pay Now</button>
-            </form>
-          @elseif($invoice->status->value == Status::PAID->value)
+          @if ($invoice->transaction_status == PaymentStatus::PENDING->value)
+          <a href="{{ route('user.payment.repay', $invoice->id) }}" class="btn btn-primary">Pay Now</a>
+          @elseif($invoice->transaction_status == PaymentStatus::SETTLEMENT->value)
             <span>Status : THIS IS HAS BEEN PAID</span>
           @else
             <span>Status : Cancelled</span>
