@@ -50,7 +50,7 @@ class CheckPaymentStatus extends Command
 
         foreach($invoices as $invoice)
         {
-            $status = $service->checkStatus($invoice->order->id);
+            $status = (object)$service->checkStatus($invoice->order->id);
 
             try {
                 DB::beginTransaction();
