@@ -21,7 +21,7 @@
                     <td>{{ $i->order->id }}</td>
                     <td>{{ $i->order->price }}</td>
                     <td>{{ $i->order->user->name }}</td>
-                    <td>{{ $i->status->name }}</td>
+                    <td>{{ $i->transaction_status }}</td>
                 </tr>
             @endforeach
         </tbody>

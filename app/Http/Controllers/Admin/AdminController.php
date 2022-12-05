@@ -18,9 +18,9 @@ class AdminController extends Controller
     public function overview()
     {
         $invoice = DB::table('invoices')->selectRaw('
-            COUNT(CASE WHEN status = 1 THEN 1 ELSE NULL END) as "pending",
-            COUNT(CASE WHEN status = 2 THEN 1 ELSE NULL END) as "paid",
-            COUNT(CASE WHEN status = 3 THEN 1 ELSE NULL END) as "failed",
+            COUNT(CASE WHEN transaction_status = \'pending\' THEN 1 ELSE NULL END) as "pending",
+            COUNT(CASE WHEN transaction_status = \'settlement\' THEN 1 ELSE NULL END) as "paid",
+            COUNT(CASE WHEN transaction_status = \'expire\' THEN 1 ELSE NULL END) as "failed",
             (SELECT COUNT(DISTINCT user_id) FROM orders where created_at >= ?) as "customers"
         ', [date('Y-m-d').' 00:00:00'])
         ->where('created_at', '>=', date('Y-m-d').' 00:00:00')->get();
