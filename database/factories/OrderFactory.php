@@ -19,6 +19,7 @@ class OrderFactory extends Factory
     {
         return [
             'user_id' => fake()->randomElement(User::pluck('id')),
+            'external_id' => fake()->randomNumber(8),
             'price' => rand(50000, 1000000),
         ];
     }

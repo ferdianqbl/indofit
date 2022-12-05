@@ -20,6 +20,7 @@ class OrderItemFactory extends Factory
     {
         return [
             'train_date' => fake()->date(),
+            'price' => rand(50000, 1000000),
             'train_since' => fake()->time(),
             'train_until' => fake()->time(),
             'coach_domain_id' => fake()->randomElement(CoachDomain::pluck('id')),

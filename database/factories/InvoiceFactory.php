@@ -20,7 +20,7 @@ class InvoiceFactory extends Factory
         return [
             'order_id' => fake()->randomElement(Order::pluck('id')),
             'issued_at' => fake()->dateTime(),
-            'status' => 1,
+            'status_message' => 1,
         ];
     }
 }
