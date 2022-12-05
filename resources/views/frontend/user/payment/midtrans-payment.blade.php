@@ -32,8 +32,7 @@
             send_response_to_form(result);
         },
         onClose: function(){
-            alert('closed');
-            window.location = '{{ route('user.history.view') }}';
+            send_response_to_form(result);
         }
         })
 

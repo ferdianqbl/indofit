@@ -33,20 +33,46 @@
                     </div>
                     <br>
                     <div>
+                        <p>Train Since</p>
+                        <select class="form-select" aria-label="Train Since" wire:model="train_since">
+                            <option value="">Pilih Train Since</option>
+                            @foreach($listHoursSince as $hour)
+                                <option value="{{ $hour }}">{{ $hour }}</option>
+                            @endforeach
+                        </select>
+                        @error('train_since')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <br>
+                    <div>
+                        <p>Train Until</p>
+                        <select class="form-select" aria-label="Train Until" wire:model="train_until">
+                            <option value="">Pilih Train Until</option>
+                            @foreach($listHoursUntil as $hour)
+                                <option value="{{ $hour }}">{{ $hour }}</option>
+                            @endforeach
+                        </select>
+                        @error('train_until')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+
+                    {{-- <div>
                       <p>Train Since</p>
+
                       <input type="time" name="train_since" wire:model="train_since" class="form-control">
                       @error('train_since')
                         <span class="text-danger">{{ $message }}</span>
                       @enderror
-                    </div>
-                    <br>
-                    <div>
+                    </div> --}}
+                    {{-- <div>
                       <p>Train Until</p>
                       <input type="time" name="train_until" wire:model="train_until" class="form-control">
                       @error('train_until')
                         <span class="text-danger">{{ $message }}</span>
                       @enderror
-                    </div>
+                    </div> --}}
                     <br>
                     <div>
                         <p>Catatan:</p>

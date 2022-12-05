@@ -1,5 +1,9 @@
 @extends('frontend.layout.main')
 
+@push('script')
+
+@endpush
+
 @section('content')
   <div class="trainerPage" id="trainerPage">
 

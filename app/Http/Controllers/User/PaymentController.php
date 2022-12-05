@@ -8,6 +8,7 @@ use App\Constants\Status;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
 use App\Models\OrderItemStatus;
+use App\Constants\PaymentStatus;
 use App\Services\MidtransPayment;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Contracts\View\View;
@@ -73,7 +74,7 @@ class PaymentController extends Controller
             Invoice::create([
                 'order_id' => $order->id,
                 'issued_at' => null,
-                'status' => Status::PENDING,
+                'transaction_status' => PaymentStatus::PENDING->value,
                 'external_id' => $order->external_id,
                 'snap_token' => $snap,
             ]);
@@ -99,6 +100,11 @@ class PaymentController extends Controller
     public function callback(Request $request)
     {
         $data = json_decode($request->get('json'));
+        if(empty($data->order_id))
+        {
+            return redirect()->route('user.history.view');
+        }
+
         $order = Order::findOrFail($data->order_id);
 
         $invoice = Invoice::where('order_id', $order->id)->first();
@@ -109,24 +115,47 @@ class PaymentController extends Controller
         try {
             DB::beginTransaction();
 
-            $invoice->status_message = $data->status_message;
-            $invoice->midtrans_transaction_id = $data->transaction_id ?? null;
-            $invoice->payment_type = $data->payment_type ?? null;
-            $invoice->issued_at = $data->transaction_time ?? null;
+            switch($data->transaction_status) {
+                case PaymentStatus::SETTLEMENT->value:
+                    $invoice->status_message = $data->status_message;
+                    $invoice->midtrans_transaction_id = $data->transaction_id ?? null;
+                    $invoice->payment_type = $data->payment_type ?? null;
+                    $invoice->issued_at = $data->transaction_time ?? null;
 
-            foreach($data->va_numbers as $key => $value) {
-                $invoice->va_number = $value->bank;
-                $invoice->bank = $value->va_number;
+                    foreach($data->va_numbers as $key => $value) {
+                        $invoice->va_number = $value->bank;
+                        $invoice->bank = $value->va_number;
+                    }
+
+                    $invoice->transaction_status = $data->transaction_status ?? null;
+                    $invoice->fraud_status = $data->fraud ?? null;
+                    $invoice->pdf_url = $data->pdf_url ?? null;
+                    $invoice->save();
+
+                    DB::commit();
+
+                    return redirect()->route('user.history.view');
+
+                default:
+                    $invoice->status_message = $data->status_message;
+                    $invoice->midtrans_transaction_id = $data->transaction_id ?? null;
+                    $invoice->payment_type = $data->payment_type ?? null;
+                    $invoice->issued_at = null;
+
+                    foreach($data->va_numbers as $key => $value) {
+                        $invoice->va_number = $value->bank;
+                        $invoice->bank = $value->va_number;
+                    }
+
+                    $invoice->transaction_status = $data->transaction_status ?? null;
+                    $invoice->fraud_status = $data->fraud ?? null;
+                    $invoice->pdf_url = $data->pdf_url ?? null;
+                    $invoice->save();
+
+                    DB::commit();
+
+                    return redirect()->route('user.history.view');
             }
-
-            $invoice->transaction_status = $data->transaction_status ?? null;
-            $invoice->fraud_status = $data->fraud ?? null;
-            $invoice->pdf_url = $data->pdf_url ?? null;
-            $invoice->save();
-
-            DB::commit();
-
-            return redirect()->route('user.history.view');
         } catch (\Exception $e) {
             dd($e);
         }

@@ -6,10 +6,11 @@ use Midtrans\Snap;
 use App\Models\User;
 use Midtrans\Config;
 use App\Models\Order;
+use Midtrans\Transaction;
 
 class MidtransPayment
 {
-    private $token;
+    public $token;
     public $clientToken;
 
     public function __construct()
@@ -44,5 +45,10 @@ class MidtransPayment
         $snapToken = Snap::getSnapToken($params);
 
         return [$snapToken, $this->clientToken];
+    }
+
+    public function checkStatus($orderId)
+    {
+        return Transaction::status($orderId);
     }
 }
