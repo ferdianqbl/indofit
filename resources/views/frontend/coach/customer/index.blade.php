@@ -1,8 +1,8 @@
 @extends('frontend.layout.main')
 
 @php
-    use Akaunting\Money\Money;
-    use Carbon\Carbon;
+  use Akaunting\Money\Money;
+  use Carbon\Carbon;
 @endphp
 
 @section('content')
@@ -11,34 +11,38 @@
       <h1 class="section-title text-center">CUSTOMER ORDER</h1>
 
       <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-        @if($items->isEmpty())
-            No Customer For Now
+        @if ($items->isEmpty())
+          No Customer For Now
         @else
-            @foreach ($items as $item)
+          @foreach ($items as $item)
             <div class="col">
-            <div class="card customer-order-card h-100">
+              <div class="card customer-order-card h-100">
                 <img src="/storage/avatar/{{ $item->order->user->image }}" alt="customer-order-img"
-                class="card-img-top img-fluid p-3 customer-order-img">
+                  class="card-img-top img-fluid p-3 customer-order-img">
                 <div class="card-body customer-order-card-body">
-                <h5 class="card-title">{{ $item->order->user->name }}</h5>
-                <p class="card-text text-secondary">Category : <span class="badge bg-secondary">{{ $item->coach_domain->sport->name }}</span></p>
-                <p class="card-text text-secondary">Date : {{ Carbon::parse($item->train_date)->format('d M Y') }}</p>
-                <p class="card-text text-secondary">
-                    Time : {{ Carbon::parse($item->train_until)->format('H:i') }} - {{ Carbon::parse($item->train_since)->format('H:i') }}
-                </p>
-                <a href={{ "https://wa.me/62" . substr($item->order->user->phone_number, 1) }} class="btn btn-primary">Contact</a>
-                <form action={{ route('coach.customer.done', $item->order_item_status->id) }} method="POST">
+                  <h5 class="card-title">{{ $item->order->user->name }}</h5>
+                  <p class="card-text text-secondary">Category : <span
+                      class="badge bg-secondary">{{ $item->coach_domain->sport->name }}</span></p>
+                  <p class="card-text text-secondary">Date : {{ Carbon::parse($item->train_date)->format('d M Y') }}</p>
+                  <p class="card-text text-secondary">
+                    Time : {{ Carbon::parse($item->train_until)->format('H:i') }} -
+                    {{ Carbon::parse($item->train_since)->format('H:i') }}
+                  </p>
+                  <a href={{ 'https://wa.me/62' . substr($item->order->user->phone_number, 1) }}
+                    class="btn btn-primary d-inline-block">Contact</a>
+                  <form action={{ route('coach.customer.done', $item->order_item_status->id) }} method="POST"
+                    class="d-inline-block">
                     @csrf
                     @method('PATCH')
-                    <button type="submit=" class="btn btn-dark">Mark As Done</button>
-                </form>
+                    <button type="submit" class="btn btn-success d-inline-block">Mark As Done</button>
+                  </form>
                 </div>
+              </div>
             </div>
-            </div>
-            @endforeach
+          @endforeach
         @endisset
 
-      </div>
     </div>
-  </section>
+  </div>
+</section>
 @endsection
