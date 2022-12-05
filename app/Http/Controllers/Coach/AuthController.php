@@ -31,7 +31,10 @@ class AuthController extends Controller
 
         if(!$request->file('image'))
         {
+            $filename = "coach_{$coach->id}.png";
             Avatar::create($request['name'])->save(storage_path("app/public/avatar/coach_{$coach->id}.png"));
+            $coach->image = $filename;
+            $coach->save();
         }
 
         else
