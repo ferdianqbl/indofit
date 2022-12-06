@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\CoachDomain;
+use App\Rules\AfterTwoDays;
 use App\Rules\CoachAvailableDays;
 use Carbon\Carbon;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -34,7 +35,7 @@ class UserTrainerDetail extends Component
     protected $messages = [
         'train_date.required' => 'Tidak boleh kosong',
         'train_date.date' => 'Format salah',
-        'train_date.after_or_equal' => 'Tidak boleh hari kemarin',
+        'train_date.after' => 'Booking waktu maksimal H-2',
         'train_since.required' => 'Tidak boleh kosong',
         'train_until.required' => 'Tidak boleh kosong',
         'train_until.after' => 'Harus lebih besar dari jam sebelumnya',
@@ -70,7 +71,7 @@ class UserTrainerDetail extends Component
     public function rules()
     {
         return [
-            'train_date' => ['required', 'date', 'after_or_equal:today', new CoachAvailableDays($this->trainer->working_days)],
+            'train_date' => ['required', 'date', 'after:today', new CoachAvailableDays($this->trainer->working_days), new AfterTwoDays],
             'train_since' => ['required', Rule::in($this->listHoursSince)],
             'train_until' => ['required', Rule::in($this->listHoursUntil), 'after:train_since'],
         ];
