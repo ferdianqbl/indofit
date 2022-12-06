@@ -14,8 +14,9 @@ class HistoryController extends Controller
     {
         $title = "Coach's History";
         $items = OrderItem::query()
-                ->whereHas('order_item_status', fn($q) => $q->where('status', Progress::FINISHED->value))
+                ->whereHas('order_item_status', fn($q) => $q->where('status', Progress::FINISHED->value)->orWhere('status', Progress::CANCELED->value))
                 ->whereHas('coach_domain', fn($q) => $q->where('coach_id', Auth::guard('coach')->id()))
+                ->orderBy('updated_at', 'DESC')
                 ->get();
 
         return view('frontend.coach.history.index', compact('items', 'title'));

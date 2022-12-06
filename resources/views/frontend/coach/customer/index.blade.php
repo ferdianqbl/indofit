@@ -30,12 +30,22 @@
                   </p>
                   <a href={{ 'https://wa.me/62' . substr($item->order->user->phone_number, 1) }}
                     class="btn btn-primary d-inline-block">Contact</a>
-                  <form action={{ route('coach.customer.done', $item->order_item_status->id) }} method="POST"
-                    class="d-inline-block">
-                    @csrf
-                    @method('PATCH')
-                    <button type="submit" class="btn btn-success d-inline-block">Mark As Done</button>
-                  </form>
+
+                    @if(Carbon::now()->lt($item->train_date))
+                        <form action={{ route('coach.customer.cancel', $item->order_item_status->id) }} method="POST"
+                            class="d-inline-block">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="btn btn-danger d-inline-block">Cancel</button>
+                        </form>
+                    @else
+                        <form action={{ route('coach.customer.done', $item->order_item_status->id) }} method="POST"
+                            class="d-inline-block">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="btn btn-success d-inline-block">Mark As Done</button>
+                        </form>
+                    @endif
                 </div>
               </div>
             </div>

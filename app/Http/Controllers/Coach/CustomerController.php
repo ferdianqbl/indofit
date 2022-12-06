@@ -38,4 +38,11 @@ class CustomerController extends Controller
 
         return redirect()->route('coach.customer');
     }
+
+    public function cancel(OrderItemStatus $order_item_status)
+    {
+        $order_item_status->update(['status' => Progress::CANCELED->value]);
+
+        return redirect()->route('coach.customer');
+    }
 }

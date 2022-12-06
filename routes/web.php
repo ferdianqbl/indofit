@@ -108,6 +108,7 @@ Route::prefix('coach')
     ->group(function () {
         Route::get('customer', [CustomerController::class, 'index'])->name('customer');
         Route::patch('customer/{order_item_status}', [CustomerController::class, 'markAsDone'])->name('customer.done');
+        Route::patch('customer/{order_item_status}/cancel', [CustomerController::class, 'cancel'])->name('customer.cancel');
 
         Route::get('history', [CoachHistoryController::class, 'index'])->name('history');
         Route::get('progress', [ProgressController::class, 'index'])->name('progress');
