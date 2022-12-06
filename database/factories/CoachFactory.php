@@ -25,6 +25,7 @@ class CoachFactory extends Factory
             'phone_number' => fake()->phoneNumber(),
             'description' => fake()->paragraph(4),
             'password' => Hash::make(fake()->password(8, 16)),
+            'is_approve' => 1,
         ];
     }
 }

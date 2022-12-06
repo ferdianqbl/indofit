@@ -35,9 +35,16 @@
         <li>
           <a href="{{ route('admin.coach') }}" class="{{ Route::is('admin.coach') ? 'active' : '' }}">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Coach</span>
+            <span class="links_name">Coach List</span>
           </a>
         </li>
+        <li>
+            <a href="{{ route('admin.approved') }}" class="{{ Route::is('admin.coach') ? 'active' : '' }}">
+              <i class='bx bx-list-ul' ></i>
+              <span class="links_name">Pendaftar Coach</span>
+            </a>
+          </li>
+
         <li>
           <a href="{{ route('admin.coach_progress') }}" class="{{ Route::is('admin.coach_progress') ? 'active' : '' }}">
             <i class='bx bx-pie-chart-alt-2' ></i>
@@ -49,7 +56,7 @@
               <i class='bx bx-bell' ></i>
               <span class="links_name">Refund</span>
             </a>
-          </li>
+        </li>
       </ul>
   </div>
   <section class="home-section">

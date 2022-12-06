@@ -55,9 +55,29 @@ class AdminController extends Controller
         $items = OrderItemStatus::query()
         ->with(['order_item'])
         ->where('status', Progress::CANCELED->value)
-        ->orderBy('updated_at', 'asc')
+        ->orderBy('updated_at', 'desc')
         ->get();
 
         return view('admin.cancellation', compact('items'));
+    }
+
+    public function cancellationDone(OrderItemStatus $order_item_status)
+    {
+        $order_item_status->cancellation_status = 0;
+        $order_item_status->save();
+        return redirect()->action([AdminController::class, 'cancellation']);
+    }
+
+    public function approvedCoach()
+    {
+        $coaches = Coach::where('is_approve', 0)->get();
+        return view('admin.approved-coach', compact('coaches'));
+    }
+
+    public function setApprovedCoach(Coach $coach)
+    {
+        $coach->is_approve = 1;
+        $coach->save();
+        return redirect()->action([AdminController::class, 'approvedCoach']);
     }
 }

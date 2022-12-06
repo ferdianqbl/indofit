@@ -78,6 +78,7 @@ class NewSports extends Component
         {
             CoachDomain::create($data);
             $this->flash('success', 'Kategori Olahraga Telah ditambahkan', [], route('coach.sports.index'));
+            return;
         }
 
         $this->checkDomain($domains, $data);

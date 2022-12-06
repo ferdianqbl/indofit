@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->text('description');
             $table->string('image')->nullable();
+            $table->integer('is_approve')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

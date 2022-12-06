@@ -17,6 +17,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('order_item_id')->index();
             $table->smallInteger('status')->default(0);
+            $table->integer('cancellation_status')->default(0);
 
             $table->foreign('order_item_id')->references('id')->on('order_items')->onDelete('cascade');
             $table->timestamps();

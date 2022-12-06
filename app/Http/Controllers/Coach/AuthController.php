@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Coach;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CoachSignUpRequest;
 use App\Http\Requests\CoachUpdateRequest;
-use App\Http\Requests\LoginRequest;
+use App\Http\Requests\CoachLoginRequest;
 use App\Models\Coach;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -54,7 +54,7 @@ class AuthController extends Controller
         return view('frontend.coach.auth.login', ['title' => 'Login']);
     }
 
-    public function authenticate(LoginRequest $request): RedirectResponse
+    public function authenticate(CoachLoginRequest $request): RedirectResponse
     {
         $credentials = $request->validated();
 

@@ -20,6 +20,7 @@ class OrderItemStatus extends Model
     protected $fillable = [
         'order_item_id',
         'status',
+        'cancellation_status',
     ];
 
     protected $table = 'order_item_statuses';

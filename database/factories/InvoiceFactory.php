@@ -20,7 +20,8 @@ class InvoiceFactory extends Factory
         return [
             'order_id' => fake()->randomElement(Order::pluck('id')),
             'issued_at' => fake()->dateTime(),
-            'status_message' => 1,
+            'midtrans_transaction_id' => \uniqid(),
+            'status_message' => "Success",
         ];
     }
 }

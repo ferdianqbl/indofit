@@ -143,4 +143,8 @@ Route::prefix('admin')
         Route::get('coach', 'coach')->name('coach');
         Route::get('coach_progress', 'coach_progress')->name('coach_progress');
         Route::get('cancellation', 'cancellation')->name('cancellation');
+        Route::patch('cancellation/{order_item_status}', 'cancellationDone')->name('cancellation.update');
+        
+        Route::get('coach_approval', 'approvedCoach')->name('approved');
+        Route::patch('approved/{coach}', 'setApprovedCoach')->name('approved.update');
     });

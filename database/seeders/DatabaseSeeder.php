@@ -25,10 +25,9 @@ class DatabaseSeeder extends Seeder
         User::factory(50)->create();
         Coach::factory(10)->create();
         CoachDomain::factory(30)->create();
-        Review::factory(50)->create();
-
         Order::factory(10)->create();
         OrderItem::factory(40)->create();
+        Review::factory(50)->create();
         Invoice::factory(10)->create();
 
         // \App\Models\User::factory()->create([
