@@ -44,6 +44,12 @@
             <span class="links_name">Coach Progress</span>
           </a>
         </li>
+        <li>
+            <a href="{{ route('admin.cancellation') }}" class="{{ Route::is('admin.cancellation') ? 'active' : '' }}">
+              <i class='bx bx-bell' ></i>
+              <span class="links_name">Refund</span>
+            </a>
+          </li>
       </ul>
   </div>
   <section class="home-section">

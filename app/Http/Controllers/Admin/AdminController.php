@@ -10,6 +10,7 @@ use App\Models\OrderItem;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use AgliPanci\LaravelCase\Query\CaseBuilder;
+use App\Constants\Progress;
 use App\Models\OrderItemStatus;
 
 class AdminController extends Controller
@@ -47,5 +48,16 @@ class AdminController extends Controller
         ->orderBy('updated_at', 'asc')
         ->get();
         return view('admin.coach_progress', compact('items'));
+    }
+
+    public function cancellation()
+    {
+        $items = OrderItemStatus::query()
+        ->with(['order_item'])
+        ->where('status', Progress::CANCELED->value)
+        ->orderBy('updated_at', 'asc')
+        ->get();
+
+        return view('admin.cancellation', compact('items'));
     }
 }

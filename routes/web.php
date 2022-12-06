@@ -142,4 +142,5 @@ Route::prefix('admin')
         Route::get('orders', 'orders')->name('orders');
         Route::get('coach', 'coach')->name('coach');
         Route::get('coach_progress', 'coach_progress')->name('coach_progress');
+        Route::get('cancellation', 'cancellation')->name('cancellation');
     });
