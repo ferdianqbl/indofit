@@ -11,7 +11,7 @@ $isCoach = $urlChecker->coach($currentURL);
 @if($isCoach)
 <nav class="navbar navbar-expand-lg bg-light fixed-top" id="my-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/">INDOFIT COACH</a>
+    <a class="navbar-brand" href="/">INDOFIT</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -26,7 +26,7 @@ $isCoach = $urlChecker->coach($currentURL);
         <li class="nav-item dropdown btn btn-dark">
           <a class="nav-link dropdown-toggle text-white text-uppercase" href="#" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Hello, {{ Auth::guard('coach')->user()->name }}
+            Halo, {{ Auth::guard('coach')->user()->name }}
           </a>
           <ul class="dropdown-menu bg-dark text-white">
 

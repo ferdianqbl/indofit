@@ -1,6 +1,6 @@
 <div>
   <div class="container">
-    <h1 class="section-title mb-5">DAFTAR TRAINER</h1>
+    <h1 class="section-title mb-5">DAFTAR PELATIH</h1>
     @if (session('message'))
       <div class="alert alert-success alert-dismissible fade show mb-5 text-center" role="alert">
         <h4>{{ session('message') }}</h4>
@@ -18,7 +18,7 @@
           @endforeach
         </select>
 
-        <label for="name_search" class="form-label">Nama Trainer</label>
+        <label for="name_search" class="form-label">Nama Pelatih</label>
         <input type="text" class="form-control" id="name_search" name="name_search" wire:model="nameSearch">
         {{--
                 <label for="date_search">Tanggal Booking</label>
@@ -44,7 +44,7 @@
                 <p class="trainer-category">{{ $trainer->sport->name }}</p>
                 <span class="badge text-bg-dark">{{ $trainer->working_days }}</span>
                 <br>
-                <a href={{ route('user.trainer.detail', $trainer->id) }} class="trainer-link">More</a>
+                <a href={{ route('user.trainer.detail', $trainer->id) }} class="trainer-link">Detail</a>
               </div>
             </div>
           </div>

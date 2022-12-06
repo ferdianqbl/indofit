@@ -8,7 +8,7 @@
 @section('content')
   <section class="historyPage" id="historyPage">
     <div class="container">
-      <h1 class="section-title mb-5">HISTORY</h1>
+      <h1 class="section-title mb-5">RIWAYAT</h1>
       {{-- <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         @if ($histories->count() > 0)
           @foreach ($histories as $history)
@@ -49,7 +49,7 @@
                 <td>{{ $history->transaction_status }}</td>
                 {{-- <td>{{ $history->issued_at != null ? date('d M Y h:m:s', strtotime($history->issued_at)) : '-' }}</td> --}}
                 <td>
-                  <a href={{ route('user.invoice.detail', $history->id) }} class="btn btn-primary">See Detail</a>
+                  <a href={{ route('user.invoice.detail', $history->id) }} class="btn btn-primary">Lihat Lengkap</a>
                 </td>
             @endforeach
           @else
