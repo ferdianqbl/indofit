@@ -1,4 +1,4 @@
-@php use Akaunting\Money\Money; @endphp
+@php use Akaunting\Money\Money; use Gloudemans\Shoppingcart\Facades\Cart; @endphp
 
 <div>
   <p class="cart-count text-center">You Have {{ $totalItem }} item(s)</p>
@@ -12,9 +12,6 @@
   @forelse($cart as $c)
     <div class="cart-item-card row justify-content-between align-items-center mb-5">
       <div class="cart-item-body col-8 row">
-        <div class="col-3">
-          <img src="/images/landingPage/home/Pelatih-1.png" alt="cart-img" class="cart-img img-fluid">
-        </div>
         <div class="cart-item-body-detail col-9">
           <p class="cart-item-text_name">{{ $c->name }}</p>
           <p class="cart-item-text">Price : {{ Money::IDR($c->price, true) }}</p>
@@ -31,11 +28,15 @@
   @endforelse
 
   @if (Cart::content()->count() > 0)
-    <div class="cart-total-group">
-      <p class="cart-total-text text-end">
-        Total Price: {{ $totalPrice }}
-        <span><a href={{ route('user.payment.view') }} class="ms-3 btn btn-success">Go to Checkout</a></span>
-      </p>
-    </div>
+    @if(Cart::priceTotal() > 100000000)
+        <h6 class="text-danger">Setiap keranjang hanya boleh menampung maksimal 10 juta saja.</h6>
+    @else
+        <div class="cart-total-group">
+            <p class="cart-total-text text-end">
+            Total Price: {{ $totalPrice }}
+            <span><a href={{ route('user.payment.view') }} class="ms-3 btn btn-success">Go to Checkout</a></span>
+            </p>
+        </div>
+    @endif
   @endif
 </div>

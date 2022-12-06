@@ -4,6 +4,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 @endpush
 
+@php
+    use Carbon\Carbon;
+@endphp
+
 @section('content')
   <section class="reviewPage" id="reviewPage">
     <div class="container">
@@ -33,7 +37,7 @@
                         ({{ $review->rating }})
                     </p>
                     <p class="review-text">{{ $review->description }}</p>
-                    <p class="review-user">{{ $review->user->name }} | {{ $review->created_at }}</p>
+                    <p class="review-user">{{ $review->user->name }} | {{ Carbon::parse($review->created_at)->format('d M Y') }}</p>
                     <p class="review-coach">Review for {{ $review->coach->name }}</p>
                     </div>
                 </div>

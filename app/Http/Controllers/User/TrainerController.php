@@ -16,7 +16,7 @@ class TrainerController extends Controller
     {
         $title = 'Trainer List';
         $trainers = CoachDomain::with(['coach'])->get();
-        return view('frontend.user.trainer.index', compact('title', 'trainers'));
+        return view('frontend.user.trainer.index', compact('title'));
     }
 
     public function detail(CoachDomain $coach_domains): View

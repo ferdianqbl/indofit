@@ -20,7 +20,7 @@
 
         <label for="name_search" class="form-label">Nama Trainer</label>
         <input type="text" class="form-control" id="name_search" name="name_search" wire:model="nameSearch">
-        {{-- 
+        {{--
                 <label for="date_search">Tanggal Booking</label>
                 <input type="date" name="date_search" wire:model="dateSearch" class="form-control"> --}}
       </form>
@@ -42,6 +42,8 @@
               <div class="card-body">
                 <p class="trainer-name">{{ $trainer->coach->name }}</p>
                 <p class="trainer-category">{{ $trainer->sport->name }}</p>
+                <span class="badge text-bg-dark">{{ $trainer->working_days }}</span>
+                <br>
                 <a href={{ route('user.trainer.detail', $trainer->id) }} class="trainer-link">More</a>
               </div>
             </div>

@@ -31,6 +31,16 @@ class NewSports extends Component
 
     public function render()
     {
+        if($this->sport_id == null)
+        {
+            $this->sport_id = 1;
+        }
+
+        if($this->working_days == null)
+        {
+            $this->working_days = "Monday";
+        }
+
         $this->listHoursSince = HoursHelper::create("01:00", "23:00", 30);
         if($this->working_time_start == null)
         {

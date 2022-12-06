@@ -6,6 +6,7 @@ use App\Models\CoachDomain;
 use App\Models\Sport;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 
 class UserTrainerList extends Component
@@ -18,11 +19,35 @@ class UserTrainerList extends Component
     public $nameSearch;
     public $dateSearch;
 
+    public function mount()
+    {
+        $sport = Session::get('sport');
+        if($sport != null)
+        {
+            $this->sportSearch = $sport;
+        }
+
+        $name = Session::get('name');
+        if($name != null)
+        {
+            $this->nameSearch = $name;
+        }
+
+        $date = Session::get('date');
+        if($date != null)
+        {
+            $this->dateSearch = $date;
+        }
+    }
+
     public function render()
     {
         $this->sports = Sport::all();
-
         $this->checkSearchValue();
+
+        Session::put('sport', $this->sportSearch);
+        Session::put('name', $this->nameSearch);
+        Session::put('date', $this->dateSearch);
 
         return view('livewire.user-trainer-list');
     }
@@ -41,30 +66,5 @@ class UserTrainerList extends Component
             return $q->where('working_days', $d);
         })
         ->get();
-
-        // if($this->sportSearch == null && $this->nameSearch == null)
-        // {
-        //     $this->trainers = CoachDomain::with(['coach'])->get();
-        // }
-
-        // if($this->sportSearch != null && $this->nameSearch == null)
-        // {
-        //     $this->trainers = CoachDomain::with(['coach'])->where('sport_id', $this->sportSearch)->get();
-        // }
-
-        // if($this->sportSearch == null && $this->nameSearch != null)
-        // {
-        //     $this->trainers = CoachDomain::query()
-        //     ->withWhereHas('coach', fn($q) => $q->where('name', 'LIKE', '%'.$this->nameSearch.'%'))
-        //     ->get();
-        // }
-
-        // if($this->sportSearch != null && $this->nameSearch != null)
-        // {
-        //     $this->trainers = CoachDomain::query()
-        //     ->with(['coach', fn($q) => $q->where('name', 'LIKE', '%'.$this->nameSearch.'%') ])
-        //     ->where('sport_id', $this->sportSearch)
-        //     ->get();
-        // }
     }
 }
