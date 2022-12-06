@@ -40,7 +40,7 @@ class CoachAvailableDays implements Rule
     {
         $val = Carbon::parse($value)->format('l');
 
-        return $val === $this->day;
+        return $this->listDays[$val] === $this->day;
     }
 
     /**
@@ -50,6 +50,6 @@ class CoachAvailableDays implements Rule
      */
     public function message()
     {
-        return 'Trainer ini hanya bisa di hari ' . $this->listDays[$this->day] . '. Silakan pilih tanggal yang sesuai ';
+        return 'Trainer ini hanya bisa di hari ' . $this->day . '. Silakan pilih tanggal yang sesuai ';
     }
 }

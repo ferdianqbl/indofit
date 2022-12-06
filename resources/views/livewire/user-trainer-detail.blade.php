@@ -15,6 +15,7 @@
               <div class="trainer-profile-detail">
                 <p class="trainer-name">{{ $trainer->coach->name }}</p>
                 <p class="trainer-price">Olahraga : {{ $trainer->sport->name }}</p>
+                <p class="trainer-price">Hari : {{ $trainer->working_days }}</p>
                 <p class="trainer-time">Waktu : {{ $trainer->working_time_start }} - {{ $trainer->working_time_end }}</p>
                 <p class="trainer-price">Harga : {{ \Akaunting\Money\Money::IDR($trainer->price, true) }} / jam</p>
                 <p class="trainer-star">Rating rata - rata : {{ $avg_star }}</p>

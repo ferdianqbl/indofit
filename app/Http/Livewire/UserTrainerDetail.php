@@ -36,6 +36,7 @@ class UserTrainerDetail extends Component
         'train_date.date' => 'Format salah',
         'train_date.after_or_equal' => 'Tidak boleh hari kemarin',
         'train_since.required' => 'Tidak boleh kosong',
+        'train_until.required' => 'Tidak boleh kosong',
         'train_until.after' => 'Harus lebih besar dari jam sebelumnya',
     ];
 
