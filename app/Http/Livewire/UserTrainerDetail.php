@@ -72,6 +72,27 @@ class UserTrainerDetail extends Component
 
         $this->validate();
 
+        foreach(Cart::content() as $key => $cart)
+        {
+            foreach($cart as $index => $value) {
+                if($index == "options")
+                {
+                    foreach($value as $i => $v)
+                    {
+                        if($i == "train_date")
+                        {
+                            $d = Carbon::parse($v)->eq($this->train_date);
+                            if($d)
+                            {
+                                $this->alert('info', "Tanggal pilihan sudah ada dalam keranjang, silakan pilih hari lain");
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         $since = Carbon::parse($this->train_since);
         $until = Carbon::parse($this->train_until);
 
@@ -94,5 +115,6 @@ class UserTrainerDetail extends Component
         ]);
 
         $this->flash('success', 'Telah ditambahkan ke keranjang', [], '/');
+        return;
     }
 }
