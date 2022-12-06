@@ -41,8 +41,17 @@ class UserTrainerDetail extends Component
         if($this->train_since == null) {
             $this->listHoursUntil = HoursHelper::create($coachStart, $coachEnd, 30);
         } else {
-            $util = Carbon::parse($this->train_since)->addMinutes(30)->format('H:i');
-            $this->listHoursUntil = HoursHelper::create($util, $coachEnd, 30);
+            if($this->train_since == $coachEnd)
+            {
+                $this->listHoursUntil = new SupportCollection;
+            }
+
+            else
+            {
+                $util = Carbon::parse($this->train_since)->addMinutes(30)->format('H:i');
+                $this->listHoursUntil = HoursHelper::create($util, $coachEnd, 30);
+            }
+
         }
 
         $this->avg_star = number_format($this->avg_star, 2);

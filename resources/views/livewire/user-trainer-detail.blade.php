@@ -15,9 +15,9 @@
               <div class="trainer-profile-detail">
                 <p class="trainer-name">{{ $trainer->coach->name }}</p>
                 <p class="trainer-price">Olahraga : {{ $trainer->sport->name }}</p>
-                <p class="trainer-time">Working time : {{ $trainer->working_time_start }} - {{ $trainer->working_time_end }}</p>
-                <p class="trainer-price">Price : Rp. {{ $trainer->price }} / hour</p>
-                <p class="trainer-star">Star average : {{ $avg_star }}</p>
+                <p class="trainer-time">Waktu : {{ $trainer->working_time_start }} - {{ $trainer->working_time_end }}</p>
+                <p class="trainer-price">Harga : {{ \Akaunting\Money\Money::IDR($trainer->price, true) }} / jam</p>
+                <p class="trainer-star">Rating rata - rata : {{ $avg_star }}</p>
                 @isset($speciacilites)
                     <p>Spesialiasi trainer selain {{ $trainer->sport->name }}</p>
                     @foreach ($specialities as $key => $value)
@@ -31,7 +31,7 @@
                   <form wire:submit.prevent="storeToCart">
                     @csrf
                     <div>
-                      <p>Date Booking</p>
+                      <p>Waktu Booking</p>
                       <input type="date" name="train_date" wire:model="train_date" class="form-control">
                       @error('train_date')
                         <span class="text-danger">{{ $message }}</span>
@@ -39,7 +39,7 @@
                     </div>
                     <br>
                     <div>
-                        <p>Train Since</p>
+                        <p>Jam Mulai</p>
                         <select class="form-select" aria-label="Train Since" wire:model="train_since">
                             <option value="">Pilih Train Since</option>
                             @foreach($listHoursSince as $hour)
@@ -52,7 +52,7 @@
                     </div>
                     <br>
                     <div>
-                        <p>Train Until</p>
+                        <p>Jam Selesai</p>
                         <select class="form-select" aria-label="Train Until" wire:model="train_until">
                             <option value="">Pilih Train Until</option>
                             @foreach($listHoursUntil as $hour)
@@ -88,7 +88,7 @@
                                     setiap orang tidak bisa memesan trainer lebih dari 1 sehari (<a href="https://lifestyle.kompas.com/read/2019/10/11/203500020/ini-sebabnya-olahraga-dua-kali-sehari-buruk-untuk-kesehatan?page=all" target="_blank">lihat disini</a>)
                                 </p>
                             </li>
-                            <li>Jika anda ingin mengganti trainer pada hari yang sama, silakan hapus pesanan nya di keranjang</li>
+                            <li>Semua pesanan akan dimasukkan dalam keranjang</li>
                         </ol>
                     </div>
 

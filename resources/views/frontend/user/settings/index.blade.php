@@ -9,10 +9,10 @@
             @csrf
             @method('PATCH')
             <h1 class="form-title text-center mb-3">
-              <span>Let's Edit Your Data</span>
+              <span>Edit Data Anda</span>
             </h1>
             <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
+              <label for="name" class="form-label">Nama</label>
               <input type="text" class="form-control" id="name" name="name" placeholder="name" value={{ old('name') ? old('name') : $user->name }}>
             </div>
             @error('name')
@@ -25,7 +25,7 @@
             </div>
 
             <div class="mb-3">
-              <label for="phone_number" class="form-label">Phone Number</label>
+              <label for="phone_number" class="form-label">Nomor Telepon</label>
               <input
               type="tel"
               class="form-control"
@@ -39,7 +39,7 @@
             @enderror
 
             <div class="mb-3">
-                <label for="image" class="form-label">Image (Optional)</label>
+                <label for="image" class="form-label">Gambar (Opsional)</label>
                 <input class="form-control" type="file" id="image" name="image">
             </div>
             @error('image')
@@ -47,7 +47,7 @@
             @enderror
 
             <div class="mt-5 text-center">
-              <button type="submit" class="btn btn-dark px-4 py-2">Update</button>
+              <button type="submit" class="btn btn-dark px-4 py-2">Perbarui</button>
             </div>
           </form>
         </div>

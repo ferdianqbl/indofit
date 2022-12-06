@@ -1,11 +1,11 @@
 @php use Akaunting\Money\Money; use Gloudemans\Shoppingcart\Facades\Cart; @endphp
 
 <div>
-  <p class="cart-count text-center">You Have {{ $totalItem }} item(s)</p>
+  <p class="cart-count text-center">Anda Punya {{ $totalItem }} Barang</p>
 
   @if (Cart::content()->count() > 0)
     <div class="text-end mb-5">
-      <button wire:click="removeAll" class="btn btn-danger">Remove All</button>
+      <button wire:click="removeAll" class="btn btn-danger">Hapus Semua</button>
     </div>
   @endif
 
@@ -14,8 +14,8 @@
       <div class="cart-item-body col-8 row">
         <div class="cart-item-body-detail col-9">
           <p class="cart-item-text_name">{{ $c->name }}</p>
-          <p class="cart-item-text">Price : {{ Money::IDR($c->price, true) }}</p>
-          <p class="cart-item-text">Duration : {{ $c->qty }} {{ $c->qty > 1 ? 'hours' : 'hour' }}</p>
+          <p class="cart-item-text">Harga : {{ Money::IDR($c->price, true) }}</p>
+          <p class="cart-item-text">Durasi : {{ $c->qty }} {{ $c->qty > 1 ? 'hours' : 'hour' }}</p>
         </div>
       </div>
 

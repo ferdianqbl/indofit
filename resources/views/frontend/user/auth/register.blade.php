@@ -8,11 +8,11 @@
           <form method="POST" action={{ route('user.register.store') }} enctype="multipart/form-data">
             @csrf
             <h1 class="form-title text-center mb-3">
-              SIGN UP!
-              <span>Let's Signup.</span>
+              Registrasi!
+              <span>Daftarkan diri untuk mencari pelatih anda.</span>
             </h1>
             <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
+              <label for="name" class="form-label">Nama</label>
               <input type="text" class="form-control" id="name" name="name" placeholder="name" value={{ old('name') }}>
             </div>
             @error('name')
@@ -28,7 +28,7 @@
             @enderror
 
             <div class="mb-3">
-              <label for="phone_number" class="form-label">Phone Number</label>
+              <label for="phone_number" class="form-label">Nomor Telepon</label>
               <input type="tel" class="form-control" id="phone_number" name="phone_number" placeholder="phone" value={{ old('phone_number') }}>
             </div>
             @error('phone_number')
@@ -36,7 +36,7 @@
             @enderror
 
             <div class="mb-3">
-                <label for="image" class="form-label">Image (Optional)</label>
+                <label for="image" class="form-label">Gambar (Opsional)</label>
                 <input class="form-control" type="file" id="image" name="image">
             </div>
             @error('image')
@@ -52,7 +52,7 @@
             @enderror
 
             <div class="mb-3">
-              <label for="password_confirmation" class="form-label">Re-type Password</label>
+              <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
               <input type="password" class="form-control" id="password_confirmation" name="password_confirmation"
                 placeholder="Re-type Password">
             </div>
@@ -61,7 +61,7 @@
             @enderror
 
             <div class="mt-5 text-center">
-              <button type="submit" class="btn btn-dark px-4 py-2">Create Account</button>
+              <button type="submit" class="btn btn-dark px-4 py-2">Buat Akun</button>
             </div>
           </form>
 

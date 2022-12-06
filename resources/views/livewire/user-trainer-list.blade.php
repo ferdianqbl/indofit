@@ -1,6 +1,6 @@
 <div>
   <div class="container">
-    <h1 class="section-title mb-5">TRAINER LIST</h1>
+    <h1 class="section-title mb-5">DAFTAR TRAINER</h1>
     @if (session('message'))
       <div class="alert alert-success alert-dismissible fade show mb-5 text-center" role="alert">
         <h4>{{ session('message') }}</h4>
@@ -50,7 +50,7 @@
           </div>
         @endforeach
       @else
-        NO TRAINER
+        BELUM ADA PELATIH.
       @endisset
   </div>
 </div>

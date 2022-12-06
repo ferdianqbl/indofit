@@ -3,7 +3,7 @@
     <div class="row justify-content-center align-items-start">
       <div class="col-md-6">
         <p class="footer-title">
-          Our Office
+          Kantor Kami
         </p>
         <p class="footer-text">
           Jl. Mojoarum V No.66<br>
@@ -15,10 +15,10 @@
       </div>
       <div class="col-md-6">
         <p class="footer-title">
-          Join Us
+          Bergabung Bersama Kami
         </p>
         <p class="footer-text">
-          <a href="{{ route('coach.register.view') }}" class="text-white">Join Us As Trainers</a>
+          <a href="{{ route('coach.register.view') }}" class="text-white">Gabung Sebagai Pelatih</a>
         </p>
         </p>
       </div>

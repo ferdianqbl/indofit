@@ -9,18 +9,18 @@
 @section('content')
   <section class="customerTrainerPage" id="customerTrainerPage">
     <div class="container">
-      <h1 class="section-title text-center">Your History</h1>
+      <h1 class="section-title text-center">Riwayat Anda</h1>
       <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
         @if($items->isEmpty())
-            No History
+            Belum ada riwayat
         @else
         <table class="table table-hover">
             <thead>
                 <tr>
                   <th scope="col">No</th>
-                  <th scope="col">Sport</th>
-                  <th scope="col">Working Time</th>
-                  <th scope="col">Customer</th>
+                  <th scope="col">Olahraga</th>
+                  <th scope="col">Waktu Kerja</th>
+                  <th scope="col">Pelanggan</th>
                   <th scope="col">Status</th>
                 </tr>
             </thead>

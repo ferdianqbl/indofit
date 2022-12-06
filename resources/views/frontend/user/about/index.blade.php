@@ -4,7 +4,7 @@
   <section class="about" id="about">
     <div class="container">
       <h1 class="section-title">
-        ABOUT
+        TENTANG INDOFIT
       </h1>
       <p class="section-text">
         Indofit adalah platform yang membantu mempertemukan para penggiat olahraga yang sedang membutuhkan pelatih

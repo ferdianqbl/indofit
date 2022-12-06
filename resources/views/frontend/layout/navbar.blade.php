@@ -31,10 +31,10 @@ $isCoach = $urlChecker->coach($currentURL);
           <ul class="dropdown-menu bg-dark text-white">
 
             {{-- COACH --}}
-            <li><a class="btn btn-dark d-block text-start" href="{{ route('coach.customer') }}">Customer</a></li>
-            <li><a class="btn btn-dark d-block text-start" href="{{ route('coach.history') }}">History</a></li>
-            <li><a class="btn btn-dark d-block text-start" href="{{ route('coach.sports.index') }}">Sports</a></li>
-            <li><a class="btn btn-dark d-block text-start" href="{{ route('coach.settings.index') }}">Settings</a></li>
+            <li><a class="btn btn-dark d-block text-start" href="{{ route('coach.customer') }}">Pelanggan</a></li>
+            <li><a class="btn btn-dark d-block text-start" href="{{ route('coach.history') }}">Riwayat</a></li>
+            <li><a class="btn btn-dark d-block text-start" href="{{ route('coach.sports.index') }}">Olahraga Anda</a></li>
+            <li><a class="btn btn-dark d-block text-start" href="{{ route('coach.settings.index') }}">Edit Diri</a></li>
             <form action="{{ route('coach.logout') }}" method="POST" class="p-0 m-0 row">
               @csrf
               <button type="submit" class="btn btn-dark text-start col-12">Logout</button>
@@ -59,18 +59,18 @@ $isCoach = $urlChecker->coach($currentURL);
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-lg-0 ms-lg-auto ms-lg-0 mx-auto text-center mb-2 mb-lg-0 align-items-center">
         <li class="nav-item">
-          <a class="nav-link{{ Route::is('home') ? ' active' : '' }}" href={{ route('home') }}>HOME</a>
+          <a class="nav-link{{ Route::is('home') ? ' active' : '' }}" href={{ route('home') }}>BERANDA</a>
         </li>
         <li class="nav-item">
           <a class="nav-link{{ Route::is('user.trainer.view') || Route::is('user.trainer.detail') ? ' active' : '' }}"
-            href={{ route('user.trainer.view') }}>TRAINER</a>
+            href={{ route('user.trainer.view') }}>PELATIH</a>
         </li>
         <li class="nav-item">
           <a class="nav-link{{ Route::is('user.review.view') ? ' active' : '' }}" href={{ route('user.review.view')
-            }}>REVIEW</a>
+            }}>ULASAN</a>
         </li>
         <li class="nav-item me-0 me-lg-3">
-          <a class="nav-link{{ Route::is('about') ? ' active' : '' }}" href={{ route('about') }}>ABOUT</a>
+          <a class="nav-link{{ Route::is('about') ? ' active' : '' }}" href={{ route('about') }}>TENTANG</a>
         </li>
 
         @if (!Auth::guard('user')->check())
@@ -81,15 +81,15 @@ $isCoach = $urlChecker->coach($currentURL);
         <li class="nav-item dropdown btn btn-dark">
           <a class="nav-link dropdown-toggle text-white text-uppercase" href="#" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Hello, {{ Auth::guard('user')->user()->name }}
+            Halo, {{ Auth::guard('user')->user()->name }}
           </a>
           <ul class="dropdown-menu bg-dark text-white">
 
             {{-- USER --}}
-            <li><a class="btn btn-dark d-block text-start" href="{{ route('user.history.view') }}">History</a></li>
+            <li><a class="btn btn-dark d-block text-start" href="{{ route('user.history.view') }}">Riwayat</a></li>
             <li><a class="btn btn-dark d-block text-start" href="{{ route('user.review.show') }}">Review Anda</a></li>
-            <li><a class="btn btn-dark d-block text-start" href="{{ route('user.cart.view') }}">Cart</a></li>
-            <li><a class="btn btn-dark d-block text-start" href="{{ route('user.settings.edit') }}">Settings</a></li>
+            <li><a class="btn btn-dark d-block text-start" href="{{ route('user.cart.view') }}">Keranjang</a></li>
+            <li><a class="btn btn-dark d-block text-start" href="{{ route('user.settings.edit') }}">Edit Diri</a></li>
             <li>
               <form action="{{ route('user.logout') }}" method="POST" class="p-0 m-0 row">
                 @csrf

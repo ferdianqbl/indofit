@@ -8,21 +8,21 @@
 @section('content')
   <section class="customerTrainerPage" id="customerTrainerPage">
     <div class="container">
-      <h1 class="section-title text-center mb-5">Your Sports Domain</h1>
-      <a class="btn btn-primary mb-5" href="{{ route('coach.sports.create') }}">New Sports</a>
+      <h1 class="section-title text-center mb-5">Olahraga Anda</h1>
+      <a class="btn btn-primary mb-5" href="{{ route('coach.sports.create') }}">Buat Baru</a>
 
       <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
         @if ($items->isEmpty())
-          <strong>No Customer For Now</strong>
+          <strong>Belum ada apapun</strong>
         @else
           <table class="table table-hover">
             <thead>
               <tr>
                 <th scope="col">No</th>
-                <th scope="col">Sport</th>
-                <th scope="col">Working Time</th>
-                <th scope="col">Price</th>
-                <th scope="col">Actions</th>
+                <th scope="col">Olahraga</th>
+                <th scope="col">Waktu</th>
+                <th scope="col">Harga</th>
+                <th scope="col"></th>
               </tr>
             </thead>
 
@@ -38,7 +38,7 @@
                     <form action={{ route('coach.sports.destroy', $item->id) }} method="POST" class="d-inline-block">
                       @csrf
                       @method('DELETE')
-                      <button class="btn btn-danger">Delete</button>
+                      <button class="btn btn-danger">Hapus</button>
                     </form>
                   </td>
                 </tr>

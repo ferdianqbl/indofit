@@ -11,7 +11,7 @@
 @section('content')
   <section class="reviewPage" id="reviewPage">
     <div class="container">
-      <h1 class="section-title mb-5">REVIEWS</h1>
+      <h1 class="section-title mb-5">ULASAN UNTUK BERBAGAI PELATIH</h1>
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
         @if($reviews->isEmpty())
             NO REVIEWS
@@ -38,7 +38,7 @@
                     </p>
                     <p class="review-text">{{ $review->description }}</p>
                     <p class="review-user">{{ $review->user->name }} | {{ Carbon::parse($review->created_at)->format('d M Y') }}</p>
-                    <p class="review-coach">Review for {{ $review->coach->name }}</p>
+                    <p class="review-coach">Ulasan untuk : {{ $review->coach->name }}</p>
                     </div>
                 </div>
             @endforeach

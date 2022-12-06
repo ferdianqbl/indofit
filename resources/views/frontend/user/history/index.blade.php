@@ -32,11 +32,10 @@
         <thead>
           <tr>
             <th>No</th>
-            <th>Order Date</th>
-            <th>Total Price</th>
+            <th>Tanggal Pemesanan</th>
+            <th>Total Harga</th>
             <th>Status</th>
-            <th>Paid At</th>
-            <th>Action</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -48,7 +47,7 @@
                 <td>{{ Money::IDR($history->order->price, true) }}</td>
 
                 <td>{{ $history->transaction_status }}</td>
-                <td>{{ $history->issued_at != null ? date('d M Y h:m:s', strtotime($history->issued_at)) : '-' }}</td>
+                {{-- <td>{{ $history->issued_at != null ? date('d M Y h:m:s', strtotime($history->issued_at)) : '-' }}</td> --}}
                 <td>
                   <a href={{ route('user.invoice.detail', $history->id) }} class="btn btn-primary">See Detail</a>
                 </td>

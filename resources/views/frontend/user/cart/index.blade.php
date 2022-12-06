@@ -13,7 +13,7 @@ use Akaunting\Money\Money;
 <div class="cartPage" id="cartPage">
   <section class="cart-list" id="cart-list">
     <div class="container">
-      <h1 class="section-title mb-5">Cart</h1>
+      <h1 class="section-title mb-5">Keranjang</h1>
       @livewire('cart-products')
     </div>
   </section>

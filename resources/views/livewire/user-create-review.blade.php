@@ -1,5 +1,5 @@
 <div>
-    <h1>Review Untuk {{ $order_item->coach_domain->coach->name }}</h1>
+    <h1>Ulasan Untuk {{ $order_item->coach_domain->coach->name }}</h1>
     <div class="col-lg-4 col-md-6 col-8">
         <form wire:submit.prevent="createReview">
             @csrf
@@ -12,7 +12,7 @@
           @enderror
 
           <div class="mb-3">
-            <label for="description" class="form-label">Example textarea</label>
+            <label for="description" class="form-label">Isi Ulasan</label>
             <textarea class="form-control" id="description" rows="3" wire:model="description"></textarea>
           </div>
           @error('description')

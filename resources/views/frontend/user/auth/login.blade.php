@@ -11,8 +11,8 @@
           <form method="POST" action="{{ route('user.login.authenticate') }}">
             @csrf
             <h1 class="form-title text-center mb-3">
-              WELCOME!
-              <span>Let's Login.</span>
+              Selamat Datang!
+              <span>Silakan Lakukan Login.</span>
             </h1>
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
@@ -34,7 +34,7 @@
           </form>
 
           <div class="mt-5 text-center">
-            <p>Don't have an account? <a href="{{ route('user.register.view') }}" class="text-dark">Register</a></p>
+            <p>Tidak punya akun? <a href="{{ route('user.register.view') }}" class="text-dark">Register</a></p>
           </div>
         </div>
       </div>

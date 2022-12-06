@@ -8,11 +8,11 @@
 @section('content')
   <section class="customerTrainerPage" id="customerTrainerPage">
     <div class="container">
-      <h1 class="section-title text-center">CUSTOMER ORDER</h1>
+      <h1 class="section-title text-center">PELANGGAN ANDA</h1>
 
       <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
         @if ($items->isEmpty())
-          No Customer For Now
+          Belum ada untuk saat ini.
         @else
           @foreach ($items as $item)
             <div class="col">
@@ -21,29 +21,29 @@
                   class="card-img-top img-fluid p-3 customer-order-img">
                 <div class="card-body customer-order-card-body">
                   <h5 class="card-title">{{ $item->order->user->name }}</h5>
-                  <p class="card-text text-secondary">Category : <span
+                  <p class="card-text text-secondary">Kategori : <span
                       class="badge bg-secondary">{{ $item->coach_domain->sport->name }}</span></p>
-                  <p class="card-text text-secondary">Date : {{ Carbon::parse($item->train_date)->format('d M Y') }}</p>
+                  <p class="card-text text-secondary">Tanggal : {{ Carbon::parse($item->train_date)->format('d M Y') }}</p>
                   <p class="card-text text-secondary">
-                    Time : {{ Carbon::parse($item->train_until)->format('H:i') }} -
+                    Waktu : {{ Carbon::parse($item->train_until)->format('H:i') }} -
                     {{ Carbon::parse($item->train_since)->format('H:i') }}
                   </p>
                   <a href={{ 'https://wa.me/62' . substr($item->order->user->phone_number, 1) }}
-                    class="btn btn-primary d-inline-block">Contact</a>
+                    class="btn btn-primary d-inline-block">Kontak</a>
 
                     @if(Carbon::now()->lt($item->train_date))
                         <form action={{ route('coach.customer.cancel', $item->order_item_status->id) }} method="POST"
                             class="d-inline-block">
                             @csrf
                             @method('PATCH')
-                            <button type="submit" class="btn btn-danger d-inline-block">Cancel</button>
+                            <button type="submit" class="btn btn-danger d-inline-block">Batalkan</button>
                         </form>
                     @else
                         <form action={{ route('coach.customer.done', $item->order_item_status->id) }} method="POST"
                             class="d-inline-block">
                             @csrf
                             @method('PATCH')
-                            <button type="submit" class="btn btn-success d-inline-block">Mark As Done</button>
+                            <button type="submit" class="btn btn-success d-inline-block">Tandai Selesai</button>
                         </form>
                     @endif
                 </div>

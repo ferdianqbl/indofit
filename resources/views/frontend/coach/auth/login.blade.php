@@ -11,8 +11,8 @@
           <form method="POST" action="{{ route('coach.login.authenticate') }}">
             @csrf
             <h1 class="form-title text-center mb-3">
-              Hello Coach!
-              <span>Let's Login.</span>
+              Hai Pelatih!
+              <span>Mari Login.</span>
             </h1>
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
@@ -34,7 +34,7 @@
           </form>
 
           <div class="mt-5 text-center">
-            <p>Don't have an account? <a href="{{ route('coach.register.view') }}" class="text-dark">Register</a></p>
+            <p>Tidak punya akun? <a href="{{ route('coach.register.view') }}" class="text-dark">Register</a></p>
           </div>
         </div>
       </div>
