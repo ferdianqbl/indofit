@@ -22,7 +22,6 @@ class DomainController extends Controller
         return view('frontend.coach.domain.index', compact('items', 'title'));
     }
 
-
     public function create()
     {
         $domains = CoachDomain::where('coach_id', Auth::guard('coach')->id())

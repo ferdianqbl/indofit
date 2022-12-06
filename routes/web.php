@@ -14,7 +14,6 @@ use App\Http\Controllers\User\HistoryController as UserHistoryController;
 use App\Http\Controllers\User\PaymentController;
 use App\Http\Controllers\User\ReviewController;
 use App\Http\Controllers\User\TrainerController;
-use App\Http\Controllers\XController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,7 +66,7 @@ Route::middleware('guest:user')
         Route::delete('cart/{rowId}/delete', [CartController::class, 'remove'])->name('cart.remove');
         Route::delete('cart/destroy', [CartController::class, 'destroy'])->name('cart.destroy');
 
-        Route::get('payment', [PaymentController::class, 'index'])->name('payment.view');
+        Route::get('payment', [PaymentController::class, 'index'])->name('payment.view')->middleware('payment_redirect');
         Route::post('payment', [PaymentController::class, 'saveOrder'])->name('payment.handle');
         Route::get('repayment/{invoice}', [PaymentController::class, 'repayment'])->name('payment.repay');
 

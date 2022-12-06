@@ -6,6 +6,7 @@ use Midtrans\Snap;
 use App\Models\User;
 use Midtrans\Config;
 use App\Models\Order;
+use Carbon\Carbon;
 use Midtrans\Transaction;
 
 class MidtransPayment
@@ -30,6 +31,7 @@ class MidtransPayment
 
     public function index(Order $order, User $customer): Array
     {
+        // 2020-06-09 15:07:00 +0700
         $params = array(
             'transaction_details' => [
                 'order_id' => $order->id,
@@ -39,6 +41,11 @@ class MidtransPayment
                 'first_name' => $customer->name,
                 'email' => $customer->email,
                 'phone' => $customer->phone_number,
+            ),
+            'expiry' => array(
+                'start_time' => Carbon::parse($order->created_at)->format('Y-m-d H:i:s +0700'),
+                'duration' => 2,
+                'unit' => 'minute',
             ),
         );
 

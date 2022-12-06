@@ -122,13 +122,8 @@ class PaymentController extends Controller
                     $invoice->payment_type = $data->payment_type ?? null;
                     $invoice->issued_at = $data->transaction_time ?? null;
 
-                    foreach($data->va_numbers as $key => $value) {
-                        $invoice->va_number = $value->bank;
-                        $invoice->bank = $value->va_number;
-                    }
-
                     $invoice->transaction_status = $data->transaction_status ?? null;
-                    $invoice->fraud_status = $data->fraud ?? null;
+                    $invoice->fraud_status = $data->fraud_status ?? null;
                     $invoice->pdf_url = $data->pdf_url ?? null;
                     $invoice->save();
 
@@ -136,20 +131,19 @@ class PaymentController extends Controller
 
                     return redirect()->route('user.history.view');
 
+                case PaymentStatus::PENDING->value:
+                    $invoice->payment_type = $data->payment_type ?? null;
+                    $invoice->transaction_status = $data->transaction_status ?? null;
+                    $invoice->pdf_url = $data->pdf_url ?? null;
+
                 default:
                     $invoice->status_message = $data->status_message;
                     $invoice->midtrans_transaction_id = $data->transaction_id ?? null;
                     $invoice->payment_type = $data->payment_type ?? null;
                     $invoice->issued_at = null;
 
-                    foreach($data->va_numbers as $key => $value) {
-                        $invoice->va_number = $value->bank;
-                        $invoice->bank = $value->va_number;
-                    }
-
                     $invoice->transaction_status = $data->transaction_status ?? null;
                     $invoice->fraud_status = $data->fraud ?? null;
-                    $invoice->pdf_url = $data->pdf_url ?? null;
                     $invoice->save();
 
                     DB::commit();
