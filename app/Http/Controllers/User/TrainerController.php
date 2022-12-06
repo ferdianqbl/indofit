@@ -8,6 +8,7 @@ use App\Models\CoachDomain;
 use App\Models\Review;
 use App\Models\Sport;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 
 class TrainerController extends Controller
 {
@@ -37,5 +38,18 @@ class TrainerController extends Controller
         }
 
         return view('frontend.user.trainer.detail', compact('title', 'trainer', 'specialities', 'avg_star'));
+    }
+
+    public function search(Request $request)
+    {
+        if($request->ajax())
+        {
+            if($request->get('sport') != null)
+            {
+                $data = CoachDomain::where('sport_id', $request->get('sport'))->get();
+            }
+        }
+
+        return json_encode($data);
     }
 }
