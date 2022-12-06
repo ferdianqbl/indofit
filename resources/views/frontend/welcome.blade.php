@@ -28,10 +28,10 @@
       <h1 class="section-title">KATEGORI</h1>
       <ul class="nav-category d-flex flex-wrap justify-content-center align-items-center">
         <li class="nav-category-item">
-          <a href="#" class="nav-category-item_link">Soccer</a>
+          <a href="#" class="nav-category-item_link">Sepakbola</a>
         </li>
         <li class="nav-category-item">
-          <a href="#" class="nav-category-item_link">Basketball</a>
+          <a href="#" class="nav-category-item_link">Basket</a>
         </li>
         <li class="nav-category-item">
           <a href="#" class="nav-category-item_link">Tennis</a>
@@ -48,23 +48,23 @@
 
   <section class="trainer" id="trainer">
     <div class="container">
-      <h1 class="section-title mb-5">FEATURED TRAINERS</h1>
+      <h1 class="section-title mb-5">PELATIH</h1>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
           <div class="card h-100 trainer-card">
             <img src="/images/landingPage/home/Pelatih-1.png" alt="trainer-img" class="card-img-top img-trainer">
             <div class="card-body">
-              <p class="trainer-name">Lebron James</p>
-              <p class="trainer-category">Soccer</p>
+              <p class="trainer-name">Andi Suhaya</p>
+              <p class="trainer-category">Yoga</p>
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card h-100 trainer-card">
-            <img src="/images/landingPage/home/Pelatih-2.png" alt="trainer-img" class="card-img-top img-trainer">
+            <img src="/images/landingPage/home/Pelatih-6.jpg" alt="trainer-img" class="card-img-top img-trainer">
             <div class="card-body">
-              <p class="trainer-name">Lebron James</p>
-              <p class="trainer-category">Soccer</p>
+              <p class="trainer-name">Doni Laksana</p>
+              <p class="trainer-category">Sepakbola</p>
             </div>
           </div>
         </div>
@@ -72,8 +72,8 @@
           <div class="card h-100 trainer-card">
             <img src="/images/landingPage/home/Pelatih-3.png" alt="trainer-img" class="card-img-top img-trainer">
             <div class="card-body">
-              <p class="trainer-name">Lebron James</p>
-              <p class="trainer-category">Soccer</p>
+              <p class="trainer-name">Tantowi Bagus</p>
+              <p class="trainer-category">Badminton</p>
             </div>
           </div>
         </div>
