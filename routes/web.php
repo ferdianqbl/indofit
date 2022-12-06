@@ -83,6 +83,9 @@ Route::middleware('guest:user')
 
         Route::get('edit', [UserAuthController::class, 'edit'])->name('settings.edit');
         Route::patch('update', [UserAuthController::class, 'update'])->name('settings.update');
+
+        Route::get('/review/self', [ReviewController::class, 'show'])->name('review.show');
+        Route::get('/review/self/{order_item}', [ReviewController::class, 'create'])->name('review.create');
     });
 
 // COACH

@@ -1,5 +1,9 @@
 @extends('frontend.layout.main')
 
+@push('head')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+@endpush
+
 @section('content')
   <section class="reviewPage" id="reviewPage">
     <div class="container">
@@ -11,13 +15,30 @@
             @foreach ($reviews as $review)
                 <div class="col">
                     <div class="review-card">
-                    <p class="review-rating">{{ $review->rating }}</p>
+                    <p class="review-rating">
+                        @php $rating = $review->rating; @endphp
+                        @foreach(range(1,5) as $i)
+                            <span class="fa-stack" style="width:1em">
+                                <i class="far fa-star fa-stack-1x"></i>
+                                @if($rating > 0)
+                                    @if($rating >0.5)
+                                        <i class="fas fa-star fa-stack-1x"></i>
+                                    @else
+                                        <i class="fas fa-star-half fa-stack-1x"></i>
+                                    @endif
+                                @endif
+                                @php $rating--; @endphp
+                            </span>
+                        @endforeach
+                        ({{ $review->rating }})
+                    </p>
                     <p class="review-text">{{ $review->description }}</p>
-                    <p class="review-user">{{ $review->user->name }} | {{ $review->created_at }}/p>
+                    <p class="review-user">{{ $review->user->name }} | {{ $review->created_at }}</p>
                     <p class="review-coach">Review for {{ $review->coach->name }}</p>
                     </div>
                 </div>
             @endforeach
+        @endif
       </div>
     </div>
   </section>

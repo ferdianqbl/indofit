@@ -21,6 +21,7 @@ class Review extends Model
         'description',
         'coach_id',
         'user_id',
+        'order_item_id',
     ];
 
     public function user(): BelongsTo
@@ -31,5 +32,10 @@ class Review extends Model
     public function coach(): BelongsTo
     {
         return $this->belongsTo(Coach::class);
+    }
+
+    public function order_item(): BelongsTo
+    {
+        return $this->belongsTo(OrderItem::class);
     }
 }

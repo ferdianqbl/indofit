@@ -49,6 +49,11 @@ class OrderItem extends Model
         return $this->hasOne(OrderItemStatus::class);
     }
 
+    public function review(): HasOne
+    {
+        return $this->hasOne(Review::class);
+    }
+
     public function orderItemName(): string
     {
         $coachName = $this->coach_domain->coach->name;

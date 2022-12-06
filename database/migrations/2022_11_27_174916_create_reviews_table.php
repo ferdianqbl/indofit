@@ -21,9 +21,11 @@ return new class extends Migration
 
             $table->uuid('coach_id')->index();
             $table->uuid('user_id')->index();
+            $table->uuid('order_item_id')->index();
 
             $table->foreign('coach_id')->references('id')->on('coaches')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('order_item_id')->references('id')->on('order_items')->onDelete('cascade');
 
             $table->timestamps();
         });
