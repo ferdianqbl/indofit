@@ -25,7 +25,7 @@ class NewSports extends Component
     // dependensi form
     public $sport_id;
     public $working_days;
-    public $working_time_start = "anjay";
+    public $working_time_start;
     public $working_time_end;
     public $price;
 
