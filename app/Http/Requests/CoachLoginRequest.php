@@ -29,4 +29,14 @@ class CoachLoginRequest extends FormRequest
             'password' => ['required', 'string'],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'email.required' => 'Tidak boleh kosong',
+            'email.string' => 'Harus string',
+            'password.required' => 'Tidak boleh kosong',
+            'password.string' => 'Harus string',
+        ];
+    }
 }

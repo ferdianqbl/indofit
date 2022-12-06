@@ -31,6 +31,14 @@ class UserTrainerDetail extends Component
     public $currentSince;
     public $currentUntil;
 
+    protected $messages = [
+        'train_date.required' => 'Tidak boleh kosong',
+        'train_date.date' => 'Format salah',
+        'train_date.after_or_equal' => 'Tidak boleh hari kemarin',
+        'train_since.required' => 'Tidak boleh kosong',
+        'train_until.after' => 'Harus lebih besar dari jam sebelumnya',
+    ];
+
     public function render()
     {
         $coachStart = Carbon::parse($this->trainer->working_time_start)->format('H:i');

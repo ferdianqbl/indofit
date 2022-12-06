@@ -9,6 +9,16 @@ class CoachAvailableDays implements Rule
 {
     private $day;
 
+    private $listDays = [
+        'Monday' => 'Senin',
+        'Tuesday' => 'Selasa',
+        'Wednesday' => 'Rabu',
+        'Thursday' => 'Kamis',
+        'Friday' => 'Jumat',
+        'Saturday' => 'Sabtu',
+        'Sunday' => 'Minggu',
+    ];
+
     /**
      * Create a new rule instance.
      *
@@ -40,6 +50,6 @@ class CoachAvailableDays implements Rule
      */
     public function message()
     {
-        return 'Trainer ini hanya bisa di hari ' . $this->day . '. Silakan pilih tanggal yang sesuai ';
+        return 'Trainer ini hanya bisa di hari ' . $this->listDays[$this->day] . '. Silakan pilih tanggal yang sesuai ';
     }
 }

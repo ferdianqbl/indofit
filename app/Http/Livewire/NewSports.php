@@ -29,6 +29,24 @@ class NewSports extends Component
     public $working_time_end;
     public $price;
 
+    protected $messages = [
+        'sport_id.required' => 'Tidak boleh kosong',
+        'sport_id' => 'Jenis olahraga tidak diketahui',
+
+        'working_days.required' => 'Tidak boleh kosong',
+
+        'working_time_start.required' => 'Tidak boleh kosong',
+        'working_time_start.date_format' => 'Format waktu salah',
+
+        'working_time_end.required' => 'Tidak boleh kosong',
+        'working_time_end.date_format' => 'Format waktu salah',
+        'working_time_end.after' => 'Waktu harus lebih besar dari jam mulai',
+
+        'price.required' => 'Tidak boleh kosong',
+        'price.numeric' => 'Harus numerik',
+        'price.max' => 'Maximal 500.000',
+    ];
+
     public function render()
     {
         if($this->sport_id == null)

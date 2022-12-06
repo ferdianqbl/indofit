@@ -18,6 +18,16 @@ class UserCreateReview extends Component
     public $rating;
     public $description;
 
+    protected $messages = [
+        'rating.required' => 'Tidak boleh kosong',
+        'rating.integer' => 'Harus bilangan bulat',
+        'rating.min' => 'Rating minimal 1',
+        'rating.max' => 'Rating maksimal 5',
+        'description.required' => 'Tidak boleh kosong',
+        'description.min' => 'Minimal 5 huruf',
+        'description.max' => 'Maximal 250 huruf',
+    ];
+
     public function render()
     {
         return view('livewire.user-create-review');

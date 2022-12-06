@@ -13,7 +13,7 @@ use App\Http\Requests\CoachDomainUpdateRequest;
 class DomainController extends Controller
 {
     public static $listDays = [
-        'Monday','Tuesday','Wednesday','Thursday','Friday','Saturday', 'Sunday'];
+        'Senin','Selasa','Rabu','Kamis','Jumat','Sabtu', 'Minggu'];
 
     public function index()
     {

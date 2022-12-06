@@ -30,7 +30,7 @@ class CoachDomainInsertRequest extends FormRequest
             'working_days' => ['required', Rule::in(['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'])],
             'working_time_start' => ['required', 'date_format:H:i'],
             'working_time_end' => ['required', 'date_format:H:i', 'after:working_time_start'],
-            'price' => ['required', 'numeric', 'max:1000000']
+            'price' => ['required', 'numeric', 'max:500000']
         ];
     }
 }

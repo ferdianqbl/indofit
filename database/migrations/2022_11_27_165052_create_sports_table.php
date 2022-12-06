@@ -22,8 +22,8 @@ return new class extends Migration
 
         DB::table('sports')->insert(
             array(
-                array('id' => 1, 'name' => 'Soccer'),
-                array('id' => 2, 'name' => 'Basketball'),
+                array('id' => 1, 'name' => 'Sepakbola'),
+                array('id' => 2, 'name' => 'Basket'),
                 array('id' => 3, 'name' => 'Tennis'),
                 array('id' => 4, 'name' => 'Badminton'),
                 array('id' => 5, 'name' => 'Yoga')

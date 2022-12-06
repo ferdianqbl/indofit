@@ -30,4 +30,19 @@ class UserUpdateRequest extends FormRequest
             'image' => ['file', 'mimes:jpg,jpeg,png', 'max:1024'],
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Tidak boleh kosong',
+            'name.string' => 'Harus string',
+            'name.max' => 'Maximal 50 huruf',
+            'phone_number.required' => 'Tidak boleh kosong',
+            'phone_number.numerik' => 'Harus numerik',
+            'phone_number.max' => 'Maximal 15 digit',
+            'image.file' => 'Bentuk harus file',
+            'image.mimes' => 'Hanya boleh mengunggah gambar',
+            'image.max' => 'Maximal 1MB',
+        ];
+    }
 }

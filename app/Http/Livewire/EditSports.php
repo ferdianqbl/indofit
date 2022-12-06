@@ -27,6 +27,25 @@ class EditSports extends Component
     public $working_time_end;
     public $price;
 
+    protected $messages = [
+        'working_days.required' => 'Tidak boleh kosong',
+        'working_time_start.required_with' => 'Harus diisi saat ketersediaan waktu mulai diisi',
+        'working_time_end.required_with' => 'Harus diisi saat ketersediaan waktu selesai diisi',
+        'price.required' => 'Tidak boleh kosong',
+        'price.numeric' => 'Harus numerik',
+        'price.max' => 'Maximal 500.000',
+    ];
+
+    public function rules()
+    {
+        return [
+            'working_days' => ['required', Rule::in(['Senin','Selasa','Rabu','Kamis','Jumat','Sabtu','Minggu'])],
+            'working_time_start' => ['required_with:working_time_end'],
+            'working_time_end' => ['required_with:working_time_start'],
+            'price' => ['required', 'numeric', 'max:500000'],
+        ];
+    }
+
     public function render()
     {
         if($this->working_days == null)
@@ -52,16 +71,6 @@ class EditSports extends Component
         }
 
         return view('livewire.edit-sports');
-    }
-
-    public function rules()
-    {
-        return [
-            'working_days' => ['required', Rule::in(['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'])],
-            'working_time_start' => ['required_with:working_time_end'],
-            'working_time_end' => ['required_with:working_time_start'],
-            'price' => ['required', 'numeric', 'max:1000000']
-        ];
     }
 
     public function updated($propertyName)
