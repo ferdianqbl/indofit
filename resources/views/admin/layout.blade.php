@@ -23,19 +23,19 @@
         <li>
           <a href="{{ route('admin.overview') }}" class="{{ Route::is('admin.overview') ? 'active' : '' }}">
             <i class='bx bx-grid-alt' ></i>
-            <span class="links_name">Overview</span>
+            <span class="links_name">Ringkasan</span>
           </a>
         </li>
         <li>
           <a href="{{ route('admin.orders') }}" class="{{ Route::is('admin.orders') ? 'active' : '' }}">
             <i class='bx bx-box' ></i>
-            <span class="links_name">Orders</span>
+            <span class="links_name">Order</span>
           </a>
         </li>
         <li>
           <a href="{{ route('admin.coach') }}" class="{{ Route::is('admin.coach') ? 'active' : '' }}">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Coach List</span>
+            <span class="links_name">Daftar Pelatih</span>
           </a>
         </li>
         <li>
@@ -48,7 +48,7 @@
         <li>
           <a href="{{ route('admin.coach_progress') }}" class="{{ Route::is('admin.coach_progress') ? 'active' : '' }}">
             <i class='bx bx-pie-chart-alt-2' ></i>
-            <span class="links_name">Coach Progress</span>
+            <span class="links_name">Progress Pelatih</span>
           </a>
         </li>
         <li>

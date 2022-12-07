@@ -6,14 +6,14 @@
 
 @section('content')
 <div class="container">
-    <h1 class="text-left">Coach Progress</h1>
+    <h1 class="text-left">Progress Pelatih</h1>
     <table class="table table-hover">
         <thead>
             <tr>
               <th scope="col">No</th>
               <th scope="col">Order ID</th>
-              <th scope="col">Coach</th>
-              <th scope="col">Sport</th>
+              <th scope="col">Pelatih</th>
+              <th scope="col">Olahraga</th>
               <th scope="col">Status</th>
             </tr>
         </thead>

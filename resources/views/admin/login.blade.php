@@ -12,7 +12,7 @@
             @csrf
             <h1 class="form-title text-center mb-3">
               LOGIN ADMIN
-              <span>Let's Login.</span>
+              <span>Mari Login.</span>
             </h1>
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>

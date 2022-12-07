@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-    <h1 class="text-left">Coach</h1>
+    <h1 class="text-left">Pelatih</h1>
     <table class="table table-hover">
         <thead>
             <tr>

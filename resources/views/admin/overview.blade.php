@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1 class="text-left">Today's Overview</h1>
+    <h1 class="text-left">Statistik</h1>
     <div class="row row-cols-4 text-center">
       <div class="col">
         <div class="card border-dark mb-3" style="max-width: 18rem;">
@@ -16,7 +16,7 @@
       <div class="col">
         <div class="card border-dark mb-3" style="max-width: 18rem;">
             <div class="card-body text-dark text-center">
-                <h5 class="card-title">Paid</h5>
+                <h5 class="card-title">Terbayar</h5>
                 <p class="card-text">{{ $invoice->paid }}</p>
             </div>
         </div>
@@ -34,7 +34,7 @@
       <div class="col">
         <div class="card border-dark mb-3" style="max-width: 18rem;">
             <div class="card-body text-dark text-center">
-                <h5 class="card-title">Failed</h5>
+                <h5 class="card-title">Gagal</h5>
                 <p class="card-text">{{ $invoice->failed }}</p>
             </div>
         </div>

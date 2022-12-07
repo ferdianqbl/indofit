@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="container">
-    <h1 class="text-left">Orders</h1>
+    <h1 class="text-left">Order</h1>
     <table class="table table-hover">
         <thead>
             <tr>
               <th scope="col">No</th>
               <th scope="col">Order ID</th>
-              <th scope="col">Price</th>
+              <th scope="col">Total Harga</th>
               <th scope="col">User</th>
               <th scope="col">Status</th>
             </tr>
