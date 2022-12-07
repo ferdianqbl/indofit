@@ -31,11 +31,40 @@
                             @method('PATCH')
                             <button class="btn btn-warning">Daftarkan</button>
                         </form>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            Gagalkan
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Gagalkan</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                <form action="{{ route('admin.approved.deny', $coach->id) }}" method="POST">
+                                    @csrf
+                                    <label for="reason" class="form-label">Alasan</label>
+                                    <input type="text" name="reason" required class="form-control">
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <button type="submit" class="btn btn-primary">Kirim</button>
+                                    </div>
+                                </form>
+                                </div>
+
+                            </div>
+                            </div>
+                        </div>
                     </td>
 
                 </tr>
             @endforeach
         </tbody>
     </table>
+
 </div>
 @endsection

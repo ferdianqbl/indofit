@@ -31,4 +31,9 @@ class OrderItemStatus extends Model
     {
         return $this->belongsTo(OrderItem::class);
     }
+
+    public function cancel_reason()
+    {
+        return $this->hasOne(CancelReason::class);
+    }
 }

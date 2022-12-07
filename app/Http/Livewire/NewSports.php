@@ -56,7 +56,7 @@ class NewSports extends Component
 
         if($this->working_days == null)
         {
-            $this->working_days = "Monday";
+            $this->working_days = "Senin";
         }
 
         $this->listHoursSince = HoursHelper::create("01:00", "23:00", 30);

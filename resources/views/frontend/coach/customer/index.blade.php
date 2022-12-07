@@ -5,6 +5,7 @@
   use Carbon\Carbon;
 @endphp
 
+
 @section('content')
   <section class="customerTrainerPage" id="customerTrainerPage">
     <div class="container">
@@ -25,19 +26,14 @@
                       class="badge bg-secondary">{{ $item->coach_domain->sport->name }}</span></p>
                   <p class="card-text text-secondary">Tanggal : {{ Carbon::parse($item->train_date)->format('d M Y') }}</p>
                   <p class="card-text text-secondary">
-                    Waktu : {{ Carbon::parse($item->train_until)->format('H:i') }} -
-                    {{ Carbon::parse($item->train_since)->format('H:i') }}
+                    Waktu : {{ Carbon::parse($item->train_since)->format('H:i') }} -
+                    {{ Carbon::parse($item->train_until)->format('H:i') }}
                   </p>
                   <a href={{ 'https://wa.me/62' . substr($item->order->user->phone_number, 1) }}
                     class="btn btn-primary d-inline-block">Kontak</a>
 
                     @if(Carbon::now()->lt($item->train_date))
-                        <form action={{ route('coach.customer.cancel', $item->order_item_status->id) }} method="POST"
-                            class="d-inline-block">
-                            @csrf
-                            @method('PATCH')
-                            <button type="submit" class="btn btn-danger d-inline-block">Batalkan</button>
-                        </form>
+                        <a href="{{ route('coach.customer.cancel.view', $item->order_item_status->id) }}" class="btn btn-danger d-inline-block">Batalkan</a>
                     @else
                         <form action={{ route('coach.customer.done', $item->order_item_status->id) }} method="POST"
                             class="d-inline-block">

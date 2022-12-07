@@ -9,11 +9,11 @@
         <thead>
             <tr>
               <th scope="col">No</th>
-              <th scope="col">Order ID</th>
               <th scope="col">Midtrans ID</th>
-              <th scope="col">Coach</th>
-              <th scope="col">Sport</th>
+              <th scope="col">Pelatih</th>
+              <th scope="col">Olahraga</th>
               <th scope="col">Harga</th>
+              <th scope="col">Alasan</th>
               <th scope="col">Status</th>
               <th scope="col"></th>
             </tr>
@@ -23,11 +23,11 @@
             @foreach ($items as $item)
                 <tr>
                     <th scope="row">{{ $loop->index + 1 }}</th>
-                    <td>{{ $item->order_item->id }}</td>
                     <td>{{ $item->order_item->order->invoice->midtrans_transaction_id }}</td>
                     <td>{{ $item->order_item->coach_domain->coach->name }}</td>
                     <td>{{ $item->order_item->coach_domain->sport->name }}</td>
                     <td>{{ $item->order_item->price }}</td>
+                    <td>{{ $item->cancel_reason->reason }}</td>
                     @if($item->cancellation_status == 0)
                         <td>Sudah Selesai</td>
                     @else

@@ -26,7 +26,7 @@ class CoachSignUpRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:50'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'unique:coaches'],
-            'phone_number' => ['required', 'numeric', 'max:15'],
+            'phone_number' => ['required', 'numeric'],
             'description' => ['required', 'string', 'max:255'],
             'image' => ['file', 'mimes:jpg,jpeg,png', 'max:1024'],
             'password' => ['required', 'string', 'min:8', 'max:50', 'confirmed'],
@@ -41,7 +41,6 @@ class CoachSignUpRequest extends FormRequest
             'name.max' => 'Maximal 50 huruf',
             'phone_number.required' => 'Tidak boleh kosong',
             'phone_number.numerik' => 'Harus numerik',
-            'phone_number.max' => 'Maximal 15 digit',
             'description.required' => 'Tidak boleh kosong',
             'description.string' => 'Harus string',
             'description.max' => 'Maximal 255',

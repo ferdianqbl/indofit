@@ -42,11 +42,11 @@ class MidtransPayment
                 'email' => $customer->email,
                 'phone' => $customer->phone_number,
             ),
-            'expiry' => array(
-                'start_time' => Carbon::parse($order->created_at)->format('Y-m-d H:i:s +0700'),
-                'duration' => 2,
-                'unit' => 'minute',
-            ),
+            // 'expiry' => array(
+            //     'start_time' => Carbon::parse($order->created_at)->format('Y-m-d H:i:s +0700'),
+            //     'duration' => 2,
+            //     'unit' => 'minute',
+            // ),
         );
 
         $snapToken = Snap::getSnapToken($params);

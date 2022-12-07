@@ -11,7 +11,13 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use AgliPanci\LaravelCase\Query\CaseBuilder;
 use App\Constants\Progress;
+use App\Mail\CoachCancelMail;
+use App\Mail\CoachApprovedMail;
+use App\Mail\CoachCancelSchedule;
+use App\Models\CancelReason;
 use App\Models\OrderItemStatus;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class AdminController extends Controller
 {
@@ -37,7 +43,7 @@ class AdminController extends Controller
 
     public function coach()
     {
-        $coaches = Coach::with(['coach_domains'])->get();
+        $coaches = Coach::with(['coach_domains'])->where('is_approve', 1)->get();
         return view('admin.coach', compact('coaches'));
     }
 
@@ -53,7 +59,7 @@ class AdminController extends Controller
     public function cancellation()
     {
         $items = OrderItemStatus::query()
-        ->with(['order_item'])
+        ->with(['order_item', 'cancel_reason'])
         ->where('status', Progress::CANCELED->value)
         ->orderBy('updated_at', 'desc')
         ->get();
@@ -65,6 +71,9 @@ class AdminController extends Controller
     {
         $order_item_status->cancellation_status = 0;
         $order_item_status->save();
+
+        Mail::to($order_item_status->order_item->order->user->email)->send(new CoachCancelSchedule($order_item_status));
+
         return redirect()->action([AdminController::class, 'cancellation']);
     }
 
@@ -78,6 +87,24 @@ class AdminController extends Controller
     {
         $coach->is_approve = 1;
         $coach->save();
+        Mail::to($coach->email)->send(new CoachApprovedMail($coach));
+        return redirect()->action([AdminController::class, 'approvedCoach']);
+    }
+
+    public function denyCoach(Request $request, Coach $coach)
+    {
+        $reason = $request->get('reason');
+        if($reason == '')
+        {
+            return redirect()->back();
+        }
+
+        $coach->delete();
+
+        $email = $coach->email;
+
+        Mail::to($email)->send(new CoachCancelMail($coach, $reason));
+
         return redirect()->action([AdminController::class, 'approvedCoach']);
     }
 }

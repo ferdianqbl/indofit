@@ -111,6 +111,7 @@ Route::prefix('coach')
     ->group(function () {
         Route::get('customer', [CustomerController::class, 'index'])->name('customer');
         Route::patch('customer/{order_item_status}', [CustomerController::class, 'markAsDone'])->name('customer.done');
+        Route::get('customer/{order_item_status}/cancel', [CustomerController::class, 'cancelView'])->name('customer.cancel.view');
         Route::patch('customer/{order_item_status}/cancel', [CustomerController::class, 'cancel'])->name('customer.cancel');
 
         Route::get('history', [CoachHistoryController::class, 'index'])->name('history');
@@ -118,8 +119,8 @@ Route::prefix('coach')
 
         Route::resource('sports', DomainController::class)->except('show');
 
-        Route::get('edit', [CoachAuthController::class, 'edit'])->name('settings.index');;
-        Route::patch('update', [CoachAuthController::class, 'update'])->name('settings.update');;
+        Route::get('edit', [CoachAuthController::class, 'edit'])->name('settings.index');
+        Route::patch('update', [CoachAuthController::class, 'update'])->name('settings.update');
     });
 
 // ADMIN
@@ -144,7 +145,8 @@ Route::prefix('admin')
         Route::get('coach_progress', 'coach_progress')->name('coach_progress');
         Route::get('cancellation', 'cancellation')->name('cancellation');
         Route::patch('cancellation/{order_item_status}', 'cancellationDone')->name('cancellation.update');
-        
+
         Route::get('coach_approval', 'approvedCoach')->name('approved');
         Route::patch('approved/{coach}', 'setApprovedCoach')->name('approved.update');
+        Route::post('approved/{coach}/deny', 'denyCoach')->name('approved.deny');
     });

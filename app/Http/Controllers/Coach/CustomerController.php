@@ -6,9 +6,11 @@ use App\Constants\PaymentStatus;
 use App\Constants\Progress;
 use App\Constants\Status;
 use App\Http\Controllers\Controller;
+use App\Models\CancelReason;
 use App\Models\OrderItem;
 use App\Models\OrderItemStatus;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class CustomerController extends Controller
@@ -39,9 +41,26 @@ class CustomerController extends Controller
         return redirect()->route('coach.customer');
     }
 
-    public function cancel(OrderItemStatus $order_item_status)
+    public function cancelView(OrderItemStatus $order_item_status)
     {
+        $title = "Alasan Batal";
+        return view('frontend.coach.customer.cancel', compact('title', 'order_item_status'));
+    }
+
+    public function cancel(Request $request, OrderItemStatus $order_item_status)
+    {
+        $reason = $request->request->get('reason');
+        if($reason == '' || strlen($reason) > 250)
+        {
+            return redirect()->back();
+        }
+
         $order_item_status->update(['status' => Progress::CANCELED->value, 'cancellation_status' => 1]);
+
+        CancelReason::create([
+            'order_item_status_id' => $order_item_status->id,
+            'reason' => $reason,
+        ]);
 
         return redirect()->route('coach.customer');
     }
