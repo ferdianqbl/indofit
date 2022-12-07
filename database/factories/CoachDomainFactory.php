@@ -19,7 +19,7 @@ class CoachDomainFactory extends Factory
      */
     public function definition()
     {
-        $days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        $days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
 
         return [
             'id' => (string)Str::uuid(),
