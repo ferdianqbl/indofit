@@ -4,19 +4,22 @@ namespace App\Rules;
 
 use App\Constants\PaymentStatus;
 use App\Constants\Status;
+use App\Models\CoachDomain;
 use App\Models\OrderItem;
 use Illuminate\Contracts\Validation\Rule;
 
 class CoachNotBooked implements Rule
 {
+    public $coachDomain;
+
     /**
      * Create a new rule instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(CoachDomain $coachDomain)
     {
-
+        $this->coachDomain = $coachDomain;
     }
 
     /**
@@ -31,6 +34,7 @@ class CoachNotBooked implements Rule
         $items = OrderItem::query()
         ->with('order')
         ->whereDate('train_date', '=', $value)
+        ->where('coach_domain_id', '=', $this->coachDomain->id)
         ->get();
 
         foreach ($items as $i)

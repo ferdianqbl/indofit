@@ -83,20 +83,18 @@
 
   <section class="review" id="review">
     <div class="container">
-      <h1 class="section-title mb-5">Ulasan</h1>
+      <h1 class="section-title mb-5">Testimoni</h1>
       <div class="row justify-content-center align-items-center">
         <div class="col-md-4">
           <img src="/images/landingPage/home/review.png" alt="review-img" class="img-fluid review-img">
         </div>
         <div class="col-md-6">
           <p class="review-text">
-            My name is John Petrus, fondly called Jopet. I’ve always had a competitive spirit from an early age,
-            marathon running has always been my passion. However, my results stagnated and i couldn’t break my limit of
-            2:30:22, but after getting mentoring from Indofit, I managed to reach my goal. So far my best time is
-            2:23:16
+            Sebelum saya mengenal IndoFit, saya sering kesulitan mencari pelatih dengan cepat. Namun semenjak mengenalnya, saya jadi lebih giat berlatih
+            dengan pelatih handal. Terimakasih IndoFit.
           </p>
-          <p class="review-date">March 26, 2022</p>
-          <p class="review-name">John Mayer</p>
+          <p class="review-date">1 Dec, 2022</p>
+          <p class="review-name">Alvin Pradatya</p>
         </div>
       </div>
     </div>

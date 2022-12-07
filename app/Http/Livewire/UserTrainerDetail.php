@@ -72,7 +72,7 @@ class UserTrainerDetail extends Component
     public function rules()
     {
         return [
-            'train_date' => ['required', 'date', 'after:today', new CoachAvailableDays($this->trainer->working_days), new AfterTwoDays, new CoachNotBooked],
+            'train_date' => ['required', 'date', 'after:today', new CoachAvailableDays($this->trainer->working_days), new AfterTwoDays, new CoachNotBooked($this->trainer)],
             'train_since' => ['required', Rule::in($this->listHoursSince)],
             'train_until' => ['required', Rule::in($this->listHoursUntil), 'after:train_since'],
         ];
